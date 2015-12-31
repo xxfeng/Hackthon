@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="$encoding"?>
+#if($useJTA)
+	#set($transactionType="JTA")
+#else
+	#set ($transactionType="RESOURCE_LOCAL")
+#end
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+#if($isJPA1)
+    http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+#else
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd" version="2.0">
+#end
+    
+	<persistence-unit name="$persistenceUnit" transaction-type="$transactionType">
+#if ($jndiDataSource)	
+#if ($useJTA)
+  		<jta-data-source>$jndiDataSource</jta-data-source>
+#else  		
+  		<non-jta-data-source>$jndiDataSource</non-jta-data-source>
+#end  		
+#end  		
+#if ($persistenceProvider)
+		<provider>$persistenceProvider</provider>
+#end
+#if ($jpaProperties && $jpaProperties.size() > 0) 
+  		<properties>
+#foreach ($property in $jpaProperties)
+			<property name = "$property.name" value = "$property.value"/>
+#end
+	  	</properties>
+#end
+	</persistence-unit>
+  
+</persistence>

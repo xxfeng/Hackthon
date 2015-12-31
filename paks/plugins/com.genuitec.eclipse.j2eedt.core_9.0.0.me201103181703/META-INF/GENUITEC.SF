@@ -1,0 +1,875 @@
+Signature-Version: 1.0
+SHA1-Digest-Manifest-Main-Attributes: CbfCWvN2eiHTEL/rTn2TTk69Tbc=
+Created-By: 1.6.0_17 (Sun Microsystems Inc.)
+SHA1-Digest-Manifest: GDNbr2zV7eqt+HHstJuNo39vx/U=
+
+Name: catalog-dtd/xhtml-lat1.ent
+SHA1-Digest: wHGjrs/BxG3i2lzn5t3dsFuyrmY=
+
+Name: schemas/jsp_2_1.xsd
+SHA1-Digest: X0AAKuUsS2BJv0kLfF1EquAXhRU=
+
+Name: catalog-dtd/validator_1_0_1.dtd
+SHA1-Digest: YNhvRPZyzW+8QNQ2SavrCfuz0mQ=
+
+Name: catalog-dtd/xmlns.oracle.orion-ejb-jar.dtd
+SHA1-Digest: 8Y1zIhwccktXq/XhZOuIINDpucA=
+
+Name: catalog-dtd/validator_1_0.dtd
+SHA1-Digest: 2kyOC8HsspqJYOQ6VB0SskX8vVQ=
+
+Name: catalog-dtd/jboss_3_2.dtd
+SHA1-Digest: Kpu7Ma7OjmAEOH/R6ze7Bw4vdn8=
+
+Name: catalog-dtd/sun-application_1_3-0.dtd
+SHA1-Digest: LgxgXgtAkK1QdkNdCXNjddIcvl0=
+
+Name: schemas/j2ee_jaxrpc_mapping_1_1.xsd
+SHA1-Digest: B6w8Kr0TtSnCYh2O6F3g78agsDA=
+
+Name: catalog-xsd/soap.xsd
+SHA1-Digest: UvKovCyOcDNoow7BIq2UuXTp/+I=
+
+Name: catalog-dtd/sun-web-app_2_4-1.dtd
+SHA1-Digest: HzNykqJJqfZlsaLW7hab3s87Pgo=
+
+Name: catalog-dtd/jonas-ejb-jar_3_0.dtd
+SHA1-Digest: 581RV5e6zMk4PpBe9IKKc1wznR0=
+
+Name: data/libraryset/EE_6/javax.resource.jar
+SHA1-Digest: fecS8qOTgXip9DhGgI6NO7lWOjg=
+
+Name: data/libraryset/JSTL1.0/tld/fmt.tld
+SHA1-Digest: lXqbpaN6CER38DloGhmaC9qqAcM=
+
+Name: catalog-dtd/sun-cmp-mapping_1_2.dtd
+SHA1-Digest: AmO/I9bHR3MGbDvY8S0iPxVXC2U=
+
+Name: catalog-dtd/sun-loadbalancer_1_1.dtd
+SHA1-Digest: nCw/qzn/JDfXl40SjIbHEc1ak/I=
+
+Name: schemas/application_5.xsd
+SHA1-Digest: KMyUI40IeAjaPWtd+xCqoiyYJKk=
+
+Name: catalog-dtd/sun-application-client-container_1_2.dtd
+SHA1-Digest: dya2o6CnwktmXum0lWbLc1OsL1Q=
+
+Name: catalog-dtd/XMLSchema.dtd
+SHA1-Digest: Sf767b2Nh7xKMSSfi7wDIr8wQmI=
+
+Name: catalog-dtd/xhtml-symbol.ent
+SHA1-Digest: Ugg1fiNJOCwSu/rsHszGlfOdtR8=
+
+Name: data/libraryset/EE_6/jstl-impl.jar
+SHA1-Digest: AkdNybEgUPhyuJwrjqF7M/BuGrs=
+
+Name: data/libraryset/1.3/mail.jar
+SHA1-Digest: QVCcuTFM83aTGDPdzswGnBLo+m0=
+
+Name: dtd/web-jsptaglibrary_1_1.dtd
+SHA1-Digest: UHrUvDxXHT2yuLtkFyj6QLvxLCo=
+
+Name: data/libraryset/JSTL1.0/tld/x-rt.tld
+SHA1-Digest: ainJ8GrFgvuayCLIIOV8mrdSwQY=
+
+Name: templates/ejb-jar30.xml.ftl
+SHA1-Digest: 8Yi1poSqJd9DbDZdDtzFMbPMOZg=
+
+Name: templates/velocity/ejb/ejbHome.java.vtl
+SHA1-Digest: Vohy7IdtepjKpjDbMNGlKrXL3Nk=
+
+Name: templates/web23.xml.ftl
+SHA1-Digest: 5e+fOCyD5cu/T/xi15sIGE4yZMA=
+
+Name: catalog-xsd/dd.xsd
+SHA1-Digest: eySUy5LUaIGFL6+yn7gHfqiW0JE=
+
+Name: data/libraryset/JSTL1.1/LICENSE
+SHA1-Digest: v1+UoECN9t5p+1jnzeTkGGA+FB8=
+
+Name: templates/velocity/ejb/ejbRemote.java.vtl
+SHA1-Digest: vXHdidngVYldwd8k88u6d4boAQQ=
+
+Name: catalog-dtd/struts-config_1_3.dtd
+SHA1-Digest: UDHZrvXC9Su5+om1bdrzyhOyt1A=
+
+Name: templates/web24.xml.ftl
+SHA1-Digest: JTnrpC4UTvljklkX3WQziVUEwq0=
+
+Name: catalog-dtd/sun-domain_1_1.dtd
+SHA1-Digest: l4dhZRnjQ/Pw3RbW79qEmIYANGY=
+
+Name: catalog-dtd/jboss-web_2_2.dtd
+SHA1-Digest: YFOhfNTFWWlRX7irfUt2SWsJ1fY=
+
+Name: dtd/sun-j2ee-ri.dtd
+SHA1-Digest: A4/ueFccS9fEeAdevaxxHInL1gM=
+
+Name: schemas/web-app_2_5.xsd
+SHA1-Digest: 94W5kay1eQQXkdnKlHNwq4+NQ2I=
+
+Name: data/libraryset/EE_6/jaxb-api-osgi.jar
+SHA1-Digest: cirI+oFTpCqgSPNpW9AodIWLSx4=
+
+Name: catalog-dtd/sun-ejb-jar_2_1-0.dtd
+SHA1-Digest: a6FMa67uBpDkE+583wxajhYgrs4=
+
+Name: data/libraryset/EE_6/javax.security.auth.message.jar
+SHA1-Digest: Wl4g3HP2gfcNSGnjNHxr3jtI06g=
+
+Name: templates/ejb-jar11.xml.ftl
+SHA1-Digest: Um680guS1MUOGLV0ZKPcBTkt0M0=
+
+Name: data/libraryset/JSTL1.0/lib/jstl.jar
+SHA1-Digest: e9fbxklxZkWy6YNQAfxjjzGd72s=
+
+Name: data/libraryset/JSTL1.1/README
+SHA1-Digest: lXwkWFbEq+eOBIb9dCO14B2aRFE=
+
+Name: catalog-dtd/orion-ejb-jar.dtd
+SHA1-Digest: 9EuGjkAymW6KnKjz3dws8+vzxKU=
+
+Name: catalog-xsd/weblogic-web-app.xsd
+SHA1-Digest: MHJ2U3OJxMKTayCbRG0Z4tEP9Gw=
+
+Name: dtd/web-app_2_2.dtd
+SHA1-Digest: 77gX2lzS52+akgw6tpdo9SXIKxw=
+
+Name: data/libraryset/EE_6/jsr311-api.jar
+SHA1-Digest: +jtm+c0iGf8HcyYg8LphTdi9tkQ=
+
+Name: data/libraryset/EE_6/weld-osgi-bundle.jar
+SHA1-Digest: R5Ehut/mKcSrl7fEccypPJSBIM4=
+
+Name: catalog-dtd/j2ee_web_services_1_0.dtd
+SHA1-Digest: Nahq6ebyqko4htpagF6gqMktxk8=
+
+Name: catalog-dtd/sun-web-app_2_3-1.dtd
+SHA1-Digest: zyelfhDMTyeX5/c313uR0wOr8Cw=
+
+Name: data/libraryset/EE_6/webservices-api-osgi.jar
+SHA1-Digest: WA1asLipL2IdIhBXvRFu9YFGC2g=
+
+Name: data/libraryset/1.3/jts.jar
+SHA1-Digest: uYmp6otO8Ddh48tIiMoKIRmAYFk=
+
+Name: catalog-dtd/struts-2.1.dtd
+SHA1-Digest: QMJqrYOo4UAtGxzNh2i6+QXPFtY=
+
+Name: catalog-dtd/hibernate-mapping-2.0.dtd
+SHA1-Digest: RNdckQwc31yAHL/nE3VwxPx0hlc=
+
+Name: schemas/web-jsptaglibrary_2_0.xsd
+SHA1-Digest: AGxmLRaBL63+4ivUGyzCCd4pL1Y=
+
+Name: templates/application15.xml.ftl
+SHA1-Digest: mzKOqt/XKYtkBlSD+FgwrcBJa+4=
+
+Name: catalog-xsd/soapenc.xsd
+SHA1-Digest: m2uxJjyDlb6Ac7CQAqjjn4nCD1s=
+
+Name: catalog-dtd/sun-loadbalancer_1_0.dtd
+SHA1-Digest: VLuto37acnNTN4G0yMi8Umg+WuI=
+
+Name: catalog-dtd/hibernate-reverse-engineering-3.0.dtd
+SHA1-Digest: 4pwQ4WFJI0dq1+8VKnXru8AzIFM=
+
+Name: lib/xerces.jar
+SHA1-Digest: TPiMcSVVfk9omoscsV2Wyk5Gz0s=
+
+Name: catalog-dtd/j2ee_jaxrpc_mapping_1_0.dtd
+SHA1-Digest: cGDaBCInUKXPrEVw+OwLEm+yVPA=
+
+Name: templates/application14.xml.ftl
+SHA1-Digest: cpbg/QICaotydHXQ2aCOMq/M3do=
+
+Name: about.html
+SHA1-Digest: NP7GMkEc8kVZfydQL1+ktuMGMFc=
+
+Name: catalog-dtd/jaws_3_0.dtd
+SHA1-Digest: f7uIHCi8aHUhVvvpdIz19VP6Fa4=
+
+Name: data/libraryset/JSTL1.0/tld/c-rt.tld
+SHA1-Digest: AdReg0iUoRMv6JX1DOh+jJchF68=
+
+Name: catalog-dtd/jboss-web_3_2.dtd
+SHA1-Digest: q8Ixun3Os3LIY6rAKBO3CP3yr8o=
+
+Name: catalog-dtd/sun-connector_1_0-0.dtd
+SHA1-Digest: 7cJMbydaE4xY+TQrHj526anQ6WQ=
+
+Name: catalog-dtd/sun-server_1_0.dtd
+SHA1-Digest: rv5sSeD27+zDFURctmkgH8KaBKQ=
+
+Name: catalog-dtd/sun-cmp-mapping_1_0.dtd
+SHA1-Digest: vuKFskBriLJeOKw8DUwxf8/QJiU=
+
+Name: data/libraryset/EE_5/LICENSE.txt
+SHA1-Digest: LvJ1X8G8LZwZjTnkVyiRXw1Z+Kc=
+
+Name: catalog-dtd/wls810_weblogic-ejb-jar.dtd
+SHA1-Digest: lV8DtF5ycwoJECf77jbMPmHH514=
+
+Name: catalog-xsd/http.xsd
+SHA1-Digest: Rf1am7n/aB+uC5i8Y30zsO2FKAQ=
+
+Name: catalog-dtd/sun-web-app_2_3-0.dtd
+SHA1-Digest: t7sliA9X/P0HS55Fyq3ZqLAp/PY=
+
+Name: catalog-xsd/soapenv.xsd
+SHA1-Digest: tY5lH+lAdhPl1Jh6TEiK1lDaAqA=
+
+Name: catalog-dtd/hibernate-mapping-1.1.dtd
+SHA1-Digest: +A375MljIXcYLB1MoTG+pm0RzqU=
+
+Name: data/libraryset/JSTL1.0/lib/dom.jar
+SHA1-Digest: Jr4HETY8ku+ELH0YR3+OXcq+1Dg=
+
+Name: dtd/ejb-jar_1_1.dtd
+SHA1-Digest: 0Dszbi4GD3nzP32kGL8I4fe90cg=
+
+Name: templates.xml
+SHA1-Digest: OS4Q1Z87+Y9rNFX+Xim6pMi5CTs=
+
+Name: templates/manifest.mf.ftl
+SHA1-Digest: Ms7FK47yxIxLfpy4GcWjZlYhCZI=
+
+Name: icons/newfolder_wiz.gif
+SHA1-Digest: O8RiBHPBVVoMDp6E+j5XZRMBV38=
+
+Name: icons/appclient.gif
+SHA1-Digest: HwbRwoeC2j6HKGY9nhfeD2zIyb0=
+
+Name: icons/entitybean_wiz.gif
+SHA1-Digest: HfxS3rrMMusgiGVwzOQLg7jTSNo=
+
+Name: data/libraryset/EE_5/jsf-impl.jar
+SHA1-Digest: hLxZsqtTT7rFANuxo5oG6GxwCMk=
+
+Name: catalog-dtd/wls810_weblogic810-web-jar.dtd
+SHA1-Digest: i60eqIVbBNKhQmr9cEYxvDi77co=
+
+Name: schemas/application-client_1_4.xsd
+SHA1-Digest: L/p+q30CTtIxD0fQOhyrBNpQFxc=
+
+Name: schemas/j2ee_web_services_1_1.xsd
+SHA1-Digest: vRfsLdE9P5PX2JV6WKtIau4Rv3g=
+
+Name: catalog-dtd/jboss_4_0.dtd
+SHA1-Digest: cAp8bZPWF55LIXIh1liwqCd5BuE=
+
+Name: data/libraryset/1.4/activation.jar
+SHA1-Digest: 4TgL9XHz+Jovj/nlm3Meqamn5DA=
+
+Name: templates/velocity/ejb/ejb-jar.xml.vtl
+SHA1-Digest: oymhcw9jcTkeH4X9Iv3QIQcnj88=
+
+Name: catalog-dtd/sun-application_5_0-0.dtd
+SHA1-Digest: O4042VEa92r71W4oWo2wfTrJBJ8=
+
+Name: schemas/j2ee_web_services_client_1_1.xsd
+SHA1-Digest: 5og4j23ZN1U75/26cnHdhahoHg8=
+
+Name: schemas/orm_1_0.xsd
+SHA1-Digest: AD/TfrrHEI+uO5xNzpQ9wCZCnnU=
+
+Name: catalog-dtd/sun-application-client_1_4-0.dtd
+SHA1-Digest: nDRE2utFDzgc2/1yp/EdKiYFjRc=
+
+Name: dtd/web-app_2_3.dtd
+SHA1-Digest: TRwfUQtQ5zl9YZ7v2W+2jQzWsgA=
+
+Name: dtd/ejb-jar_2_0.dtd
+SHA1-Digest: QM7yrZzUpofzRbn2O6aHvcFWMMk=
+
+Name: icons/web_xml_file.gif
+SHA1-Digest: vmN7mEU9frXyJC7Rk9yPJVNcLNc=
+
+Name: catalog-xsd/wadl.xsd
+SHA1-Digest: OQ7tVjMsPPvSskmnRTq7t9rGx7M=
+
+Name: schemas/j2ee_1_4.xsd
+SHA1-Digest: v/2ewRiVgp6wcWNUWQkpI/f8ujY=
+
+Name: catalog-dtd/wls700_weblogic700-web-jar.dtd
+SHA1-Digest: XKqB472wYGhZc3YpSU8vF+7Zps4=
+
+Name: icons/wizban/new_ear_module.gif
+SHA1-Digest: B9vygk0wRUhqwc9A6ouY2ikqMJU=
+
+Name: catalog-dtd/sun-application-client_1_4-1.dtd
+SHA1-Digest: dLDkT+7fcsNGZub9Mk8rSxRxnjs=
+
+Name: schemas/web-jsptaglibrary_2_1.xsd
+SHA1-Digest: Y+VC9Fc+Msb1DVUEHb2t/cWAnWQ=
+
+Name: data/libraryset/JSTL1.1/lib/jstl.jar
+SHA1-Digest: fVcrQJXVCmBZ5FS2xm2SdcY2YFY=
+
+Name: catalog-xsd/orm_1_0.xsd
+SHA1-Digest: FLXAEB3E5QQEMcM9/85467vdZ9E=
+
+Name: catalog-dtd/sun-domain_1_3.dtd
+SHA1-Digest: abggqowXrB007XeGFlfkAuRrW/U=
+
+Name: schemas/javaee_web_services_1_2.xsd
+SHA1-Digest: WTZ5tUiqLk1dHeyNqhWRwPnTmlM=
+
+Name: icons/wizban/remove_web_caps.gif
+SHA1-Digest: 2q3a+xfRFXQdJKjXFs31sil1ZIU=
+
+Name: icons/wizban/new_ejb_project.gif
+SHA1-Digest: f/RUUZM/guHad9lrwdXMBllAbj0=
+
+Name: schemas/application_1_4.xsd
+SHA1-Digest: v5tGBBAJhIvtZkLejmAAmsiJKd8=
+
+Name: plugin.properties
+SHA1-Digest: BZeqwyew5bhTW6AacVW7VjmNxs4=
+
+Name: schemas/jsp_2_0.xsd
+SHA1-Digest: J8ynGAkMK9E4J6XhjrwMGvoJwJc=
+
+Name: catalog-dtd/jbosscmp-jdbc_3_0.dtd
+SHA1-Digest: tP1YE3OMN3XVByyT6MRHrk9C8do=
+
+Name: schemas/datatypes.dtd
+SHA1-Digest: 0O7Sy41cY6VBOGxRhb9u2iAY4HQ=
+
+Name: catalog-dtd/sun-ejb-jar_2_0-1.dtd
+SHA1-Digest: DmQRtmlL5ZI/kM1Be1cQCIU+yog=
+
+Name: dtd/application_1_3.dtd
+SHA1-Digest: oZFh789AZi/FybqMrPAFjFs1NG4=
+
+Name: catalog-dtd/struts-config_1_1.dtd
+SHA1-Digest: lFmqSqrrRo4+VaVMmlDLe8/fQDI=
+
+Name: catalog-dtd/jaws_2_4.dtd
+SHA1-Digest: L3snmWzxjnoOjj/wXNdNvrQ3INU=
+
+Name: icons/new_ear_project1.gif
+SHA1-Digest: BJXTjBn2Hq2soxRSbH+cau7jpfc=
+
+Name: catalog-dtd/facelet-taglib_1_0.dtd
+SHA1-Digest: Ar9fUMU/ATlnVtoUoU6PgSrRu5c=
+
+Name: catalog-dtd/orion-web.dtd
+SHA1-Digest: wO2bnl8BuYvSqEkysSCtRKqo5t4=
+
+Name: data/libraryset/1.3/javax.servlet.jar
+SHA1-Digest: hWtWVpps8/msVig9xl2lg70cYJ0=
+
+Name: schemas/ejb-jar_2_1.xsd
+SHA1-Digest: Da5uQ9ZQSrsR87jSwrVbDmX0Nu8=
+
+Name: icons/new_ejb_project.gif
+SHA1-Digest: +ZaXTAQnImUePG9fMrWWSSC2J4c=
+
+Name: data/libraryset/1.3/activation.jar
+SHA1-Digest: v9n4k4s4mZpp3QwHwsUVy1CoeHA=
+
+Name: data/libraryset/1.3/jsse.jar
+SHA1-Digest: gWrvwkVlUGssDRl4WXNHfi2Mq50=
+
+Name: catalog-dtd/sun-web-app_2_4-0.dtd
+SHA1-Digest: Gpt/TxClW622xt5xIaQeXDwH8+Q=
+
+Name: catalog-dtd/jboss-web_4_0.dtd
+SHA1-Digest: IP4o7UR45ZIccShk5ci7XDbYpFg=
+
+Name: catalog-dtd/sun-domain_1_0.dtd
+SHA1-Digest: yP7QUSe+aag+0Aaop2/mJNtflFY=
+
+Name: templates/velocity/ejb/ejbClass.java.vtl
+SHA1-Digest: 9mN0yzxlmOPX2YQUD7S9oJYXiAM=
+
+Name: templates/velocity/ejb/ejb3Class.java.vtl
+SHA1-Digest: vH0yCnogYS7WcEADUJlpuqP4Pbw=
+
+Name: icons/wizban/old/java_to_web.gif
+SHA1-Digest: b3nRinjNTclYFUtI/vP8H0040c0=
+
+Name: schemas/XMLSchema.dtd
+SHA1-Digest: unNXooGk9yMXnZyx1hWCWBtzkZM=
+
+Name: icons/appclient_project.gif
+SHA1-Digest: tz41JHhi34GPIYqUbI8noOPwUTE=
+
+Name: schemas/javaee_web_services_client_1_2.xsd
+SHA1-Digest: fJTQU7H8bT+9uzafFi7oxADDBcc=
+
+Name: data/libraryset/JSTL1.0/lib/jdbc2_0-stdext.jar
+SHA1-Digest: l1PbV8zhse5iKtjZrEoWONsGllc=
+
+Name: icons/wizban/old/new_web_project.gif
+SHA1-Digest: nLQwvxS9eC2oE0GGj/S2arcthKo=
+
+Name: icons/wizban/new_ear_project.gif
+SHA1-Digest: 1NYiyztepLLDc8RjK8Elu6PYm+Y=
+
+Name: catalog-xsd/persistence_1_0.xsd
+SHA1-Digest: p3wCdYcFIA0hNfIYVuznJDG9vxA=
+
+Name: catalog-dtd/hibernate-mapping-3.0.dtd
+SHA1-Digest: bs7EXM2vZxre6KQpMTJnDGEbu7M=
+
+Name: data/libraryset/JSTL1.0/tld/permittedTaglibs.tld
+SHA1-Digest: hPfIHSxvbM9R7YjpXJMrB0NiwEQ=
+
+Name: schemas/xml.xsd
+SHA1-Digest: 9EMgzOb7qqiBx2P+TGLvnbwLh8I=
+
+Name: schemas/jax-rpc-ri-config.xsd
+SHA1-Digest: nn26drG2TQFyQv9ybEhYj0YePqo=
+
+Name: templates/velocity/welcome/Jsp.vtl
+SHA1-Digest: JLrqpTuLjFhfHLx/lBcbRqsWeKQ=
+
+Name: schemas/web-app_2_4.xsd
+SHA1-Digest: nDYQdh/F1YHrZgpoN+B9MZd1klo=
+
+Name: data/libraryset/JSTL1.0/tld/sql.tld
+SHA1-Digest: lhImOsyOU54OxmiCPdGr3/zn5sk=
+
+Name: data/libraryset/EE_6/javax.management.j2ee.jar
+SHA1-Digest: 2BkXU7+2Y+BjHrr0KQWANlIWXPY=
+
+Name: data/libraryset/EE_6/javax.transaction.jar
+SHA1-Digest: RPsqEszcUKv7X5Z8rTcu3Ahdi6E=
+
+Name: dtd/j2eedt.dtd
+SHA1-Digest: xMuBHwZJId89AzvOvVAeiTJTARg=
+
+Name: data/libraryset/EE_6/bean-validator.jar
+SHA1-Digest: O6qAENREwKbHv/b71IWdj0QPecU=
+
+Name: catalog-xsd/weblogic-application.xsd
+SHA1-Digest: IqCYQqWDD5HnA5bQy5WSSRPRp7s=
+
+Name: templates/application13.xml.ftl
+SHA1-Digest: Ai2P5WDER/2JR7vvswWIVGxF2fI=
+
+Name: templates/web.xml.vm
+SHA1-Digest: UBvuf7/Cfr8xze7cymd6yD7trXA=
+
+Name: data/libraryset/EE_6/jsf-impl.jar
+SHA1-Digest: qZ2iDd/0LoEMSBE2ZaTb2gTLQzs=
+
+Name: templates/mainclass.vtl
+SHA1-Digest: Ryp9nuQxmiDxP6NWESEEazDIcM0=
+
+Name: data/libraryset/EE_6/jsf-api.jar
+SHA1-Digest: 2WSwaRiaNjiTzp/5GypNtYHXNok=
+
+Name: data/libraryset/EE_6/javax.servlet.jar
+SHA1-Digest: TX1j5YsNfptexk/1E99FWCtn4K0=
+
+Name: templates/ejb-jar20.xml.ftl
+SHA1-Digest: RG4zlRUjad+4fHQg7izg8n1zqGQ=
+
+Name: data/libraryset/JSTL1.0/lib/standard.jar
+SHA1-Digest: HBXuNlhcPrp6cIR1zZqLzc6p/64=
+
+Name: data/libraryset/JSTL1.0/tld/x.tld
+SHA1-Digest: JDan90+4uvvh3dbn0NvPO5KrPEM=
+
+Name: templates/velocity/ejb/ejb3Local.java.vtl
+SHA1-Digest: gzi/vhFShds4CSEzCPLNY9VqSYs=
+
+Name: lib/commons-lang-1.0.1.jar
+SHA1-Digest: CT19BgNfpR6VPNF3tDL1T18iY+M=
+
+Name: data/libraryset/1.4/jboss-jaxrpc.jar
+SHA1-Digest: YJGhpIR1u51G0/8REp299I0KzZo=
+
+Name: catalog-xsd/sun-jaxws.xsd
+SHA1-Digest: a17fKVUhiVtd2eX+rs4rc5rC7+Y=
+
+Name: catalog-dtd/datatypes.dtd
+SHA1-Digest: UStZw+oUPcQON3lVgCR4BlVMmkY=
+
+Name: data/libraryset/1.3/jboss-jaas.jar
+SHA1-Digest: A717Cps7gQ4q+x89gZF20dzBTpo=
+
+Name: data/libraryset/JSTL1.0/lib/jaxen-full.jar
+SHA1-Digest: xF7JYS/zJxQa03a+xVTeXwP0eS0=
+
+Name: data/libraryset/EE_5/jsf-api.jar
+SHA1-Digest: 9WTsToNEzz3WCpSNCuMJ7/20vfY=
+
+Name: icons/wizban/ear_module_manager.gif
+SHA1-Digest: uV+VIu6QVuFnFK0lQP3KEVlBA30=
+
+Name: catalog-dtd/struts-config_1_2.dtd
+SHA1-Digest: 7eaKlzmjtCD6s6/jdyC+3UnBX1E=
+
+Name: icons/ear_project.gif
+SHA1-Digest: Y9BUJNsVyF9CwCXm6hltsktJaN0=
+
+Name: data/libraryset/EE_6/javax.annotation.jar
+SHA1-Digest: Zlska3WMGSJvfA3Ev0dc2jcED24=
+
+Name: data/libraryset/JSTL1.0/lib/xalan.jar
+SHA1-Digest: nKvyUayjn/pC+QTcGYq/ImU8X4c=
+
+Name: catalog-dtd/Tapestry-Script_1_2.dtd
+SHA1-Digest: Kcz3IjSCZUaFiEoL9DQgPDhKjx4=
+
+Name: catalog-dtd/wls600_weblogic-ejb-jar.dtd
+SHA1-Digest: v/1QaynNg5i6T3nGF9wdbnKzfwA=
+
+Name: data/libraryset/JSTL1.1/lib/standard.jar
+SHA1-Digest: 6qah+h+ieF6CWOOjurEW8udOC1c=
+
+Name: icons/newprj_wiz.gif
+SHA1-Digest: fKagRsmAp0Z1zLAdJoqiUDV0ptg=
+
+Name: catalog-xsd/weblogic-j2ee.xsd
+SHA1-Digest: MqM4mxTT7yCh/1EK5s+ruggq3Ss=
+
+Name: icons/wizban/new_web_project.gif
+SHA1-Digest: +88qaKxONlHnnG4HRmO6n8QkAMI=
+
+Name: catalog-dtd/jboss-app_4_0.dtd
+SHA1-Digest: 8SqPoAKqpod3UchdLb0FoDx7sMg=
+
+Name: data/libraryset/EE_6/javax.jms.jar
+SHA1-Digest: R/AYDSnkhTONvNh/8Gc7eUEt5t4=
+
+Name: templates/ejb-jar.xml.vm
+SHA1-Digest: EDAIOhDMV81pjCN10y0BLy8brl0=
+
+Name: icons/sessionbean_wiz.gif
+SHA1-Digest: v05VXSiKuxE4ArZHKFShzZ5E0Yo=
+
+Name: schemas/connector_1_5.xsd
+SHA1-Digest: 1ce8xDQyd48s8V0gCGJD5nXdBBA=
+
+Name: data/libraryset/EE_6/javax.ejb.jar
+SHA1-Digest: GySNOBwsSNPCc6WHVbpQ95KEC+M=
+
+Name: data/libraryset/EE_6/javax.persistence.jar
+SHA1-Digest: n+UNUIpN7pZkfUoBOu34t0LfJf4=
+
+Name: catalog-dtd/jboss_2_4.dtd
+SHA1-Digest: plR8p0wINdXchhKHEqxG8NHbkkM=
+
+Name: j2eedtcore.jar
+SHA1-Digest: symbXRnxv7c8ZyP40h7/KwDXTvE=
+
+Name: catalog-dtd/jbosscmp-jdbc_3_2.dtd
+SHA1-Digest: 9mWiyj0dThXvPrxcj9awdGaHEDo=
+
+Name: templates/application12.xml.ftl
+SHA1-Digest: LwO7MqQFHkr260w3L9TmNkPBfck=
+
+Name: data/libraryset/JSTL1.0/tld/sql-rt.tld
+SHA1-Digest: 1R8GTiDWJPAviSOeBXgSmtSTuN8=
+
+Name: icons/wizban/message_bean_wiz.gif
+SHA1-Digest: IQd3wwz4pHE8su13dtL3d8rpQuI=
+
+Name: catalog-dtd/sun-domain_1_2.dtd
+SHA1-Digest: 3pw8CZol8NH0RPOWqVGoXZ9tjN0=
+
+Name: catalog-dtd/validator_1_1_3.dtd
+SHA1-Digest: PsJIaIpi5b1Is7O+TJpgG24Sjls=
+
+Name: catalog-dtd/dwr10.dtd
+SHA1-Digest: nxBAXAEYstWJtQZ5XahOQM9WlAQ=
+
+Name: icons/ear.gif
+SHA1-Digest: cZ+5uOBilZJ7fVAgIpp8+lL3crE=
+
+Name: catalog-xsd/javaee_5.xsd
+SHA1-Digest: Iuo6RXEniott06nKRh91QqQWr9A=
+
+Name: icons/msgdrivenbean_wiz.gif
+SHA1-Digest: CHxLdfQHU3+99vX3xj1NKhNGrAs=
+
+Name: templates/web25.xml.ftl
+SHA1-Digest: S1485j3KGLCMIEdUvp8L9b3hmOU=
+
+Name: catalog-dtd/sun-application-client_5_0-0.dtd
+SHA1-Digest: ZTJu0V1Cjj1tK+N2ocDaFGXAeiA=
+
+Name: data/libraryset/EE_6/javax.security.jacc.jar
+SHA1-Digest: /2CSS7f0iJiDfc4OfOFcfZqZxIw=
+
+Name: schemas/application-client_5.xsd
+SHA1-Digest: 9koYMeCM922jNOkY8S9OF6Xeddg=
+
+Name: data/libraryset/JSTL1.0/lib/jaxp-api.jar
+SHA1-Digest: hRtO+WaHNynwvt4BO9NLYPNJvz8=
+
+Name: catalog-dtd/sun-ejb-jar_2_0-0.dtd
+SHA1-Digest: 3j41Ac3pHSb23ddZe7sIbkAL61M=
+
+Name: templates/web22.xml.ftl
+SHA1-Digest: WFvclocOlBW5CbbidTfM7GchiH8=
+
+Name: data/libraryset/EE_5/README.txt
+SHA1-Digest: btCdrapqMQnIJD3J7oNZzcgEp+4=
+
+Name: dtd/application-client_1_2.dtd
+SHA1-Digest: ScFuQm/0b7iyFKMngZqeKiL/IwA=
+
+Name: data/libraryset/JSTL1.0/tld/c.tld
+SHA1-Digest: ImXZoRHq3ff/u3piqgT98/5FFD4=
+
+Name: data/libraryset/EE_6/javax.enterprise.deploy.jar
+SHA1-Digest: RJdDES9dGOFxXLQssqlFWWuPD4g=
+
+Name: catalog-dtd/sun-application-client_1_3-0.dtd
+SHA1-Digest: +hsmtG87WVFfRz9dRSQiCFodqUE=
+
+Name: data/libraryset/JSTL1.0/lib/xercesImpl.jar
+SHA1-Digest: UcZXn+fDN+Kau5DRoRTby3fZzRg=
+
+Name: icons/new_taglib_wiz.gif
+SHA1-Digest: qya4Y9mLMc38SMslRIVh9eTsYY0=
+
+Name: icons/taglib.gif
+SHA1-Digest: HWS1uPS7hLwPn2vdHyhEQt/bEnk=
+
+Name: icons/wizban/old/new_ear_project.gif
+SHA1-Digest: R+rymG6ykXBqljQDZq1pNKu+NZE=
+
+Name: catalog-dtd/validator_1_3_0.dtd
+SHA1-Digest: wZQaZptBKaGJbw29/WVLvQYT+os=
+
+Name: data/libraryset/EE_5/jstl-1.2.jar
+SHA1-Digest: KNVHlPsuaSiBUB0wkA2GzzZDOBM=
+
+Name: icons/ear_project1.gif
+SHA1-Digest: zMj+I/EoKn0SyF0TWwJ6OxdoxJQ=
+
+Name: catalog-dtd/struts-2.1.7.dtd
+SHA1-Digest: xLGuaQJkzigT3EKbYPr9h5s+v4c=
+
+Name: icons/ejb.gif
+SHA1-Digest: Xj/Lg1GsF/yLhKuAQullV7RkF7U=
+
+Name: catalog-dtd/sun-application-client-container_1_0.dtd
+SHA1-Digest: Iqc+To7OsAhERT0qx5ZYkiXRMZI=
+
+Name: catalog-dtd/xwork-1.0.dtd
+SHA1-Digest: 2zmHTJHmL5zO2En+QkpaaHuDBxE=
+
+Name: icons/newfile_wiz.gif
+SHA1-Digest: iYSJ9wzRagPLKyICyYl7BEJaWRs=
+
+Name: dtd/connector_1_0.dtd
+SHA1-Digest: ZdnWyOpYJh/qrNwAPhIfLDV9+L4=
+
+Name: catalog-dtd/sun-resources_1_2.dtd
+SHA1-Digest: jEbUD8JzDhtteSRm8SnJZUf4a0Y=
+
+Name: data/libraryset/JSTL1.0/lib/saxpath.jar
+SHA1-Digest: 526BQThV6huk8fWzW1NQGerqC2I=
+
+Name: data/libraryset/1.4/javax.servlet.jsp.jar
+SHA1-Digest: KHx8X2cKqDEiQAJUZGISxzht26Q=
+
+Name: catalog-dtd/struts-config_1_0.dtd
+SHA1-Digest: ewDaGy8JTpHxiePJrOJ/c7HQyCI=
+
+Name: preferences.ini
+SHA1-Digest: VRkGgt6GIjXSNylEyEwZU6ifMsI=
+
+Name: plugin.xml
+SHA1-Digest: fBTjo73iUZTseGNdl4fN2ohm/fQ=
+
+Name: icons/old/new_ejb_project.gif
+SHA1-Digest: MAKX5IFiee3Vdj0GuBBRu7gKiZU=
+
+Name: data/libraryset/EE_6/javax.servlet.jsp.jstl.jar
+SHA1-Digest: 0bHWksWyWK8YnlGZpRXicTb19Jk=
+
+Name: icons/java_to_web.gif
+SHA1-Digest: b0eiykTySpBxwawVhFcvaBgtj7c=
+
+Name: catalog-dtd/wls700_weblogic-ejb-jar.dtd
+SHA1-Digest: z2nQgprhnQaFcfmF6015zmquuk4=
+
+Name: data/libraryset/JSTL1.0/lib/mail.jar
+SHA1-Digest: s96Ccslo8q4k2d7CqOJ/zsJoQCM=
+
+Name: catalog-dtd/wls600_weblogic-web-jar.dtd
+SHA1-Digest: Gfdbae1BW9ljSfhwe/k1Fa2IKlo=
+
+Name: icons/web_project.gif
+SHA1-Digest: hPR5+qYDQs6W/mp3XSp4+Aso1Tc=
+
+Name: data/libraryset/EE_6/mail.jar
+SHA1-Digest: iJ/iiylyENCUi1282Kx4n0roCnQ=
+
+Name: catalog-dtd/j2ee_web_services_client_1_0.dtd
+SHA1-Digest: buh17BsnYPDVvU5pfQvhBaHfEAI=
+
+Name: data/libraryset/JSTL1.0/lib/sax.jar
+SHA1-Digest: cj7292NsN6+jLPquWYEQyW2SIJ0=
+
+Name: dtd/application-client_1_3.dtd
+SHA1-Digest: G1mA4SKXNipegsqIjgY/fC3UizE=
+
+Name: catalog-dtd/jboss-client_4_0.dtd
+SHA1-Digest: uecScY5/k9eS2CxaKhzVnFRqbuw=
+
+Name: schemas/persistence_1_0.xsd
+SHA1-Digest: k8wOYiR0YwhCCYh//yzohpgVF3A=
+
+Name: icons/ejb_project.gif
+SHA1-Digest: UBzlTcL52eklnlA46Cw3VCA/ucc=
+
+Name: catalog-dtd/jbosscmp-jdbc_4_0.dtd
+SHA1-Digest: OKdDDUJS4P/CyyOtNnbGvGf7Ono=
+
+Name: icons/wizban/session_bean_wiz.gif
+SHA1-Digest: FviZ1wxUIS6hHyJoeTKN4AH+04w=
+
+Name: templates/persistence.xml.vm
+SHA1-Digest: dUVCELYK5DU9/ZdcKXNPTW2EJao=
+
+Name: catalog-dtd/sun-application_1_4-0.dtd
+SHA1-Digest: vSPxB1ao+1InkCNNQG6XGCJyzKU=
+
+Name: data/libraryset/1.4/namespace.jar
+SHA1-Digest: KsT9td8rzgWyQWfk6e3yvh3v8zU=
+
+Name: templates/velocity/ejb/ibm-ejb-jar-bnd.xmi.vtl
+SHA1-Digest: 8iSk3aHxBvzbAI43fX7i0aGmO58=
+
+Name: catalog-dtd/sun-ejb-jar_3_0-0.dtd
+SHA1-Digest: J4I0Q7Rcp5n61AwLjS1cesUlRpg=
+
+Name: data/libraryset/1.4/mail.jar
+SHA1-Digest: F4HHzCEg/0UIt3NZK10VyPFuSQs=
+
+Name: icons/web.gif
+SHA1-Digest: 8CzAQStaNeX+ZHyVN6oJpKb/0DM=
+
+Name: icons/new_wiz.gif
+SHA1-Digest: SIN7JDKYYNK/IfMpS4jYxGQE8rI=
+
+Name: catalog-dtd/jboss-web_3_0.dtd
+SHA1-Digest: a8Ezj563jK4LX/BWXpLHpUgGhiw=
+
+Name: catalog-dtd/tiles-config_1_3.dtd
+SHA1-Digest: R1vNdM5WPSKAQnxoopp4wwXNaLs=
+
+Name: license.html
+SHA1-Digest: S+SqkwDohlc+7bEEdfhyjfv7If0=
+
+Name: data/libraryset/1.4/jboss-saaj.jar
+SHA1-Digest: zspsGpHnaQYbnuQzm/wjQbsfPJw=
+
+Name: data/libraryset/JSTL1.0/tld/scriptfree.tld
+SHA1-Digest: WIsbN3/xCkADb2nBWPAPwWVPzSw=
+
+Name: catalog-dtd/taglib_1_3.dtd
+SHA1-Digest: YyX9ijNCdI9djN3R6zeWdrJ1D9A=
+
+Name: icons/wizban/cmp_bean_wiz.gif
+SHA1-Digest: W2VgSccPjE6pGrSu8jvFnsxatS0=
+
+Name: catalog-dtd/tiles-config_1_1.dtd
+SHA1-Digest: JeOc5S83mKJnDAqhR97xECK5XM8=
+
+Name: catalog-dtd/hibernate-configuration-3.0.dtd
+SHA1-Digest: MlNG7Mtrc3+qPpXSklnKTX+wgkY=
+
+Name: dtd/web-jsptaglibrary_1_2.dtd
+SHA1-Digest: 50zoyDyhGbjBRworIeg3/EctNgs=
+
+Name: catalog-dtd/jboss_3_0.dtd
+SHA1-Digest: X2ug9ZANzwHlpmJ5GrQ2kx6mLs0=
+
+Name: data/libraryset/1.4/jboss-jsr77.jar
+SHA1-Digest: kPiEUTTOLAsDdOjjWJglH4zlXIw=
+
+Name: catalog-dtd/hibernate-configuration-2.0.dtd
+SHA1-Digest: pAlSI6b6rV0NHkYVV74yq1OtQCA=
+
+Name: catalog-dtd/sun-cmp-mapping_1_1.dtd
+SHA1-Digest: S174lDFc78Icz4aHVwlip85ad2g=
+
+Name: data/libraryset/1.3/jboss-j2ee.jar
+SHA1-Digest: eEfsz9sLiDyUi/zdq3mzeGmbuKQ=
+
+Name: data/libraryset/1.4/jboss-j2ee.jar
+SHA1-Digest: pj3pI7X4tIfWbsbRIJjz2O50FA4=
+
+Name: catalog-xsd/xml.xsd
+SHA1-Digest: K86BpKzufHMLuyKpg6Em7Uiix7Y=
+
+Name: schemas/javaee_5.xsd
+SHA1-Digest: LjJinhTBQDu3hj6jkxDPnn8vC8I=
+
+Name: catalog-dtd/sun-resources_1_0.dtd
+SHA1-Digest: 7Hylk0ColMKyCuqm9XatP59fapA=
+
+Name: data/libraryset/EE_6/javax.servlet.jsp.jar
+SHA1-Digest: CKTgw7RCo3QjCtKBsz6cmx6/gQE=
+
+Name: icons/wizban/java_to_web.gif
+SHA1-Digest: 7MKT8/sJCfXEiwSY6gKoqskWD6g=
+
+Name: icons/wizban/old/new_ejb_project.gif
+SHA1-Digest: 2JHvUALyaMzF43g3WTVa6eNZhBo=
+
+Name: icons/new_web_project.gif
+SHA1-Digest: 1krhac0j7GLJ6Crg2rvtl9Qdfq8=
+
+Name: META-INF/eclipse.inf
+SHA1-Digest: HNV4kj6djm1nVGsjpfE9c78L3/s=
+
+Name: templates/ejb-jar21.xml.ftl
+SHA1-Digest: D2Lkum5MX1ECqTzRARUtYa9EZDo=
+
+Name: data/libraryset/EE_5/javaee.jar
+SHA1-Digest: H5qBsT2A+YtpxEXeH6Lfu6C2rjQ=
+
+Name: catalog-dtd/xhtml-special.ent
+SHA1-Digest: ynDL0xVXdabIdgy6gHNUPs4BNDQ=
+
+Name: icons/new_ear_project.gif
+SHA1-Digest: U2f3YVhbRNRMhkFSBl4LmR5wSTM=
+
+Name: dtd/j2eedt.xsd
+SHA1-Digest: x+S8lNgRLIEUNJe9tbNaUkOQ+eo=
+
+Name: data/libraryset/JSTL1.0/tld/fmt-rt.tld
+SHA1-Digest: luwLIiHwATH2ajhGxt4ZbTHlFh8=
+
+Name: data/libraryset/1.4/javax.servlet.jar
+SHA1-Digest: RtZp3a7iISXDIjVoMm5X6IroC80=
+
+Name: catalog-dtd/sun-application-client-container_1_1.dtd
+SHA1-Digest: NjwNnu3Pa5rbFn3VqBUzYDpJRfY=
+
+Name: templates/web22.xml.sample.ftl
+SHA1-Digest: QN6a7kcX5iXd7xM+Zd4VyrArk3M=
+
+Name: schemas/ejb-jar_3_0.xsd
+SHA1-Digest: 9KYp8cwixjzFTlF6ZkgmMiTuZyg=
+
+Name: dtd/application_1_2.dtd
+SHA1-Digest: uysOYjiSdYTwIaG1fnWE3SPr4TY=
+
+Name: catalog-dtd/validator_1_1.dtd
+SHA1-Digest: pGJBEKV6ZUHyW+7PZEtje9C+lrk=
+
+Name: catalog-dtd/sun-ejb-jar_2_1-1.dtd
+SHA1-Digest: ZgRLPkNO2X4x141T3IPyx/ERyoI=
+
+Name: templates/application.xml.vm
+SHA1-Digest: pEEb4/hq04TMFUmzZwJDLEkzgNM=
+
+Name: data/libraryset/JSTL1.0/README
+SHA1-Digest: RmFW6Tc3P+Qb4j1jpEvyUequah4=
+
+Name: data/libraryset/1.4/xml-apis.jar
+SHA1-Digest: 0+/MLALezJ5KS1FhH/P7dke5H4s=
+

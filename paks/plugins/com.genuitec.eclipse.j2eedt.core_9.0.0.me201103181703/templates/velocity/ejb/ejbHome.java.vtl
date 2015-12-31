@@ -1,0 +1,14 @@
+package ${package};
+
+/**
+ * Home interface for Enterprise Bean: ${beanName}
+ */
+public interface ${beanName}Home extends javax.ejb.EJBHome {
+
+	/**
+	 * Creates a default instance of Session Bean: ${beanName}
+	 */
+	public ${beanName} create()
+		throws javax.ejb.CreateException,
+		java.rmi.RemoteException;
+}

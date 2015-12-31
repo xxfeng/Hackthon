@@ -1,0 +1,1541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   <extension-point id="xmlentityresolver" name="%xmlentityresolver.name"/>
+   <extension-point id="projectUpgradeListener" name="Project Upgrade Listener" schema="schema/projectUpgradeListener.exsd"/>
+   <extension-point id="facetConverter" name="Facet Converter" schema="schema/facetConverter.exsd"/>
+   <extension-point id="appClientServer" name="Application client server" schema="schema/appClientServer.exsd"/>
+
+<!-- Natures -->
+   <extension
+         id="earnature"
+         name="%nature.EAR.name"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.genuitec.eclipse.j2eedt.core.EARNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         id="ejbnature"
+         name="%nature.EJB.name"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.genuitec.eclipse.j2eedt.core.EJBNature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         id="webnature"
+         name="%nature.WEB.name"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.genuitec.eclipse.j2eedt.core.WebNature">
+         </run>
+      </runtime>
+   </extension>
+    
+   
+<!-- Builders -->
+   <extension
+         id="J2EEProjectValidator"
+         name="%builder.J2EEProjectValidator.name"
+         point="org.eclipse.core.resources.builders">
+      <builder>
+         <run
+               class="com.genuitec.eclipse.j2eedt.core.builder.J2EEProjectValidator">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="DeploymentDescriptorValidator"
+         name="%builder.DeploymentDescriptorValidator.name"
+         point="org.eclipse.core.resources.builders">
+      <builder>
+         <run
+               class="com.genuitec.eclipse.j2eedt.core.builder.DeploymentDescriptorValidator">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="WebClasspathBuilder"
+         name="%builder.WebClasspathBuilder.name"
+         point="org.eclipse.core.resources.builders">
+      <builder>
+         <run
+               class="com.genuitec.eclipse.j2eedt.core.builder.WebClasspathBuilder">
+         </run>
+      </builder>
+   </extension>
+
+<!-- Classpath Container Initializers -->
+   <extension
+         point="org.eclipse.jdt.core.classpathVariableInitializer">
+      <classpathVariableInitializer
+            variable="MYECLIPSE_LIB_HOME"
+            class="com.genuitec.eclipse.j2eedt.classpath.J2EEClasspathVariableInitializer">
+      </classpathVariableInitializer>
+   </extension>
+   
+   <!-- Initialize ClasspathContainers -->
+   <extension
+         point="org.eclipse.jdt.core.classpathContainerInitializer">
+
+      <classpathContainerInitializer
+            class="com.genuitec.eclipse.core.librarymgmt.MEClasspathContainerInitializer"
+            id="com.genuitec.eclipse.j2eedt.core.J2EE13_CONTAINER">
+      </classpathContainerInitializer>
+
+      <classpathContainerInitializer
+            class="com.genuitec.eclipse.core.librarymgmt.MEClasspathContainerInitializer"
+            id="com.genuitec.eclipse.j2eedt.core.J2EE14_CONTAINER">
+      </classpathContainerInitializer>
+      
+      <classpathContainerInitializer
+            class="com.genuitec.eclipse.core.librarymgmt.MEClasspathContainerInitializer"
+            id="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_5_CONTAINER">
+	  </classpathContainerInitializer>
+      <classpathContainerInitializer
+            class="com.genuitec.eclipse.core.librarymgmt.MEClasspathContainerInitializer"
+            id="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_6_CONTAINER">
+      </classpathContainerInitializer>
+   </extension>   
+   
+<!-- Nature Images -->
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/ear.gif"
+            natureId="com.genuitec.eclipse.j2eedt.core.earnature"
+            id="com.genuitec.myeclipse.images.earnature">
+      </image>
+      <image
+            icon="icons/ejb.gif"
+            natureId="com.genuitec.eclipse.j2eedt.core.ejbnature"
+            id="com.genuitec.myeclipse.images.ejbnature">
+      </image>
+      <image
+            icon="icons/web.gif"
+            natureId="com.genuitec.eclipse.j2eedt.core.webnature"
+            id="com.genuitec.myeclipse.images.webnature">
+      </image>
+   </extension>
+<!-- New Project Wizards -->
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="%category.myeclipse.web.name"
+            parentCategory="com.genuitec.eclipse.myeclipse"
+            id="com.genuitec.eclipse.myeclipse.web">
+      </category>  
+      <category
+            name="%category.myeclipse.xml.name"
+            parentCategory="com.genuitec.eclipse.myeclipse"
+            id="com.genuitec.eclipse.myeclipse.xml">
+      </category>                       
+      <category
+            name="%category.myeclipse.j2ee.name"
+            parentCategory="com.genuitec.eclipse.myeclipse"
+            id="com.genuitec.eclipse.myeclipse.j2ee">
+      </category>
+      <category
+            name="%category.myeclipse.ejb.name"
+            parentCategory="com.genuitec.eclipse.myeclipse"
+            id="com.genuitec.eclipse.myeclipse.ejb">
+      </category>
+      <wizard
+            name="%wizard.NewEARProjectWizard.name"
+            icon="icons/new_ear_project.gif"
+            category="com.genuitec.eclipse.myeclipse/com.genuitec.eclipse.myeclipse.j2ee"
+            class="com.genuitec.eclipse.j2eedt.ui.wizard.NewEARProjectWizard"
+            project="true"
+            finalPerspective="com.genuitec.myeclipse.perspective.myeclipseperspective"
+            id="com.genuitec.eclipse.j2eedt.ui.wizard.NewEARProjectWizard">
+         <description>
+            %wizard.NewEARProjectWizard.description
+         </description>
+      </wizard>
+      <wizard
+            name="%wizard.EJBProjectCreationWizard.name"
+            icon="icons/new_ejb_project.gif"
+            category="com.genuitec.eclipse.myeclipse/com.genuitec.eclipse.myeclipse.j2ee"
+            class="com.genuitec.eclipse.j2eedt.ui.wizard.NewEJBProjectWizard"
+            project="true"
+            finalPerspective="com.genuitec.myeclipse.perspective.myeclipseperspective"
+            id="com.genuitec.eclipse.j2eedt.ui.wizard.EJBProjectCreationWizard">
+         <description>
+            %wizard.EJBProjectCreationWizard.description
+         </description>
+      </wizard>
+      <wizard
+            name="%wizard.WebProjectCreationWizard.name"
+            icon="icons/new_web_project.gif"
+            category="com.genuitec.eclipse.myeclipse/com.genuitec.eclipse.myeclipse.j2ee"
+            class="com.genuitec.eclipse.j2eedt.ui.wizard.NewWebProjectWizard"
+            project="true"
+            finalPerspective="com.genuitec.myeclipse.perspective.myeclipseperspective"
+            id="com.genuitec.eclipse.j2eedt.ui.wizard.WebProjectCreationWizard">
+         <description>
+            %wizard.WebProjectCreationWizard.description
+         </description>
+      </wizard>
+      <wizard
+            finalPerspective="com.genuitec.myeclipse.perspective.myeclipseperspective"
+            class="com.genuitec.eclipse.j2eedt.ui.wizard.NewEntityEJB3Wizard"
+            icon="icons/entitybean_wiz.gif"
+            category="com.genuitec.eclipse.myeclipse/com.genuitec.eclipse.myeclipse.ejb"
+            name="%wizard.NewEntityEJBWizard.name"
+            id="org.jboss.ide.eclipse.jdt.j2ee.ui.wizards.ejb.NewEntityEJBWizard">
+         <description>
+            %wizard.NewEntityEJBWizard.description
+         </description>
+      </wizard>
+      <wizard
+            finalPerspective="com.genuitec.myeclipse.perspective.myeclipseperspective"
+            class="com.genuitec.eclipse.j2eedt.ui.wizard.NewMessageDrivenEJB3Wizard"
+            icon="icons/msgdrivenbean_wiz.gif"
+            category="com.genuitec.eclipse.myeclipse/com.genuitec.eclipse.myeclipse.ejb"
+            name="%wizard.NewMessageDrivenEJBWiizard.name"
+            id="org.jboss.ide.eclipse.jdt.j2ee.ui.wizards.ejb.NewMessageDrivenEJBWizard">
+         <description>
+            %wizard.NewMessageDrivenEJBWizard.description
+         </description>
+      </wizard>   
+       <wizard
+            finalPerspective="com.genuitec.myeclipse.perspective.myeclipseperspective"
+            class="com.genuitec.eclipse.j2eedt.ui.wizard.NewSessionBeanEJB3Wizard"
+            icon="icons/sessionbean_wiz.gif"
+            category="com.genuitec.eclipse.myeclipse/com.genuitec.eclipse.myeclipse.ejb"
+            name="%wizard.NewSessionEJBWizard.name"
+            id="org.jboss.ide.eclipse.jdt.j2ee.ui.wizards.ejb.NewSessionEJBWizard">
+         <description>
+            %wizard.NewSessionEJBWizard.description
+         </description>
+      </wizard>         
+      <primaryWizard id="com.genuitec.eclipse.j2eedt.ui.wizard.NewEARProjectWizard"/>
+      <primaryWizard id="com.genuitec.eclipse.j2eedt.ui.wizard.EJBProjectCreationWizard"/>
+      <primaryWizard id="com.genuitec.eclipse.j2eedt.ui.wizard.WebProjectCreationWizard"/>
+   </extension>
+   
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="com.genuitec.eclipse.j2eedt.core.PreferenceInitializer">
+      </initializer>
+   </extension>
+   
+<!-- Preference Pages -->
+   <extension
+         id="com.genuitec.eclipse.j2eedt.ui.preferencepageextension"
+         name="%preferencePage.j2ee.name"
+         point="org.eclipse.ui.preferencePages">
+      <page
+            name="%page.j2ee.preferencepage.name"
+            category="com.genuitec.eclipse.viper.preferencepage"
+            class="com.genuitec.eclipse.j2eedt.ui.preference.J2EEPreferencePage"
+            id="com.genuitec.eclipse.j2ee.preferencepage">
+      </page>
+   
+ 
+      <page
+            name="%page.install.preferencepage.name"
+            category="com.genuitec.eclipse.j2ee.preferencepage"
+            class="com.genuitec.eclipse.j2eedt.ui.preference.LibrariesPreferencePage"
+            id="com.genuitec.eclipse.j2ee.install.preferencepage">
+      </page>
+      
+	  <page
+            name="%page.webproject.preferencepage.name"
+            category="com.genuitec.eclipse.j2ee.preferencepage"
+            class="com.genuitec.eclipse.j2eedt.ui.preference.WebProjectPreferencePage"
+            id="com.genuitec.eclipse.j2ee.webproject.preferencepage">
+      </page>
+	  <page
+            name="%page.ejbproject.preferencepage.name"
+            category="com.genuitec.eclipse.j2ee.preferencepage"
+            class="com.genuitec.eclipse.j2eedt.ui.preference.EJBProjectPreferencePage"
+            id="com.genuitec.eclipse.j2ee.ejbproject.preferencepage">
+      </page>
+	  <page
+            name="%page.earproject.preferencepage.name"
+            category="com.genuitec.eclipse.j2ee.preferencepage"
+            class="com.genuitec.eclipse.j2eedt.ui.preference.EARProjectPreferencePage"
+            id="com.genuitec.eclipse.j2ee.earproject.preferencepage">
+      </page>
+
+      
+      <page
+            name="%page.capabilities.preferencepage.name"
+            category="com.genuitec.eclipse.viper.preferencepage"
+            class="com.genuitec.eclipse.j2eedt.ui.preference.J2EEPreferenceCapabilitiesPage"
+            id="com.genuitec.eclipse.j2ee.capabilities.preferencepage">
+      </page> 
+	  <page
+            name="%page.capabilities.jstl.preferencepage.name"
+            category="com.genuitec.eclipse.viper.preferencepage/com.genuitec.eclipse.j2ee.capabilities.preferencepage"
+            class="com.genuitec.eclipse.j2eedt.ui.preference.JSTLPreferencePage"
+            id="com.genuitec.eclipse.j2ee.capabilities.jstl.preferencepage">
+      </page>
+      
+   </extension>
+   
+   
+<!-- ActionSets -->
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="%actionSet.myeclipse.webtools.label"
+            visible="true"
+            id="com.genuitec.myeclipse.actions.webtools">
+         <!-- This menu is replicated exactly in each plugin that
+              contributes to it to ensure that it is available when
+              the plugins load.  Without this replication, Eclipse 3.3
+              will often throw errors about "invalid menu path" and
+              refuse to load the contributed actions. -->
+         <menu
+               label="%menu.myeclipse.menu.label"
+               id="com.genuitec.myeclipse.menu">
+           <separator
+                  name="capabilitiesSeparator">
+            </separator>
+            <separator
+                  name="configurationSeparator">
+            </separator>
+            <separator
+                  name="utilitiesSeparator">
+            </separator>
+            <separator
+                  name="supportSeparator">
+            </separator>
+         </menu>
+          <menu
+               id="capabilities"
+               label="%menu.myeclipse.submenu.capabilities.label"
+               path="com.genuitec.myeclipse.menu/capabilitiesSeparator">
+            <separator name="additions"/>
+         </menu>
+         <action
+               class="com.genuitec.eclipse.j2eedt.ui.action.UpdateProjectsAction"
+               id="com.genuitec.myeclipse.webproject.action.projectconvert.updateProject"
+               label="Upgrade Projects for MyEclipse 9.0"
+               menubarPath="com.genuitec.myeclipse.menu/capabilitiesSeparator"/>
+         
+         <action
+               class="com.genuitec.eclipse.j2eedt.core.wtpsupport.EnhanceWTPProjectAction"
+               enablesFor="1"
+               id="com.genuitec.myeclipse.webproject.action.projectconvert.enhancewtp"
+               label="Enhance WTP Project..."
+               menubarPath="com.genuitec.myeclipse.menu/capabilitiesSeparator">
+            <enablement>
+               <and>
+                  <objectState
+                        name="nature"
+                        value="org.eclipse.wst.common.project.facet.core.nature">
+                  </objectState>
+                  <not>
+                     <or>
+                        <objectState
+                              name="nature"
+                              value="com.genuitec.eclipse.j2eedt.core.ejbnature">
+                        </objectState>
+                        <objectState
+                              name="nature"
+                              value="com.genuitec.eclipse.j2eedt.core.webnature">
+                        </objectState>
+                        <objectState
+                              name="nature"
+                              value="com.genuitec.eclipse.j2eedt.core.earnature">
+                        </objectState>
+                     </or>
+                  </not>
+               </and>
+            
+            
+            </enablement>
+         </action>
+         <action
+               label="%action.webproject.projectconvert.label"
+               class="com.genuitec.eclipse.j2eedt.ui.action.WebProjectConversionActionDelegate"
+               menubarPath="com.genuitec.myeclipse.menu/capabilities/capabilitiesSeparator"
+               enablesFor="1"
+               id="com.genuitec.myeclipse.webproject.action.projectconvert">
+         </action>
+         <action
+               label="%action.webproject.addJSTLSupport.label"
+               class="com.genuitec.eclipse.j2eedt.ui.action.AddJSTLSupportActionDelegate"
+               menubarPath="com.genuitec.myeclipse.menu/capabilities/capabilitiesSeparator"
+               enablesFor="1"
+               id="com.genuitec.myeclipse.webproject.action.addJSTLSupport">
+         </action>
+         <action
+               class="com.genuitec.eclipse.j2eedt.ui.action.AddEnhancedJavaScriptSupport"
+               enablesFor="1"
+               id="com.genuitec.eclipse.j2eedt.core.jsSupport"
+               label="%action.jsSupport.label"
+               menubarPath="com.genuitec.myeclipse.menu/capabilities/capabilitiesSeparator"
+               style="push">
+         </action>
+      </actionSet>
+      <actionSet
+            id="com.genuitec.eclipse.j2eedt.core.ejb"
+            label="MyEclipse-EJB"
+            visible="true">
+         <action
+               class="com.genuitec.eclipse.j2eedt.ui.action.EJB3BeanAction"
+               icon="icons/entitybean_wiz.gif"
+               id="com.genuitec.eclipse.j2eedt.core.ejb3beanaction"
+               label="%action.ejb3beanaction.label"
+               style="pulldown"
+               toolbarPath="Normal/debug"
+               tooltip="%action.ejb3beanaction.tooltip">
+         </action>
+      </actionSet>
+   </extension>
+<!-- Popup Menus -->
+<!-- Define popup menu structure for all IAdaptables -->
+   
+   <!-- Add WebCapabilities context-menu -->
+   <extension
+         id="de.bb.bejy.eclipse.popupMenu.webcaps"
+         name="PopupMenu"
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.runtime.IAdaptable"
+            id="de.bb.bejy.eclipse.popup.webcaps">
+      	<visibility>
+			<and>
+               <objectState
+                     name="nature"
+                     value="org.eclipse.jdt.core.javanature">
+               </objectState>            
+	           <not>
+	             <or>
+	           		<objectState
+                  	 	name="nature"
+                     	value="com.genuitec.eclipse.j2eedt.core.webnature">
+    	       		</objectState>
+	           		<objectState
+                  	 	name="nature"
+                     	value="org.eclipse.wst.common.project.facet.core.nature">
+    	       		</objectState>
+    	       	  </or>
+    	       </not>
+    	    </and>
+         </visibility>         
+         <action
+               label="%action.eclipse.action1.label"
+               class="com.genuitec.eclipse.j2eedt.ui.action.WebProjectConversionActionDelegate"
+               menubarPath="de.bb.bejy.eclipse.PopupMenu/onoff"
+               enablesFor="1"
+               id="de.bb.bejy.eclipse.action1">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   <!-- Add JSTL Capabilities context-menu -->    
+    <extension
+         id="de.bb.bejy.eclipse.PopupMenu.jstlactions"
+         name="PopupMenu"
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.runtime.IAdaptable"
+            id="de.bb.bejy.eclipse.PopupMenuObject.jstlobjectcontrib">
+      	<visibility>
+      	  <or>
+       		<objectState
+          	 	name="nature"
+             	value="com.genuitec.eclipse.j2eedt.core.webnature">
+       		</objectState>
+       		<objectState
+            	name="nature"
+                value="org.eclipse.wst.common.project.facet.core.nature">
+    	     </objectState>
+    	    </or>
+         </visibility>        
+         <action
+               label="%action.eclipse.addJSTLSupport.label"
+               class="com.genuitec.eclipse.j2eedt.ui.action.AddJSTLSupportActionDelegate"
+               menubarPath="de.bb.bejy.eclipse.PopupMenu/onoff"
+               enablesFor="1"
+               id="de.bb.bejy.eclipse.addJSTLSupport">
+         </action>
+      </objectContribution>
+   </extension>   
+
+   <!-- Add JSTL Capabilities context-menu -->    
+    <extension
+         id="de.bb.bejy.eclipse.PopupMenu.jstlactions"
+         name="PopupMenu"
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IProject"
+            id="de.bb.bejy.eclipse.PopupMenuObject.jstlobjectcontrib"
+            adaptable = "true">
+      	<visibility>
+      	  <not>
+       		<objectState
+          	 	name="nature"
+             	value="org.eclipse.wst.jsdt.core.jsNature">
+       		</objectState>
+           </not>
+         </visibility>        
+         <action
+               label="%action.jsSupport.label"
+               class="com.genuitec.eclipse.j2eedt.ui.action.AddEnhancedJavaScriptSupport"
+               menubarPath="de.bb.bejy.eclipse.PopupMenu/onoff"
+               enablesFor="1"
+               id="de.bb.bejy.eclipse.addJSSupport">
+         </action>
+      </objectContribution>
+   </extension>   
+
+
+   <!-- Add/Remove Modules context-menu -->   
+   <extension
+         id="com.genuitec.eclipse.ast.deploy.popup"
+         name="PopupMenu"
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.runtime.IAdaptable"
+            id="com.genuitec.eclipse.ast.deploy.popup.contribution">
+         <visibility>
+            <or>
+               <objectState name="nature" value="com.genuitec.eclipse.j2eedt.core.earnature"/>
+               <objectState name="nature" value="org.eclipse.wst.common.project.facet.core.nature"/>
+            </or>
+         </visibility>
+         <action
+               label="%action.popupmoduleaction.label"
+               class="com.genuitec.eclipse.j2eedt.ui.action.ModuleProjectMgmtActionDelegate"
+               menubarPath="de.bb.bejy.eclipse.PopupMenu/deployproject"
+               enablesFor="1"
+               id="com.genuitec.j2eedt.core.ui.action.popupmoduleaction">
+         </action>
+      </objectContribution>
+   </extension>
+
+   <!-- Add/Remove Modules context-menu -->   
+   <extension
+         id="com.genuitec.eclipse.importWtp"
+         name="PopupMenu"
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.runtime.IAdaptable"
+            id="com.genuitec.eclipse.j2eedt.core.enhancewtp">
+         <visibility>
+           <and>
+            <objectState
+                  name="nature"
+                  value="org.eclipse.wst.common.project.facet.core.nature">
+            </objectState>
+            	<not>
+            		<or>
+			            <objectState
+			                  name="nature"
+			                  value="com.genuitec.eclipse.j2eedt.core.ejbnature"/>
+			            <objectState
+			                  name="nature"
+			                  value="com.genuitec.eclipse.j2eedt.core.webnature"/>
+			            <objectState
+			                  name="nature"
+			                  value="com.genuitec.eclipse.j2eedt.core.earnature"/>
+            		</or>
+            	</not>
+            </and>
+         </visibility>
+         <action
+               class="com.genuitec.eclipse.j2eedt.core.wtpsupport.EnhanceWTPProjectAction"
+               enablesFor="1"
+               id="com.genuitec.j2eedt.core.ui.action.convertwtp"
+               label="Enhance WTP Project..."
+               menubarPath="de.bb.bejy.eclipse.PopupMenu/deployproject">
+         </action>
+      </objectContribution>
+   </extension>
+   
+   
+<!-- Problem Markers -->
+   <extension
+         id="problemmarker"
+         name="%marker.j2eeproblem.name"
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker" />
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   
+   <!-- subtyped from problemmarker but TaskView and Java Navigator View does not recognize -->
+   <extension
+         id="deploymentdescriptormarker"
+         name="%marker.deploymentDescriptor.name"         
+         point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker" />
+      <persistent
+            value="true">
+      </persistent>
+   </extension>   
+   <extension
+         id="libmarker"
+         name="%marker.j2eelibrary.name"         
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="com.genuitec.eclipse.j2eedt.core.problemmarker">
+      </super>
+      <attribute
+            name="library">
+      </attribute>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+
+<!-- Team file types -->
+   <extension
+         point="org.eclipse.team.core.fileTypes">
+	  <fileTypes extension="jsp" type="text"/>
+	  <fileTypes extension="jspf" type="text"/>	
+	  <fileTypes extension="jsf" type="text"/>
+	  <fileTypes extension="tld" type="text"/>	
+	 
+	  <!-- Undo the fix for Bug #1433 until Bug #2794 has been researched
+	  <fileTypes extension="mex" type="text"/>	
+	  <fileTypes extension="mer" type="text"/>	
+	  <fileTypes extension="mymetadata" type="text"/>
+	  <fileTypes extension="myhibernatedata" type="text"/>
+	  <fileTypes extension="mystrutsdata" type="text"/>
+	  <fileTypes extension="myjsfdata" type="text"/>
+	  <fileTypes extension="myumldata" type="text"/> 
+	  -->
+	 </extension>
+
+
+<!--==========================================-->
+<!-- DTD Contributions                        -->
+<!-- Register known J2EE DTDs for XML editor  -->
+<!--==========================================-->
+   <extension
+         point="org.eclipse.wst.xml.core.catalogContributions">
+      <catalogContribution id="JEE">
+		<!-- Sun Glassfish -->
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 7.0 J2EE Application 1.3//EN"
+               uri="$nl$/catalog-dtd/sun-application_1_3-0.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-application_1_3-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 8.0 J2EE Application 1.4//EN"
+               uri="$nl$/catalog-dtd/sun-application_1_4-0.dtd"
+               webURL="http://www.sun.com/software/dtd/appserver/sun-application_1_4-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 8.1 J2EE Application 1.4//EN"
+               uri="$nl$/catalog-dtd/sun-application_1_4-0.dtd"
+               webURL="http://www.sun.com/software/dtd/appserver/sun-application_1_4-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 9.0 Java EE Application 5.0//EN"
+               uri="$nl$/catalog-dtd/sun-application_5_0-0.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-application_5_0-0.dtd">
+         </public>
+
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 7.0 Application Client 1.3//EN"
+               uri="$nl$/catalog-dtd/sun-application-client_1_3-0.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-application-client_1_3-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 8.0 Application Client 1.4//EN"
+               uri="$nl$/catalog-dtd/sun-application-client_1_4-0.dtd"
+               webURL="http://www.sun.com/software/dtd/appserver/sun-application-client_1_4-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 8.1 Application Client 1.4//EN"
+               uri="$nl$/catalog-dtd/sun-application-client_1_4-1.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-application-client_1_4-1.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 9.0 Application Client 5.0//EN"
+               uri="$nl$/catalog-dtd/sun-application-client_5_0-0.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-application-client_5_0-0.dtd">
+         </public>
+
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Application Server 8.0 Application Client Container//EN"
+               uri="$nl$/catalog-dtd/sun-application-client-container_1_0.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-application-client-container_1_0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Application Server 8.1 Application Client Container//EN"
+               uri="$nl$/catalog-dtd/sun-application-client-container_1_1.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-application-client-container_1_1.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Application Server 9.0 Application Client Container//EN"
+               uri="$nl$/catalog-dtd/sun-application-client-container_1_2.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-application-client-container_1_2.dtd">
+         </public>
+
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 7.0 CMP 1.0//EN"
+               uri="$nl$/catalog-dtd/sun-cmp-mapping_1_0.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-cmp-mapping_1_0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 8.0 OR Mapping//EN"
+               uri="$nl$/catalog-dtd/sun-cmp-mapping_1_1.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-cmp-mapping_1_1.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 8.1 OR Mapping//EN"
+               uri="$nl$/catalog-dtd/sun-cmp-mapping_1_2.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-cmp-mapping_1_2.dtd">
+         </public>
+
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 7.0 Connector 1.0//EN"
+               uri="$nl$/catalog-dtd/sun-connector_1_0-0.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-connector_1_0- 0.dtd">
+         </public>
+
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Application Server 8.0 Domain//EN"
+               uri="$nl$/catalog-dtd/sun-domain_1_0.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-domain_1_0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Application Server 8.0 Domain//EN"
+               uri="$nl$/catalog-dtd/sun-domain_1_1.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-domain_1_1.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Application Server 8.0 Domain//EN"
+               uri="$nl$/catalog-dtd/sun-domain_1_2.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-domain_1_2.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Application Server 9.1 Domain//EN"
+               uri="$nl$/catalog-dtd/sun-domain_1_3.dtd"
+               webURL="http://www.sun.com/appserver/dtds/sun-domain_1_3.dtd">
+         </public>
+
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 7.0 EJB 2.0//EN"
+               uri="$nl$/catalog-dtd/sun-ejb-jar_2_0-0.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-ejb-jar_2_0-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 7.0 EJB 2.0//EN"
+               uri="$nl$/catalog-dtd/sun-ejb-jar_2_0-1.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-ejb-jar_2_0-1.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 8.0 EJB 2.1//EN"
+               uri="$nl$/catalog-dtd/sun-ejb-jar_2_1-0.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-ejb-jar_2_1-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 8.0 EJB 2.1//EN"
+               uri="$nl$/catalog-dtd/sun-ejb-jar_2_1-0.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-ejb-jar_2_1-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 9.0 EJB 3.0//EN"
+               uri="$nl$/catalog-dtd/sun-ejb-jar_3_0-0.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-ejb-jar_3_0-0.dtd">
+         </public>
+
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Sun Java System Web Server 6.0//EN"
+               uri="$nl$/catalog-dtd/sun-loadbalancer_1_0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Sun ONE Application Server 7.1//EN"
+               uri="$nl$/catalog-dtd/sun-loadbalancer_1_1.dtd">
+         </public>
+         
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Application Server 8.0 Domain//EN"
+               uri="$nl$/catalog-dtd/sun-resources_1_0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Application Server 9.0 Domain//EN"
+               uri="$nl$/catalog-dtd/sun-resources_1_2.dtd">
+         </public>
+
+         <public
+               publicId="-//Sun Microsystems Inc.//DTD Sun ONE Application Server 7.0//EN"
+               uri="$nl$/catalog-dtd/sun-server_1_0.dtd">
+         </public>
+
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 7.0 Servlet 2.3//EN"
+               uri="$nl$/catalog-dtd/sun-web-app_2_3-0.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-web-app_2_3-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 7.0 Servlet 2.3//EN"
+               uri="$nl$/catalog-dtd/sun-web-app_2_3-1.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-web-app_2_3-1.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Sun ONE Application Server 8.0 Servlet 2.4//EN"
+               uri="$nl$/catalog-dtd/sun-web-app_2_4-0.dtd"
+               webURL="http://www.sun.com/software/sunone/appserver/dtds/sun-web-app_2_4-0.dtd">
+         </public>
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Application Server 8.1 Servlet 2.4//EN"
+               uri="$nl$/catalog-dtd/sun-web-app_2_4-1.dtd"
+               webURL="http://www.sun.com/software/appserver/dtds/sun-web-app_2_4-1.dtd">
+         </public>
+		<!-- End Sun Glassfish -->
+         <public
+               publicId="-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN"
+               uri="$nl$/catalog-dtd/facelet-taglib_1_0.dtd"
+               webURL="http://java.sun.com/dtd/facelet-taglib_1_0.dtd">
+         </public>
+
+         <system
+               systemId="http://java.sun.com/xml/ns/javaee/"
+               uri="$nl$/catalog-xsd/javaee_5.xsd">
+         </system>
+         <system
+               systemId="http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+               uri="$nl$/catalog-xsd/persistence_1_0.xsd"/>  
+         <system
+               systemId="http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+               uri="$nl$/catalog-xsd/orm_1_0.xsd"/>
+         <system systemId="http://java.sun.com/xml/ns/jax-ws/ri/runtime/" 
+         	   uri="$nl$/catalog-xsd/sun-jaxws.xsd" />
+         <system systemId="http://research.sun.com/wadl/2006/10"
+               uri="$nl$/catalog-xsd/wadl.xsd" />                              
+     </catalogContribution>
+     <catalogContribution id="BEA">
+         <system
+               systemId="http://www.bea.com/ns/weblogic/90/weblogic-web-app.xsd"
+               uri="$nl$/catalog-xsd/weblogic-web-app.xsd">
+         </system>
+         <system
+               systemId="http://www.bea.com/ns/weblogic/90/weblogic-application.xsd"
+               uri="$nl$/catalog-xsd/weblogic-application.xsd">
+         </system>
+         <system
+               systemId="http://www.bea.com/ns/weblogic/90/weblogic-j2ee.xsd"
+               uri="$nl$/catalog-xsd/weblogic-j2ee.xsd">
+         </system>
+     </catalogContribution>
+     <catalogContribution id="default">
+         <system systemId="http://xml.apache.org/xml-soap/deployment" uri="$nl$/catalog-xsd/dd.xsd" />         
+         <public
+               publicId="-//W3C//DTD XMLSCHEMA 200102//EN"
+               uri="$nl$/catalog-dtd/XMLSchema.dtd">
+         </public>
+         <public
+               publicId="-//W3C//ENTITIES Special for XHTML//EN"
+               uri="$nl$/catalog-dtd/xhtml-special.ent">
+         </public>
+         <public
+               publicId="-//W3C//ENTITIES Symbols for XHTML//EN"
+               uri="$nl$/catalog-dtd/xhtml-symbol.ent">
+         </public>
+         <public
+               publicId="-//W3C//ENTITIES Latin 1 for XHTML//EN"
+               uri="$nl$/catalog-dtd/xhtml-lat1.ent">
+         </public>
+         <public
+               publicId="datatypes"
+               uri="$nl$/catalog-dtd/datatypes.dtd">
+         </public>
+<!--         <public
+               publicId="-//IBM Corporation, Inc.//DTD J2EE JAX-RPC mapping 1.0//EN"
+               uri="catalog-dtd/j2ee_jaxrpc_mapping_1_0.dtd ">
+         </public> -->
+         <public
+               publicId="-//IBM Corporation, Inc.//DTD J2EE Web services 1.0//EN"
+               uri="$nl$/catalog-dtd/j2ee_web_services_1_0.dtd">
+         </public> 
+         <public
+               publicId="-//IBM Corporation, Inc.//DTD J2EE Web services client 1.0//EN"
+               uri="$nl$/catalog-dtd/j2ee_web_services_client_1_0.dtd">
+         </public>          
+         
+         <!-- Hibernate DTDs -->
+         <public
+               publicId="-//Hibernate/Hibernate Mapping DTD 1.1//EN"
+               uri="$nl$/catalog-dtd/hibernate-mapping-1.1.dtd">
+         </public>          
+         <public
+               publicId="-//Hibernate/Hibernate Mapping DTD 2.0//EN"
+               uri="$nl$/catalog-dtd/hibernate-mapping-2.0.dtd">
+         </public>       
+          <public
+               publicId="-//Hibernate/Hibernate Configuration DTD 2.0//EN"
+               uri="$nl$/catalog-dtd/hibernate-configuration-2.0.dtd">
+         </public>         
+         <public 
+         	   publicId="-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+			   uri="$nl$/catalog-dtd/hibernate-mapping-3.0.dtd"
+			   webURL="http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+		 </public>			   
+         <public 
+         	   publicId="-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+               uri="$nl$/catalog-dtd/hibernate-configuration-3.0.dtd"
+               webURL="http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+		 </public>               
+          <public 
+         	   publicId="-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN"
+               uri="$nl$/catalog-dtd/hibernate-reverse-engineering-3.0.dtd"
+               webURL="http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+		 </public>   
+		 
+         <!-- Struts DTDs -->
+         <public
+               publicId="-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0//EN"
+               uri="$nl$/catalog-dtd/validator_1_0.dtd">
+         </public>          
+         <public
+               publicId="-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.0.1//EN"
+               uri="$nl$/catalog-dtd/validator_1_0_1.dtd">
+         </public>          
+         <public
+               publicId="-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1//EN"
+               uri="$nl$/catalog-dtd/validator_1_1.dtd">
+         </public>          
+         <public
+               publicId="-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+               uri="$nl$/catalog-dtd/validator_1_1_3.dtd">
+         </public>          
+         <public
+               publicId="-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+               uri="$nl$/catalog-dtd/validator_1_3_0.dtd">
+         </public> 
+         <public
+               publicId="-//Apache Software Foundation//DTD Struts Configuration 1.0//EN"
+               uri="$nl$/catalog-dtd/struts-config_1_0.dtd">
+         </public>          
+         <public
+               publicId="-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+               uri="$nl$/catalog-dtd/struts-config_1_1.dtd">
+         </public> 
+         <public
+               publicId="-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+               uri="$nl$/catalog-dtd/struts-config_1_2.dtd">
+         </public>                    
+         <public
+               publicId="-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+               uri="$nl$/catalog-dtd/struts-config_1_3.dtd">
+         </public>                    
+         <public
+               publicId="-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+               uri="$nl$/catalog-dtd/struts-2.1.dtd">
+         </public>
+         <public
+               publicId="-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+               uri="$nl$/catalog-dtd/struts-2.1.7.dtd">
+         </public>            
+         <public
+               publicId="-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+               uri="$nl$/catalog-dtd/tiles-config_1_1.dtd">
+         </public>       
+         <public
+               publicId="-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+               uri="$nl$/catalog-dtd/tiles-config_1_3.dtd">
+         </public>       
+         
+         <!-- Tapestry DTDs -->
+         <public
+               publicId="-//Howard Lewis Ship//Tapestry Script 1.2//EN"
+               uri="$nl$/catalog-dtd/Tapestry-Script_1_2.dtd">
+         </public>
+         
+         <!-- BEA Weblogic DTDs -->          
+         <public
+               publicId="-//BEA Systems, Inc.//DTD WebLogic 6.0.1 EJB//EN"
+               uri="$nl$/catalog-dtd/wls600_weblogic-ejb-jar.dtd">
+         </public>          
+         <public
+               publicId="-//BEA Systems, Inc.//DTD WebLogic 7.0.0 EJB//EN"
+               uri="$nl$/catalog-dtd/wls700_weblogic-ejb-jar.dtd">
+         </public>          
+         <public
+               publicId="-//BEA Systems, Inc.//DTD WebLogic 8.1.0 EJB//EN"
+               uri="$nl$/catalog-dtd/wls810_weblogic-ejb-jar.dtd">
+         </public>          
+         <public
+               publicId="-//BEA Systems, Inc.//DTD Web Application 8.1//EN"
+               uri="$nl$/catalog-dtd/wls810_weblogic810-web-jar.dtd">
+         </public>          
+         <public
+               publicId="-//BEA Systems, Inc.//DTD Web Application 7.0//EN"
+               uri="$nl$/catalog-dtd/wls700_weblogic700-web-jar.dtd">
+         </public>          
+         <public
+               publicId="-//BEA Systems, Inc.//DTD Web Application 6.1//EN"
+               uri="$nl$/catalog-dtd/wls600_weblogic-web-jar.dtd">
+         </public>   
+         
+         <!-- JBOSS DTDs -->       
+         <public
+               publicId="-//JBoss//DTD Web Application 2.2//EN"
+               uri="$nl$/catalog-dtd/jboss-web_2_2.dtd">
+         </public>          
+         <public
+               publicId="-//JBoss//DTD Web Application 2.3//EN"
+               uri="$nl$/catalog-dtd/jboss-web_3_0.dtd">
+         </public>   
+         <public
+               publicId="-//JBoss//DTD Web Application 2.3V2//EN"
+               uri="$nl$/catalog-dtd/jboss-web_3_2.dtd">
+         </public> 
+         <public
+               publicId="-//JBoss//DTD JBOSS 2.4//EN"
+               uri="$nl$/catalog-dtd/jboss_2_4.dtd">
+         </public>
+         <public
+               publicId="-//JBoss//DTD JBOSS 3.0//EN"
+               uri="$nl$/catalog-dtd/jboss_3_0.dtd">
+         </public>
+         <public
+               publicId="-//JBoss//DTD JBOSS 3.2//EN"
+               uri="$nl$/catalog-dtd/jboss_3_2.dtd">
+         </public>
+         <public
+               publicId="-//JBoss//DTD JBOSSCMP-JDBC 3.0//EN"
+               uri="$nl$/catalog-dtd/jbosscmp-jdbc_3_0.dtd">
+         </public>
+         <public
+               publicId="-//JBoss//DTD JBOSSCMP-JDBC 3.2//EN"
+               uri="$nl$/catalog-dtd/jbosscmp-jdbc_3_2.dtd">
+         </public>         
+         <public
+               publicId="-//JBoss//DTD JBOSS 4.0//EN"
+               uri="$nl$/catalog-dtd/jboss_4_0.dtd">
+         </public>         
+         <public
+               publicId="-//JBoss//DTD J2EE Application 1.4//EN"
+               uri="$nl$/catalog-dtd/jboss-app_4_0.dtd">
+         </public>        
+         <public
+               publicId="-//JBoss//DTD Application Client 4.0//EN"
+               uri="$nl$/catalog-dtd/jboss-client_4_0.dtd">
+         </public>        
+         <public
+               publicId="-//JBoss//DTD JBOSSCMP-JDBC 4.0//EN"
+               uri="$nl$/catalog-dtd/jbosscmp-jdbc_4_0.dtd">
+         </public>
+         <public
+               publicId="-//JBoss//DTD Web Application 2.4//EN"
+               uri="$nl$/catalog-dtd/jboss-web_4_0.dtd">
+         </public>
+         <public
+               publicId="-//JBoss//DTD JAWS 2.4//EN"
+               uri="$nl$/catalog-dtd/jaws_2_4.dtd">
+         </public>
+         <public
+               publicId="-//JBoss//DTD JAWS 3.0//EN"
+               uri="$nl$/catalog-dtd/jaws_3_0.dtd">
+         </public>
+         
+         <!-- ObjectWeb/JONAS DTDs -->
+         <public
+               publicId="-//ObjectWeb//DTD JOnAS 3.0//EN"
+               uri="$nl$/catalog-dtd/jonas-ejb-jar_3_0.dtd">
+         </public>      
+         
+         <!-- OpenSymphony DTDs -->    
+         <public
+               publicId="-//OpenSymphony Group//XWork 1.0//EN"
+               uri="$nl$/catalog-dtd/xwork-1.0.dtd">
+         </public>   
+         
+         <!-- Orion DTDs -->       
+         <public
+               publicId="-//Evermind//DTD Enterprise JavaBeans 1.0 runtime//EN"
+               uri="$nl$/catalog-dtd/orion-ejb-jar.dtd">
+         </public>          
+         <public
+               publicId="-//Evermind//DTD Enterprise JavaBeans 1.1 runtime//EN"
+               uri="$nl$/catalog-dtd/xmlns.oracle.orion-ejb-jar.dtd">
+         </public>          
+         <public
+               publicId="-//Evermind//DTD Orion Web Application 2.3//EN"
+               uri="$nl$/catalog-dtd/xmlns.oracle.orion-ejb-jar.dtd">
+         </public>
+
+         <!-- AJAX Entries -->
+         <public
+               publicId="-//GetAhead Limited//DTD Direct Web Remoting 1.0//EN"
+               uri="$nl$/catalog-dtd/dwr10.dtd">
+         </public> 
+         
+      </catalogContribution>
+   </extension>
+	
+    <extension
+          point="org.eclipse.core.runtime.adapters">
+       <factory
+             adaptableType="org.eclipse.core.resources.IProject"
+             class="com.genuitec.eclipse.j2eedt.core.URIResolverAdapterFactory">
+          <adapter type="org.eclipse.wst.sse.core.internal.util.URIResolver"/>
+       </factory>
+    </extension>
+        <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            objectClass="org.eclipse.core.resources.IResource"
+            id="ClearValidationMenuAction">
+         <action
+               class="com.genuitec.eclipse.j2eedt.ui.action.ClearValidationMarkersAction"
+               enablesFor="+"
+               id="ClearValidationAction"
+               label="%action.ClearValidationAction.label"
+               menubarPath="de.bb.bejy.eclipse.PopupMenu/validation">
+         </action>
+      </objectContribution>
+    </extension>
+    <extension point="org.eclipse.core.runtime.contentTypes"> 
+		<file-association 
+       		content-type="org.eclipse.core.runtime.xml"
+	        file-names=".mymetadata"/>
+	</extension> 
+		<!-- Contribute a URIResolverExtension for flexible projects -->
+	<extension point="org.eclipse.wst.common.uriresolver.resolverExtensions">
+      <resolverExtension
+            class="com.genuitec.eclipse.j2eedt.uriresolver.WebProjectURIResolver"
+            stage="prenormalization">
+            <projectNature value="com.genuitec.eclipse.j2eedt.core.webnature" />
+            <projectNature value="org.eclipse.wst.common.project.facet.core.nature" />
+      </resolverExtension>
+      <resolverExtension
+            class="com.genuitec.eclipse.j2eedt.uriresolver.SystemIDResolver"
+            stage="prenormalization">
+      </resolverExtension>
+   </extension>
+   
+   <extension
+           point="org.eclipse.team.core.ignore">
+           <ignore pattern="*.myeclipse" enabled="true"/>
+    </extension>
+    
+    <extension
+           point="org.eclipse.ui.editors">
+      <editor
+            class="org.jboss.tools.common.model.ui.editor.EditorPartWrapper"
+            contributorClass="org.jboss.tools.common.editor.EditorActionBarContributorWrapper"
+            default="true"
+            icon="icons/web_xml_file.gif"
+            id="org.jboss.tools.common.model.ui.editor.EditorPartWrapper"
+            matchingStrategy = "org.jboss.tools.common.core.resources.MatchingStrategyImpl"
+            name="%editor.webxml.name">
+         <contentTypeBinding contentTypeId="org.eclipse.jst.j2ee.webDD"/>
+         <contentTypeBinding contentTypeId="org.eclipse.jst.jee.ee5webDD"/>
+      </editor>
+      <editor
+          class="org.jboss.tools.jst.web.ui.editors.TLDCompoundEditor" 
+          contributorClass="org.jboss.tools.common.model.ui.texteditors.MultiPageContributor"
+            default="true"
+            icon="icons/taglib.gif"
+            id="com.genuitec.eclipse.j2eedt.core.editor.tld"
+            matchingStrategy = "org.jboss.tools.common.core.resources.MatchingStrategyImpl"
+          extensions="tld"
+            name="%editor.tld.name">
+         <contentTypeBinding contentTypeId="org.eclipse.jst.jsp.core.tldsource"/>
+      </editor>
+   </extension>
+      <extension id="e" name="XML Editors" point="org.jboss.tools.common.model.ui.xmlEditor">
+      <xmlEditor 
+         class="org.jboss.tools.jst.web.ui.editors.WebCompoundEditor" 
+         contributorClass="org.jboss.tools.common.model.ui.texteditors.MultiPageContributor" 
+         entities="FileWebApp,FileWebApp24,FileWebApp25" 
+         icon="icons/web_xml_file.gif" 
+         name="%editor.webxml.name">
+      </xmlEditor>
+      <xmlEditor class="org.jboss.tools.jst.web.ui.editors.TLDCompoundEditor" contributorClass="org.jboss.tools.common.model.ui.texteditors.MultiPageContributor" entities="FileTLD_PRO,FileTLD_1_2,FileTLD_2_0,FileTLD_2_1" icon="icons/taglib.gif" name="%editors.tld12.name">
+      </xmlEditor>
+   </extension>
+   
+    <extension point="org.eclipse.ui.editorActions">
+        <editorContribution
+            id="org.eclipse.core.runtime.xml.source.editorActions"
+            targetID="xml_source_editor">
+            <action
+                id="CleanupDocument"
+                label="%CleanupDocument_label"
+                definitionId="org.eclipse.wst.sse.ui.cleanup.document"
+                tooltip="%CleanupDocument_tooltip"
+                class="org.eclipse.wst.xml.ui.internal.actions.CleanupActionXMLDelegate"
+                actionID="CleanupDocument">
+            </action>
+            <action
+                id="ToggleComment"
+                label="%ToggleComment_label"
+                definitionId="org.eclipse.wst.sse.ui.toggle.comment"
+                tooltip="%ToggleComment_tooltip"
+                class="org.eclipse.wst.xml.ui.internal.actions.ToggleCommentActionXMLDelegate"
+                actionID="ToggleComment">
+            </action>
+            <action
+                id="AddBlockComment"
+                label="%AddBlockComment_label"
+                definitionId="org.eclipse.wst.sse.ui.add.block.comment"
+                tooltip="%AddBlockComment_tooltip"
+                class="org.eclipse.wst.xml.ui.internal.actions.AddBlockCommentActionXMLDelegate"
+                actionID="AddBlockComment">
+            </action>
+            <action
+                id="RemoveBlockComment"
+                label="%RemoveBlockComment_label"
+                definitionId="org.eclipse.wst.sse.ui.remove.block.comment"
+                tooltip="%RemoveBlockComment_tooltip"
+                class="org.eclipse.wst.xml.ui.internal.actions.RemoveBlockCommentActionXMLDelegate"
+                actionID="RemoveBlockComment">
+            </action>
+            <action
+                id="FindOccurrences"
+                label="%FindOccurrences_label"
+                definitionId="org.eclipse.wst.sse.ui.search.find.occurrences"
+                class="org.eclipse.wst.xml.ui.internal.search.XMLFindOccurrencesActionDelegate"
+                actionID="FindOccurrences">
+            </action>
+            <action
+                id="StructureSelectEnclosing"
+                label="%StructureSelectEnclosing_label"
+                definitionId="org.eclipse.wst.sse.ui.structure.select.enclosing"
+                tooltip="%StructureSelectEnclosing_tooltip"
+                class="org.eclipse.wst.xml.ui.internal.selection.StructuredSelectEnclosingXMLActionDelegate"
+                actionID="StructureSelectEnclosing">
+            </action>
+            <action
+                id="StructureSelectNext"
+                label="%StructureSelectNext_label"
+                definitionId="org.eclipse.wst.sse.ui.structure.select.next"
+                tooltip="%StructureSelectNext_tooltip"
+                class="org.eclipse.wst.xml.ui.internal.selection.StructuredSelectNextXMLActionDelegate"
+                actionID="StructureSelectNext">
+            </action>
+            <action
+                id="StructureSelectPrevious"
+                label="%StructureSelectPrevious_label"
+                definitionId="org.eclipse.wst.sse.ui.structure.select.previous"
+                tooltip="%StructureSelectPrevious_tooltip"
+                class="org.eclipse.wst.xml.ui.internal.selection.StructuredSelectPreviousXMLActionDelegate"
+                actionID="StructureSelectPrevious">
+            </action>
+            <action
+                id="StructureSelectHistory"
+                label="%StructureSelectHistory_label"
+                definitionId="org.eclipse.wst.sse.ui.structure.select.last"
+                tooltip="%StructureSelectHistory_tooltip"
+                class="org.eclipse.wst.sse.ui.internal.selection.StructuredSelectHistoryActionDelegate"
+                actionID="StructureSelectHistory">
+            </action>
+        </editorContribution>
+   </extension>
+    <extension
+          point="org.eclipse.ui.newWizards">
+                <wizard
+            category="com.genuitec.eclipse.myeclipse/com.genuitec.eclipse.myeclipse.web"
+            class="org.jboss.tools.jst.web.ui.wizards.newfile.NewTLDFileWizard"
+            finalPerspective="org.jboss.tools.jst.web.ui.WebDevelopmentPerspective"
+            icon="icons/new_taglib_wiz.gif"
+            id="org.jboss.tools.jst.web.ui.wizards.newfile.NewTLDFileWizard"
+            name="%wizard.tld.name"
+            preferredPerspectives="com.genuitec.myeclipse.perspective.myeclipseperspective"
+            project="false">
+         <description>
+                %wizard.tld.description
+         </description>
+         <selection class="org.eclipse.core.resources.IResource">
+         </selection>
+      </wizard>
+    </extension>
+    <extension
+          point="org.jboss.tools.common.model.classes">
+        <xclass id="org.jboss.tools.jst.web.model.tree.WebPagesTree"
+            class="com.genuitec.eclipse.j2eedt.webxml.support.MyEclipseWebProjectTree"/>
+        <xclass id="org.jboss.tools.jsf.model.helpers.pages.PagesTree"
+            class="com.genuitec.eclipse.j2eedt.webxml.support.MyEclipseWebProjectTree"/>
+    </extension>
+    <extension
+          point="org.eclipse.core.filebuffers.documentCreation">
+       <factory
+             class="com.genuitec.eclipse.j2eedt.xml.DummyDocumentFactory"
+             contentTypeId="org.eclipse.ant.core.antBuildFile">
+       </factory>
+    </extension>
+    <extension
+          point="org.eclipse.wst.common.project.facet.core.runtimes">
+       <runtime-component-type
+             id="com.genuitec.eclipse.j2eedt.jeeruntime">
+       </runtime-component-type>
+       <runtime-component-version
+             type="com.genuitec.eclipse.j2eedt.jeeruntime"
+             version="1.3">
+       </runtime-component-version>
+       <runtime-component-version
+             type="com.genuitec.eclipse.j2eedt.jeeruntime"
+             version="1.4">
+       </runtime-component-version>
+       <runtime-component-version
+             type="com.genuitec.eclipse.j2eedt.jeeruntime"
+             version="5.0">
+	   </runtime-component-version>
+       <runtime-component-version
+             type="com.genuitec.eclipse.j2eedt.jeeruntime"
+             version="6.0">
+       </runtime-component-version>
+       
+		<supported>
+			<facet
+				id="jst.web"
+				version="2.2,2.3"/>
+			<facet
+				id="jst.ejb"
+				version="1.1,2.0"/>
+			<facet
+				id="jst.ear"
+				version="1.2,1.3"/>
+			<facet
+				id="jst.connector"
+				version="1.0"/>
+			<facet
+				id="jst.appclient"
+				version="1.2,1.3"/>
+			<facet
+				id="jst.utility"
+				version="1.0"/>
+			<facet
+				id="jst.java"
+				version="1.3,1.4,5.0,6.0"/>
+			<runtime-component id="com.genuitec.eclipse.j2eedt.jeeruntime" version="1.3"/>
+		</supported>
+		<supported>
+			<facet
+				id="jst.web"
+				version="2.2,2.3,2.4"/>
+			<facet
+				id="jst.ejb"
+				version="1.1,2.0,2.1"/>
+			<facet
+				id="jst.ear"
+				version="1.2,1.3,1.4"/>
+			<facet
+				id="jst.connector"
+				version="1.0,1.5"/>
+			<facet
+				id="jst.appclient"
+				version="1.2,1.3,1.4"/>
+			<facet
+				id="jst.utility"
+				version="1.0"/>
+			<facet
+				id="jst.java"
+				version="1.3,1.4,5.0,6.0"/>
+			<runtime-component id="com.genuitec.eclipse.j2eedt.jeeruntime" version="1.4"/>
+		</supported>
+		<supported>
+			<facet
+				id="jst.web"
+				version="2.2,2.3,2.4,2.5"/>
+			<facet
+				id="jst.ejb"
+				version="1.1,2.0,2.1,3.0"/>
+			<facet
+				id="jst.ear"
+				version="1.2,1.3,1.4,5.0"/>
+			<facet
+				id="jst.connector"
+				version="1.0,1.5"/>
+			<facet
+				id="jst.appclient"
+				version="1.2,1.3,1.4,5.0"/>
+			<facet
+				id="jst.utility"
+				version="1.0"/>
+			<facet
+				id="jst.java"
+				version="1.3,1.4,5.0,6.0"/>
+			<runtime-component id="com.genuitec.eclipse.j2eedt.jeeruntime" version="5.0"/>
+		</supported>
+		<supported>
+			<facet
+				id="jst.web"
+				version="2.2,2.3,2.4,2.5,3.0"/>
+			<facet
+				id="jst.ejb"
+				version="1.1,2.0,2.1,3.0,3.1"/>
+			<facet
+				id="jst.ear"
+				version="1.2,1.3,1.4,5.0,6.0"/>
+			<facet
+				id="jst.connector"
+				version="1.0,1.5"/>
+			<facet
+				id="jst.appclient"
+				version="1.2,1.3,1.4,5.0,6.0"/>
+			<facet
+				id="jst.utility"
+				version="1.0"/>
+			<facet
+				id="jst.java"
+				version="1.3,1.4,5.0,6.0"/>
+			<runtime-component id="com.genuitec.eclipse.j2eedt.jeeruntime" version="6.0"/>
+		</supported>
+  <adapter>
+     <runtime-component
+           id="com.genuitec.eclipse.j2eedt.jeeruntime"/>
+     <factory
+           class="com.genuitec.eclipse.j2eedt.core.wtpsupport.ClasspathProviderFactory">
+     </factory>
+     <type
+           class="org.eclipse.jst.common.project.facet.core.IClasspathProvider">
+     </type>
+  </adapter>
+    </extension>
+    
+    <extension
+          point="org.eclipse.wst.common.project.facet.core.runtimeBridges">
+       <bridge
+             class="com.genuitec.eclipse.j2eedt.core.wtpsupport.JeeRuntimesBridge"
+             id="com.genuitec.eclipse.j2eedt.core.jeebridge">
+       </bridge>
+    </extension>
+    <extension
+          point="org.eclipse.core.expressions.propertyTesters">
+       <propertyTester
+             class="com.genuitec.eclipse.j2eedt.core.ProjectPropertyTester"
+             id="com.genuitec.eclipse.j2eedt.core.projectTester"
+             namespace="com.genuitec.myeclipse"
+             properties="isWeb, isEjb"
+             type="org.eclipse.core.resources.IProject">
+       </propertyTester>
+    </extension>
+    <extension
+          point="org.eclipse.core.expressions.definitions">
+       <definition
+             id="com.genuitec.myeclipse.isear">
+           <adapt
+               type="org.eclipse.core.resources.IProject">
+               <or>
+                   <test property="org.eclipse.core.resources.projectNature" value="com.genuitec.eclipse.j2eedt.core.earnature"/>
+			       <test property="org.eclipse.wst.common.project.facet.core.projectFacet" value="jst.ear"/>
+               </or>
+           </adapt>
+       </definition>
+       <definition
+             id="com.genuitec.myeclipse.iswar">
+           <adapt
+               type="org.eclipse.core.resources.IProject">
+               <or>
+                   <test property="org.eclipse.core.resources.projectNature" value="com.genuitec.eclipse.j2eedt.core.webnature"/>
+			       <test property="org.eclipse.wst.common.project.facet.core.projectFacet" value="jst.web"/>
+               </or>
+           </adapt>
+       </definition>
+       <definition
+             id="com.genuitec.myeclipse.isejb">
+           <adapt
+               type="org.eclipse.core.resources.IProject">
+               <or>
+                   <test property="org.eclipse.core.resources.projectNature" value="com.genuitec.eclipse.j2eedt.core.ejbnature"/>
+			       <test property="org.eclipse.wst.common.project.facet.core.projectFacet" value="jst.ejb"/>
+               </or>
+           </adapt>
+       </definition>
+       <definition
+             id="com.genuitec.myeclipse.isappclient">
+           <adapt
+               type="org.eclipse.core.resources.IProject">
+               <or>
+                   <test property="org.eclipse.wst.common.project.facet.core.projectFacet" value="jst.appclient"/>
+               </or>
+           </adapt>
+       </definition>
+    </extension>
+    <extension
+          point="org.eclipse.ui.importWizards">
+       <category
+             id="com.genuitec.myeclipse"
+             name="MyEclipse">
+       </category>
+       <wizard
+             category="com.genuitec.myeclipse"
+             class="com.genuitec.eclipse.j2eedt.core.wtpsupport.wizard.ImportProjectsWizard"
+             id="com.genuitec.eclipse.j2eedt.core.import.wtpprojects"
+             name="WTP Dynamic Web Project">
+       </wizard>
+    </extension>
+    <extension
+          id="ddvalidator"
+          name="Deployment Descriptor Validator"
+          point="org.eclipse.wst.validation.validatorV2">
+       <validator
+             build="true"
+             class="com.genuitec.eclipse.j2eedt.core.internal.DDValidator"
+             manual="true"
+             markerId="com.genuitec.eclipse.j2eedt.core.DDValidationMarker"
+             version="1">
+          <include>
+             <rules>
+                <file
+                      caseSensitive="false"
+                      name="manifest.mf"
+                      type="file">
+                </file>
+                <file
+                      caseSensitive="false"
+                      name="application.xml"
+                      type="file">
+                </file>
+                <file
+                      caseSensitive="false"
+                      name="web.xml"
+                      type="file">
+                </file>
+                <file
+                      caseSensitive="false"
+                      name="ejb-jar.xml"
+                      type="file">
+                </file>
+             </rules>
+          </include>
+       </validator>
+    </extension>
+    <extension
+          point="com.genuitec.eclipse.j2eedt.core.facetConverter">       
+       <facetConverter
+             class="com.genuitec.eclipse.j2eedt.core.facets.WebProjectFacetUpgrader"
+             nature="com.genuitec.eclipse.j2eedt.core.webnature">
+       </facetConverter>
+    </extension>
+  <extension
+          point="com.genuitec.eclipse.j2eedt.core.facetConverter">       
+       <facetConverter
+             class="com.genuitec.eclipse.j2eedt.core.facets.WebProjectFacetUpgrader"
+             nature="com.genuitec.eclipse.j2eedt.core.earnature">
+       </facetConverter>       
+    </extension>
+    <extension
+          point="com.genuitec.eclipse.j2eedt.core.facetConverter">
+       <facetConverter
+             class="com.genuitec.eclipse.j2eedt.core.facets.WebProjectFacetUpgrader"
+             nature="com.genuitec.eclipse.j2eedt.core.ejbnature">
+       </facetConverter>       
+    </extension>
+    <extension
+          point="com.genuitec.eclipse.j2eedt.core.facetConverter">
+       <facetConverter
+             class="com.genuitec.eclipse.j2eedt.core.facets.WebProjectFacetUpgrader"
+             nature="com.genuitec.eclipse.j2eedt.core.appclientnature">
+       </facetConverter>       
+    </extension>
+    <extension
+          point="org.eclipse.ui.startup">
+          <startup class="com.genuitec.eclipse.j2eedt.core.facets.UpgradeStarter"/>
+    </extension>
+</plugin>

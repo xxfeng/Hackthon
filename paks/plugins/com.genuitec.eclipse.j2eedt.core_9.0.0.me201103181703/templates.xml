@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templateLibrary>
+	<template
+		context="WebXML"
+		script="templates/web.xml.vm"
+		name="Web XML"/>
+	<template
+		context="EJB-JAR"
+		script="templates/ejb-jar.xml.vm"
+		name="EJB JAR"/>		
+	<template
+		context="EAR"
+		script="templates/application.xml.vm"
+		name="EJB Application"/>		
+</templateLibrary>

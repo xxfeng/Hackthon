@@ -1,0 +1,78 @@
+Standard: An Implementation of the JSP[tm] Standard Tag Library (JSTL)
+Release: 1.0.5 from Apache Jakarta
+
+BINARY DISTRIBUTION
+
+Thanks for downloading this release of the Standard taglib, an implementation
+of JSTL. JSTL is an effort of the Java Community Process (JCP) and
+comes out of the JSR-052 expert group. For more information on JSTL,
+please go to http://java.sun.com/products/jsp/jstl.
+
+We hope you find the tags, documents, and examples in this binary
+distribution of interest.
+
+The following two files are standalone web applications (WARs) that are
+designed to work out of the box in order to help you learn JSTL:
+
+   standard-doc.war                Documentation
+   standard-examples.war           Simple examples of JSTL tags
+
+To use this distribution with your own web applications, simply copy the JAR
+files in the 'lib' directory to your application's WEB-INF/lib directory.
+Then, import JSTL into your pages with the following directives:
+
+  CORE LIBRARY
+    EL:  <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
+    RT:  <%@ taglib prefix="c_rt" uri="http://java.sun.com/jstl/core_rt" %>
+
+  XML LIBRARY
+    EL:  <%@ taglib prefix="x" uri="http://java.sun.com/jstl/xml" %>
+    RT:  <%@ taglib prefix="x_rt" uri="http://java.sun.com/jstl/xml_rt" %>
+
+  FMT LIBRARY 
+    EL:  <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+    RT:  <%@ taglib prefix="fmt_rt" uri="http://java.sun.com/jstl/fmt_rt" %>
+
+  SQL LIBRARY
+    EL:  <%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+    RT:  <%@ taglib prefix="sql_rt" uri="http://java.sun.com/jstl/sql_rt" %>
+
+COMPATIBILITY
+
+The 1.0 version of the Standard Taglib has been tested under Tomcat 4.0.4
+and should work in any compliant JSP 1.2 container.  To use this
+distribution on earlier versions of Tomcat (such as 4.0.3), however, you
+may need to work around a container bug that prevents JAXP 1.2 classes
+from loading successfully.
+
+To do this, you should to replace the JAXP 1.2 JAR files included with
+this distribution (in the 'lib' directory) with older XML-related JAR
+files. To obtain these older, unsupported libraries, you can download the
+file named
+
+	jakarta-taglibs-standard-oldxml-compat.tar.gz
+
+or
+
+	jakarta-taglibs-standard-oldxml-compat.zip
+
+from the same directory from which you downloaded this distribution
+(http://jakarta.apache.org/builds/jakarta-taglibs/releases/standard/).
+Once you have obtained these files, install them (crimson.jar and
+xalan.jar) into your WEB-INF/lib directory in place of the following files
+from this distribution:  jaxp-api.jar, dom.jar, sax.jar, xercesImpl.jar,
+and the newer xalan.jar.
+
+Note that upgrading to Tomcat 4.0.4 is recommended and that we provide
+these older libraries as a temporary convenience for those who have not
+yet upgraded.
+
+COMMENTS AND QUESTIONS
+
+Please join the taglibs-user@jakarta.apache.org mailing list if you have
+general usage questions about JSTL.
+
+Enjoy!
+
+  -- Shawn Bayern <bayern@essentially.net>
+     on behalf of JSR-052 (JSTL) Expert Group

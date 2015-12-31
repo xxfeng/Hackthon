@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="$encoding"?>
+#if($version.equals("1.1"))
+<!DOCTYPE ejb-jar PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 1.1//EN" 
+    "http://java.sun.com/j2ee/dtds/ejb-jar_1_1.dtd">
+<ejb-jar id="ejb-jar_1">
+#elseif($version.equals("2.0"))
+<!DOCTYPE ejb-jar 
+	PUBLIC "-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN" 
+	"http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+<ejb-jar id="ejb-jar_1">
+#elseif($version.equals("2.1"))
+<ejb-jar version="2.1" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd"
+	id="ejb-jar_1">
+#else
+<ejb-jar version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_3_0.xsd"
+	id="ejb-jar_1">
+#end
+   <description><![CDATA[No Description.]]></description>
+   <enterprise-beans>
+
+      <!-- Session Beans -->
+      <session id="Session_${beanName}">
+         <ejb-name>${beanName}</ejb-name>
+         <home>${package}.${beanName}Home</home>
+         <remote>${package}.${beanName}</remote>
+         <ejb-class>${package}.${beanName}Session</ejb-class>
+         <session-type>Stateless</session-type>
+         <transaction-type>Container</transaction-type>
+      </session>
+   </enterprise-beans>
+</ejb-jar>

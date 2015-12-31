@@ -1,0 +1,62 @@
+<!-- persistent model for EAR, WEB, and EJB Projects -->
+
+<!ELEMENT enterprise-project (project-modules)>
+
+<!ATTLIST enterprise-project version 	 	  CDATA  #FIXED "1.0.0">
+<!ATTLIST enterprise-project name 	 	 	  CDATA  #REQUIRED>
+<!ATTLIST enterprise-project id 	 	 	  CDATA  #IMPLIED> <!-- relaxed for compat. purposes -->
+<!ATTLIST enterprise-project archive 	 	  CDATA  #IMPLIED>
+<!ATTLIST enterprise-project j2ee-version 	  CDATA  #IMPLIED>
+
+<!ELEMENT project-modules (project-module*)>
+<!ELEMENT project-module (project-jar*,common-jars?,jar-projects?, attributes?)>
+<!ATTLIST project-module type    (EJB | WEB)  	#REQUIRED>
+<!ATTLIST project-module name 			CDATA  	#REQUIRED>
+<!ATTLIST project-module id 			CDATA  	#IMPLIED> <!-- relaxed for compat. purposes -->
+<!ATTLIST project-module archive 		CDATA 	#IMPLIED>
+<!ATTLIST project-module context-root 	CDATA 	#IMPLIED>
+<!ATTLIST project-module j2ee-spec  	CDATA 	#IMPLIED>
+
+<!ELEMENT project-jar EMPTY>
+<!ATTLIST project-jar name	 			ID	 	#IMPLIED>
+<!ATTLIST project-jar uri 				CDATA 	#IMPLIED>
+
+
+<!ELEMENT common-jars (common-jar+)>
+<!ELEMENT common-jar EMPTY>
+<!ATTLIST common-jar variable 			CDATA 	#IMPLIED>
+<!ATTLIST common-jar uri 				CDATA 	#IMPLIED>
+
+
+<!ELEMENT jar-projects (jar-project+)>
+<!ELEMENT jar-project  EMPTY>
+<!ATTLIST jar-projects name	 			CDATA 	#IMPLIED>
+
+<!ELEMENT attributes (attribute+)>
+<!ELEMENT attribute  EMPTY>
+<!ATTLIST attribute name	 			CDATA 	#IMPLIED>
+<!ATTLIST attribute value	 			CDATA 	#IMPLIED>
+
+<!-- Example -->
+<!--
+<enterprise-project
+    name="Trader"
+    archive="Trader.ear"
+    ejb-project-name="TraderEJB"
+    web-project-name="TraderWeb">
+  <project-modules>
+     <project-module>
+          <project-jar name="TraderWebService" uri="traderwebsrvc.jar"/>
+		  <common-jars>
+		       <common-jar variable="$COMMON_JARS" uri="logger.jar">
+		       <common-jar uri="file:///c:">       
+		  </common-jars>  
+		  <jar-projects>
+		       <jar-project name="logger.jar">
+		  </jar-projects>         
+     </project-module>
+  </project-modules>
+
+
+</enterprise-project>
+-->

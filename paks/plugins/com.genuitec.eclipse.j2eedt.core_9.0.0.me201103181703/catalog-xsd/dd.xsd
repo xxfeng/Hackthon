@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Schema for Apache SOAP Deployment Descriptor -->
+<!-- Author: William A. Nagy <nagy@watson.ibm.com> -->
+<schema targetNamespace="http://xml.apache.org/xml-soap/deployment"
+  xmlns:soapdd="http://xml.apache.org/xml-soap/deployment"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified">
+
+  <simpleType name="exchangeType">
+    <restriction base="xsd:string">
+      <enumeration value="message"/>
+    </restriction>
+  </simpleType>
+
+  <simpleType name="scopeType">
+    <restriction base="xsd:string">
+      <enumeration value="Request"/>
+      <enumeration value="Session"/>
+      <enumeration value="Application"/>
+    </restriction>
+  </simpleType>
+
+  <complexType name="javaType">
+    <attribute name="class" type="xsd:string"/>
+    <attribute name="static" type="xsd:boolean" use="optional"/>
+  </complexType>
+
+  <complexType name="scriptType">
+    <simpleContent>
+      <extension base="xsd:string">
+        <attribute name="language" type="xsd:string"/>
+        <attribute name="source" type="xsd:string" use="optional"/>
+      </extension>
+    </simpleContent>
+  </complexType>
+
+  <complexType name="optionType">
+    <attribute name="key" type="xsd:string"/>
+    <attribute name="value" type="xsd:string"/>
+  </complexType>
+
+  <complexType name="providerType">
+    <sequence>
+      <choice>
+        <element name="java" type="soapdd:javaType" minOccurs="0" maxOccurs="1"/>
+        <element name="script" type="soapdd:scriptType" minOccurs="0" maxOccurs="1"/>
+      </choice>
+      <element name="option" type="soapdd:optionType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="type" type="xsd:NMTOKEN"/>
+    <attribute name="scope" type="soapdd:scopeType"/>
+    <attribute name="methods" type="xsd:NMTOKENS"/>
+  </complexType>
+
+  <complexType name="mapType">
+    <attribute name="encodingStyle" type="xsd:anyURI"/>
+    <attribute name="qname" type="xsd:string" use="optional"/>
+    <attribute name="javaType" type="xsd:string" use="optional"/>
+    <attribute name="java2XMLClassName" type="xsd:string" use="optional"/>
+    <attribute name="xml2JavaClassName" type="xsd:string" use="optional"/>
+  </complexType>
+
+  <complexType name="mappingsType">
+    <sequence>
+      <element name="map" type="soapdd:mapType" minOccurs="0" maxOccurs="unbounded"/>
+    </sequence>
+    <attribute name="defaultRegistryClass" type="xsd:string" use="optional"/>
+  </complexType>
+
+  <element name="service">
+    <complexType>
+      <sequence>
+        <element name="provider" type="soapdd:providerType"/>
+        <element name="faultListener" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        <element name="mappings" type="soapdd:mappingsType" minOccurs="0"/>
+      </sequence>
+      <attribute name="id" type="xsd:anyURI"/>
+      <attribute name="type" type="soapdd:exchangeType" use="optional"/>
+      <attribute name="checkMustUnderstands" type="xsd:boolean" use="optional"/>
+    </complexType>
+  </element>
+
+</schema>

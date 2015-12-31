@@ -1,0 +1,185 @@
+<!--
+This is the dtd defining the runtime binding information
+for a J2EE application in Sun's J2EE Reference Implementation.
+
+DISCLAIMER: This format is not supported in the 1.0 release. The format
+may change without notice between major or minor version.
+
+Not for general distibution.
+
+Version: 1.0
+Author: Danny Coward: Danny.Coward@Sun.Com
+Date: December 2nd 1999
+-->
+
+<!--
+This is the root element of the runtime descriptor document.
+-->
+<!ELEMENT j2ee-ri-specific-information ( server-name,  rolemapping, web*, enterprise-beans?) >
+
+<!--
+This is the root element for container manager persistence information for an entity bean.
+-->
+<!ELEMENT cmp ( ds-jndi-name, default-resource-principal?, sql-statement*, table-create-sql, table-remove-sql, create-table-deploy, 
+delete-table-undeploy )>
+
+<!--
+This element indicates whether to create the cmp table during deployment or not. Takes the values true or false.
+-->
+<!ELEMENT create-table-deploy (#PCDATA)>
+
+<!--
+This element contains a human readble name.
+-->
+<!ELEMENT display-name (#PCDATA)>
+
+<!--
+This element indicates whether to delete the cmp table during undeployment of the entity bean.
+-->
+<!ELEMENT delete-table-undeploy (#PCDATA)>
+
+<!--
+This is the root element describing the default principal that the container will use to access a resource.
+-->
+<!ELEMENT default-resource-principal ( name,  password)>
+
+<!--
+The text value of this element is the jndi name of a data source..
+-->
+<!ELEMENT ds-jndi-name (#PCDATA)>
+
+<!--
+This is the root element whoch binds an ejb reference to a jndi name.
+-->
+<!ELEMENT ejb-ref (ejb-ref-name,  jndi-name)>
+
+<!--
+The ejb ref name locates the name of the ejb reference in the application.
+-->
+<!ELEMENT ejb-ref-name (#PCDATA)>
+
+<!--
+This is the root element describing runtime bindings for a single ejb.
+-->
+<!ELEMENT ejb ( ejb-name, jndi-name, cmp? )>
+
+<!--
+The text in this element macthes the display name of the ejb to whoch it refers.
+-->
+<!ELEMENT ejb-name (#PCDATA)>
+
+<!--
+This is the root element describing all the runtime bindings of all the ejbs in the application.
+-->
+<!ELEMENT enterprise-beans ( ejb*, resource-ref*, ejb-ref* )>
+
+<!--
+This is the root element describing all the data about a user-group.
+-->
+<!ELEMENT group EMPTY>
+
+<!--
+The name attribute of a group is the name of the user group.
+-->
+<!ATTLIST group name NMTOKEN #REQUIRED>
+
+<!--
+This si the root element describing a set of groups.
+-->
+<!ELEMENT groups (group*)>
+
+<!--
+The text in this node is a jndi name.
+-->
+<!ELEMENT  jndi-name (#PCDATA)>
+
+<!--
+This is the root element describing the runtime bindings of a mail resource reference.
+-->
+<!ELEMENT mail-configuration (name, mail-from, mail-to)>
+
+<!--
+This node holds the address of the sender.
+-->
+<!ELEMENT mail-from (#PCDATA)>
+
+<!--
+This node holds the mail to information of a JavaMail session object.
+-->
+<!ELEMENT mail-to (#PCDATA)>
+
+<!--
+This text nodes holds a name string.
+-->
+<!ELEMENT name (#PCDATA)>
+
+<!--
+This element holds password text.
+-->
+<!ELEMENT password (#PCDATA)>
+
+<!--
+This node describes a username on the platform.
+-->
+<!ELEMENT principal (name)>
+
+<!--
+This node holds a list of usernames.
+-->
+<!ELEMENT principals (principal*)>
+
+<!--
+The name of a resource reference.
+-->
+<!ELEMENT res-ref-name (#PCDATA)>
+
+<!--
+This node holds all the runtime bindings of a resource reference.
+-->
+<!ELEMENT resource-ref  ( res-ref-name, jndi-name,  default-resource-principal?,  mail-configuration?)>
+
+<!--
+This node holds the mapping of roles to usernames and user groups on the server.
+-->
+<!ELEMENT rolemapping (role*)>
+
+<!--
+This node holds the mapping of a role to a list of users and user-groups.
+-->
+<!ELEMENT role (principals, groups )>
+
+<!--
+The name attribute of a role is the rolename of that role.
+-->
+<!ATTLIST role name NMTOKEN #REQUIRED>
+
+<!--
+The text of this node is an SQL statement.
+-->
+<!ELEMENT sql (#PCDATA)>
+
+<!--
+This node associates an sql statement with a method (on an entity bean with CMP).
+-->
+<!ELEMENT sql-statement ( method, sql)>
+
+<!--
+The text in this node is the sql statement that is used to create a table for an entity bean with CMP.
+-->
+<!ELEMENT  table-create-sql (#PCDATA)>
+
+<!--
+The text in this node is the sql statement that is used to delete the table for an entity bean with CMP.
+-->
+<!ELEMENT table-remove-sql (#PCDATA)>
+
+<!--
+This node holds the name of the server on to which the application is being deployed. Not currently used for anything.
+-->
+<!ELEMENT server-name (#PCDATA)>
+
+<!--
+This node holds all the runtime bindings for a web component within the application.
+-->
+<!ELEMENT web (display-name, context-root, resource-ref*, ejb-ref*)>
+
