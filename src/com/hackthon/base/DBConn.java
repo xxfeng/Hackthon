@@ -1,5 +1,6 @@
 package com.hackthon.base;
 
+import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,135 +8,150 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBConn {
-	Connection _CONN = null;  
-    
-    //取得连接  
-    private boolean GetConn(String sUser, String sPwd) {  
-        if(_CONN!=null)return true;  
-        try {             
-            String sDriverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";  
-            //Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver");
-            // String sDBUrl ="jdbc:sqlserver://192.168.0.74;databaseName=wakeup";  
-            String sDBUrl = "jdbc:sqlserver://211.144.121.114:1433;databaseName=TVDramaDemoOfBlog";  
-  
-            Class.forName(sDriverName);  
-            _CONN = DriverManager.getConnection(sDBUrl, sUser, sPwd);  
-  
-        } catch (Exception ex) {  
-            // ex.printStackTrace();  
-            System.out.println(ex.toString());  
-            return false;  
-        }  
-        return true;  
-    }  
-      
-    private boolean GetConn()  
-    {  
-        return GetConn("xxfeng","xxfeng1990");  
-    }  
-      
-    //关闭连接  
-    private void CloseConn()  
-    {  
-        try {  
-            _CONN.close();  
-            _CONN = null;  
-        } catch (Exception ex) {  
-            System.out.println(ex.getMessage());  
-            _CONN=null;   
-        }  
-    }  
-   
-      
-    //测试连接  
-    public boolean TestConn() {  
-        if (!GetConn())  
-            return false;  
-  
-        CloseConn();  
-        return true;  
-    }  
-      
-    public ResultSet GetResultSet(String sSQL,Object[] objParams)  
-    {  
-        GetConn();  
-        ResultSet rs=null;  
-        try  
-        {  
-            PreparedStatement ps = _CONN.prepareStatement(sSQL);  
-            if(objParams!=null)  
-            {  
-                for(int i=0;i< objParams.length;i++)  
-                {  
-                    ps.setObject(i+1, objParams[i]);  
-                }  
-            }  
-            rs=ps.executeQuery();  
-        }catch(Exception ex)  
-        {  
-            System.out.println(ex.getMessage());  
-            CloseConn();  
-        }  
-        finally  
-        {  
-            //CloseConn();            
-        }  
-        return rs;  
-    }  
-      
-    public Object GetSingle(String sSQL,Object... objParams)  
-    {  
-        GetConn();  
-        try  
-        {  
-            PreparedStatement ps = _CONN.prepareStatement(sSQL);  
-            if(objParams!=null)  
-            {  
-                for(int i=0;i< objParams.length;i++)  
-                {  
-                    ps.setObject(i+1, objParams[i]);  
-                }  
-            }  
-            ResultSet rs=ps.executeQuery();  
-            if(rs.next())  
-                return rs.getString(1);//索引从1开始  
-        }catch(Exception ex)  
-        {  
-            System.out.println(ex.getMessage());  
-        }  
-        finally  
-        {  
-            CloseConn();              
-        }  
-        return null;  
-    }  
-  
-    public int UpdateData(String sSQL,Object[] objParams)  
-    {  
-        GetConn();  
-        int iResult=0;  
-          
-        try  
-        {  
-            PreparedStatement ps = _CONN.prepareStatement(sSQL);  
-            if(objParams!=null)  
-            {  
-                for(int i=0;i< objParams.length;i++)  
-                {  
-                    ps.setObject(i+1, objParams[i]);  
-                }  
-            }  
-            iResult = ps.executeUpdate(sSQL);  
-        }catch(Exception ex)  
-        {  
-            System.out.println(ex.getMessage());  
-            return -1;  
-        }  
-        finally  
-        {  
-            CloseConn();              
-        }  
-        return iResult;  
-    }  
-}
+	final static String  serverURL = "localhost"; 
+	final static int serverPort = 3306;
+	final static String schema = "Hackthon";
+	final static String dbUserName = "root";
+	final static String dbPass = "199010";
+	
+	private Connection conn = null;
+	PreparedStatement statement = null;
 
+	// connect to MySQL
+	void connSQL() {
+		String url = "jdbc:mysql://"+serverURL+":"+serverPort+"/"+schema+"?characterEncoding=UTF-8";
+		// 加载驱动程序以连接数据库 
+		try { 
+			Class.forName("com.mysql.jdbc.Driver" ); 
+			conn = DriverManager.getConnection( url,dbUserName, dbPass ); 
+			}
+		//捕获加载驱动程序异常
+		 catch ( ClassNotFoundException cnfex ) {
+			 System.err.println(
+			 "装载 JDBC/ODBC 驱动程序失败。" );
+			 cnfex.printStackTrace(); 
+		 } 
+		 //捕获连接数据库异常
+		 catch ( SQLException sqlex ) {
+			 System.err.println( "无法连接数据库" );
+			 sqlex.printStackTrace(); 
+		 }
+	}
+
+	// disconnect to MySQL
+	void deconnSQL() {
+		try {
+			if (conn != null)
+				conn.close();
+		} catch (Exception e) {
+			System.out.println("关闭数据库问题 ：");
+			e.printStackTrace();
+		}
+	}
+
+	// execute selection language
+	ResultSet selectSQL(String sql) {
+		ResultSet rs = null;
+		try {
+			statement = conn.prepareStatement(sql);
+			rs = statement.executeQuery(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return rs;
+	}
+
+	// execute insertion language
+	boolean insertSQL(String sql) {
+		try {
+			statement = conn.prepareStatement(sql);
+			statement.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			System.out.println("插入数据库时出错：");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("插入时出错：");
+			e.printStackTrace();
+		}
+		return false;
+	}
+	//execute delete language
+	boolean deleteSQL(String sql) {
+		try {
+			statement = conn.prepareStatement(sql);
+			statement.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			System.out.println("插入数据库时出错：");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("插入时出错：");
+			e.printStackTrace();
+		}
+		return false;
+	}
+	//execute update language
+	boolean updateSQL(String sql) {
+		try {
+			statement = conn.prepareStatement(sql);
+			statement.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			System.out.println("插入数据库时出错：");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("插入时出错：");
+			e.printStackTrace();
+		}
+		return false;
+	}
+	// show data in ju_users
+	void layoutStyle2(ResultSet rs) {
+		System.out.println("-----------------");
+		System.out.println("执行结果如下所示:");
+		System.out.println("-----------------");
+		try {
+			while (rs.next()) {
+				System.out.println(rs.getString(1)+ "\t"
+						+ rs.getString(2) + "\t"
+						+ rs.getString(3));
+			}
+		} catch (SQLException e) {
+			System.out.println("显示时数据库出错。");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("显示出错。");
+			e.printStackTrace();
+		}
+	}
+
+	public static void main(String args[]) {
+
+		DBConn conn = new DBConn();
+		conn.connSQL();
+		String s = "select * from User";
+
+		String insert = "insert into User(username,password,status) values('Andy','123456','active')";
+		String update = "update User set password ='199000' where username= 'Andy'";
+		String delete = "delete from User where username= 'mm'";
+
+		if (conn.insertSQL(insert) == true) {
+			System.out.println("insert successfully");
+			ResultSet resultSet = conn.selectSQL(s);
+			conn.layoutStyle2(resultSet);
+		}
+		if (conn.updateSQL(update) == true) {
+			System.out.println("update successfully");
+			ResultSet resultSet = conn.selectSQL(s);	
+			conn.layoutStyle2(resultSet);
+		}
+		if (conn.insertSQL(delete) == true) {
+			System.out.println("delete successfully");
+			ResultSet resultSet = conn.selectSQL(s);
+			conn.layoutStyle2(resultSet);
+		}
+		
+		conn.deconnSQL();
+	}
+}
