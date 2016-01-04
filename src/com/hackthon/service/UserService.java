@@ -7,57 +7,31 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hackthon.dao.UserDao;
-import com.hackthon.domain.userdata;
+import com.hackthon.domain.User;
+import com.hackthon.persistence.UserDataPersistence;
 
-/**
- * @author 作者 Email:xiangping165@sina.com
- * @version 创建时间：2013-12-15下午10:33:35
- * @类说明 用户管理
- */
+
+
 @Service
 public class UserService {
-
 	@Autowired
-	private UserDao userDao;
-
-	/**
-	 * 用户登录
-	 * 
-	 * @param userName
-	 *            用户名
-	 * @param passWord
-	 *            密码
-	 * @return 当前登录用户
-	 */
-	public userdata login(String userName, String passWord) {
-
-		// 构建查询条件
-		Map<String, Object> queryMap = new HashMap<String, Object>();
-		queryMap.put("username", userName);
-		queryMap.put("password", passWord);
-
-		List<userdata> userList = userDao.findUser(queryMap);
-		if (userList != null && userList.size() != 0) {
-
-			return userList.get(0);
-
+	private UserDataPersistence userDataPersistence;
+	
+	public User login(String username, String password) throws Exception {
+		if(username == null || password == null)
+			throw new Exception("Either username or password is empty.");
+		User user = userDataPersistence.findUser(username);
+		if (user != null ) {
+			if(!password.equals(user.getPassword()))
+					throw new Exception("User cannot be authenticated.");
+			return user;
 		} else {
-			return null;
+			throw new Exception("User cannot be found.");
 		}
 
 	}
-
-	/**
-	 * 用户注册
-	 * 
-	 * @param userName
-	 *            用户名
-	 * @param passWord
-	 *            密码
-	 * @return 返回当前注册用户
-	 */
-	public userdata register(String firstName,String secondName,String email,String userName, String passWord) {
+	
+	public void register(String firstName,String secondName,String userName, String passWord) {
 
 		// 构建查询条件
 		Map<String, Object> queryMap = new HashMap<String, Object>();
