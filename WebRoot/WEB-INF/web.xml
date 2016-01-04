@@ -4,13 +4,22 @@
     <servlet-name>mainservlet</servlet-name>
     <servlet-class>
 	org.springframework.web.servlet.DispatcherServlet
-	
 	</servlet-class>
     <load-on-startup>3</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>mainservlet</servlet-name>
     <url-pattern>*.htm</url-pattern>
+  </servlet-mapping>
+  <!-- servlet for web services -->
+  <servlet>
+    <servlet-name>web-service</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>web-service</servlet-name>
+    <url-pattern>/greeting/*</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>Set Character Encoding</filter-name>
