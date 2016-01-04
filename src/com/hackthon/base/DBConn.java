@@ -1,6 +1,5 @@
 package com.hackthon.base;
 
-import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,25 +14,45 @@ public class DBConn {
 	final static String dbPass = "199010";
 	
 	private Connection conn = null;
+	private static DBConn instance = null;
 	PreparedStatement statement = null;
-
+	private DBConn(){
+		
+	}
+	
+	/*
+	 * return db instance
+	 */
+    public static DBConn getInstance()
+    {
+    	if(instance == null)
+    	{
+    		instance = new DBConn();
+    		instance.connSQL();
+    	}
+    	return instance;
+    }
+    
+    public void destroy()
+    {
+    	instance.deconnSQL();
+    	instance = null;
+    }
+    
 	// connect to MySQL
-	void connSQL() {
+	private void connSQL() {
 		String url = "jdbc:mysql://"+serverURL+":"+serverPort+"/"+schema+"?characterEncoding=UTF-8";
-		// 加载驱动程序以连接数据库 
 		try { 
 			Class.forName("com.mysql.jdbc.Driver" ); 
 			conn = DriverManager.getConnection( url,dbUserName, dbPass ); 
 			}
-		//捕获加载驱动程序异常
 		 catch ( ClassNotFoundException cnfex ) {
 			 System.err.println(
-			 "装载 JDBC/ODBC 驱动程序失败。" );
+			 "jdbc driver is not installed" );
 			 cnfex.printStackTrace(); 
 		 } 
-		 //捕获连接数据库异常
 		 catch ( SQLException sqlex ) {
-			 System.err.println( "无法连接数据库" );
+			 System.err.println( "failed to connect mysql" );
 			 sqlex.printStackTrace(); 
 		 }
 	}
@@ -44,13 +63,13 @@ public class DBConn {
 			if (conn != null)
 				conn.close();
 		} catch (Exception e) {
-			System.out.println("关闭数据库问题 ：");
+			System.out.println("failed to disconnect mysql");
 			e.printStackTrace();
 		}
 	}
 
 	// execute selection language
-	ResultSet selectSQL(String sql) {
+	public ResultSet selectSQL(String sql) {
 		ResultSet rs = null;
 		try {
 			statement = conn.prepareStatement(sql);
@@ -62,55 +81,52 @@ public class DBConn {
 	}
 
 	// execute insertion language
-	boolean insertSQL(String sql) {
+	public boolean insertSQL(String sql) {
 		try {
 			statement = conn.prepareStatement(sql);
 			statement.executeUpdate();
 			return true;
 		} catch (SQLException e) {
-			System.out.println("插入数据库时出错：");
+			System.out.println("failed to execute sql statement");
 			e.printStackTrace();
 		} catch (Exception e) {
-			System.out.println("插入时出错：");
+			System.out.println("failed to insert data.");
 			e.printStackTrace();
 		}
 		return false;
 	}
 	//execute delete language
-	boolean deleteSQL(String sql) {
+	public boolean deleteSQL(String sql) {
 		try {
 			statement = conn.prepareStatement(sql);
 			statement.executeUpdate();
 			return true;
 		} catch (SQLException e) {
-			System.out.println("插入数据库时出错：");
+			System.out.println("failed to execute sql statment");
 			e.printStackTrace();
 		} catch (Exception e) {
-			System.out.println("插入时出错：");
+			System.out.println("failed to delete data.");
 			e.printStackTrace();
 		}
 		return false;
 	}
 	//execute update language
-	boolean updateSQL(String sql) {
+	public boolean updateSQL(String sql) {
 		try {
 			statement = conn.prepareStatement(sql);
 			statement.executeUpdate();
 			return true;
 		} catch (SQLException e) {
-			System.out.println("插入数据库时出错：");
+			System.out.println("failed to execute sql statement");
 			e.printStackTrace();
 		} catch (Exception e) {
-			System.out.println("插入时出错：");
+			System.out.println("failed to update data");
 			e.printStackTrace();
 		}
 		return false;
 	}
 	// show data in ju_users
 	void layoutStyle2(ResultSet rs) {
-		System.out.println("-----------------");
-		System.out.println("执行结果如下所示:");
-		System.out.println("-----------------");
 		try {
 			while (rs.next()) {
 				System.out.println(rs.getString(1)+ "\t"
@@ -118,18 +134,17 @@ public class DBConn {
 						+ rs.getString(3));
 			}
 		} catch (SQLException e) {
-			System.out.println("显示时数据库出错。");
+			System.out.println("failed to execute sql statement");
 			e.printStackTrace();
 		} catch (Exception e) {
-			System.out.println("显示出错。");
+			System.out.println("failed to test data");
 			e.printStackTrace();
 		}
 	}
 
 	public static void main(String args[]) {
 
-		DBConn conn = new DBConn();
-		conn.connSQL();
+		DBConn conn = DBConn.getInstance();
 		String s = "select * from User";
 
 		String insert = "insert into User(username,password,status) values('Andy','123456','active')";
@@ -151,7 +166,6 @@ public class DBConn {
 			ResultSet resultSet = conn.selectSQL(s);
 			conn.layoutStyle2(resultSet);
 		}
-		
-		conn.deconnSQL();
+		conn.destroy();
 	}
 }
