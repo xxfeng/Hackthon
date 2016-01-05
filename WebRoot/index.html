@@ -27,6 +27,13 @@
    <input id="selectedFile" type="file" name="files" />
    <input id="sumitUploadFile" type="button" value="upload"/>
 </div>
+
+<!-- <form method="POST" enctype="multipart/form-data" -->
+<!-- 		action="/upload"> -->
+<!-- 		File to upload: <input type="file" name="file"><br /> Name: <input -->
+<!-- 			type="text" name="name"><br /> <br /> <input type="submit" -->
+<!-- 			value="Upload"> Press here to upload the file! -->
+<!-- 	</form> -->
 <!-- data-bind="ojComponent: {component: 'ojButton', label: 'upload'}, click:uploadFile" -->
 
 <!-- debug mode=nodebug -->
@@ -50,7 +57,8 @@
          var requestURL =  "http://localhost:8080/Hackthon/REST/upload";
          // FormData
          var form = new FormData();
-         form.append("files", fileObj);
+         form.append("file", fileObj);
+         form.append("name", "hello");
          var opts = {
              url: requestURL,
              data: form,
@@ -73,7 +81,9 @@
      }
      
      self.handleQueryRecommendParserListSuccess = function(data){
-         alert(data.msg)
+//          alert(data.msg)
+		alert(data);
+		alert("upload success");
      }
      
      self.handleQueryRecommendParserListError = function() { 
