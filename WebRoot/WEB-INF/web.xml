@@ -13,22 +13,37 @@
     <servlet-class>
 	org.springframework.web.servlet.DispatcherServlet
 	</servlet-class>
-    <load-on-startup>3</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>mainservlet</servlet-name>
-    <url-pattern>/user/*</url-pattern>
-  </servlet-mapping>
-  <!-- servlet for web services -->
-  <servlet>
-    <servlet-name>web-service</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
-    <servlet-name>web-service</servlet-name>
-    <url-pattern>/REST/*</url-pattern>
+    <servlet-name>mainservlet</servlet-name>
+    <url-pattern>*.htm</url-pattern>
   </servlet-mapping>
+  <!-- servlet for web services -->
+  
+  <!-- Add Servlet here  -->
+  <!-- userservice -->
+  <servlet>
+    <servlet-name>userservice</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>2</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userservice</servlet-name>
+    <url-pattern>/user/*</url-pattern>
+  </servlet-mapping>
+  
+  <!-- resourceservice -->
+  <servlet>
+    <servlet-name>resourceservice</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>resourceservice</servlet-name>
+    <url-pattern>/resource/*</url-pattern>
+  </servlet-mapping>
+  
   <filter>
     <filter-name>Set Character Encoding</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

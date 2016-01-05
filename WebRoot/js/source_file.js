@@ -5,7 +5,7 @@ $(document).ready(function(){
 function uploadFile() {
     var fileObj = $("#selectedFile")[0].files[0];
 
-    var requestURL =  "REST/source/upload";
+    var requestURL =  "resource/upload";
     // FormData
     var form = new FormData();
     form.append("file", fileObj);

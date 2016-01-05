@@ -10,23 +10,17 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/util
         http://www.springframework.org/schema/util/spring-util-3.0.xsd">
-        
-  	
-
-	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
-		<constructor-arg name="mongo" ref="mongo" />
-		<constructor-arg name="databaseName" value="reportdata" />
+   	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+	<constructor-arg name="mongo" ref="mongo" />
+	<constructor-arg name="databaseName" value="reportdata" />
 	</bean>
-<!-- 	Factory bean that creates the Mongo instance -->
-	 
+	<!-- Factory bean that creates the Mongo instance -->
 	<bean id="mongo" class="org.springframework.data.mongodb.core.MongoFactoryBean">
 		<property name="host" value="192.168.10.97" />
 		<property name="port" value="30000" />
 	</bean>
-
 	<!-- Activate annotation configured components -->
 	<context:annotation-config />
-
 	<!-- Scan components for annotations within the configured package -->
 	<context:component-scan base-package="com.hackthon.dao">
 		<context:exclude-filter type="annotation"
@@ -42,7 +36,7 @@
 	</context:component-scan>
 	
 	<!-- Set the controller here -->
-	<context:component-scan base-package="com.hackthon.webservice.main" />
+	<context:component-scan base-package="com.hackthon.webservice.User" />
 	
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
@@ -55,7 +49,6 @@
 			</util:list>
 		</property>
 	</bean>
-	
 	<bean id="mappingJacksonHttpMessageConverter"
 		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="supportedMediaTypes">
@@ -65,24 +58,17 @@
 			</list>
 		</property>
 	</bean>
-
 	 <bean id="utf8StringHttpMessageConverter" class="com.hackthon.util.UTF8StringHttpMessageConverter">
-		 <property name="supportedMediaTypes">
-				<list>
-					<value>text/html;charset=UTF-8</value>
-					<value>application/json;charset=UTF-8</value>
-				</list>
-		</property>
+	 <property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+				<value>application/json;charset=UTF-8</value>
+			</list>
+	</property>
 	 </bean>
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-		p:viewClass="org.springframework.web.servlet.view.JstlView"
-		p:prefix="/WEB-INF/jsp/"
-		p:suffix=".jsp"/>
-
-	<bean id="multipartResolver"
-        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-<!--          setting maximum upload size -->
-        <property name="maxUploadSize" value="1000000000" />
-    </bean>
+	p:viewClass="org.springframework.web.servlet.view.JstlView"
+	p:prefix="/WEB-INF/jsp/"
+	p:suffix=".jsp"/>
 </beans>
