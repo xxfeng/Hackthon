@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class DBConn {
 	final static String  serverURL = "localhost"; 
@@ -125,6 +126,53 @@ public class DBConn {
 		}
 		return false;
 	}
+	
+	//tackle parameters
+	public ResultSet selectSQL(String sql, Map<String, Object> params)
+	{
+		ResultSet res = null;
+		try {
+			statement = conn.prepareStatement(sql);
+			int index = 1;
+			for( String key : params.keySet())
+			{
+				statement.setObject(index, params.get(key));
+				index ++;
+			}
+		    res = statement.executeQuery();
+		} catch (SQLException e) {
+			System.out.println("failed to execute sql statement");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("failed to update data");
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	//tackle parameters
+	public boolean insertSQL(String sql, Map<String, Object> params)
+	{
+		try{
+			statement = conn.prepareStatement(sql);
+			int index = 1;
+			for( String key : params.keySet())
+			{
+				statement.setObject(index, params.get(key));
+				index ++;
+			}
+			statement.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			System.out.println("failed to execute sql statement");
+			e.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("failed to insert data");
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
 	// show data in ju_users
 	void layoutStyle2(ResultSet rs) {
 		try {

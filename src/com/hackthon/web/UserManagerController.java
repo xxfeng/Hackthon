@@ -51,24 +51,24 @@ public class UserManagerController {
 	@ResponseBody
 	public Map<String, Object> register(@RequestBody UserDataRepresentation user)
 	{ 
-    HttpSession session = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getSession();
-    Map<String, Object> returnMap = new HashMap<String, Object>();
-    
-    userService.register(user.getFirstname(), user.getLastname(), user.getUsername(), user.getPassword());
- 	int returnCode = 0;
-	if (user != null) {
-		
+		HttpSession session = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getSession();
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+	 	int returnCode = 0;
+        try
+        {
+        	User _user = userService.register(user.getFirstname(), user.getLastname(), user.getUsername(), user.getPassword());
 			returnCode = 1;
 			session.setAttribute("loginedUser", user.getUsername());
 			returnMap.put("returnCode", returnCode);
-			returnMap.put("user", user);
-		
-	} else {
-		returnCode = 0;
-		returnMap.put("returnCode", returnCode);
+			returnMap.put("user", new UserDataRepresentation(_user.getUsername(), _user.getPassword(), 
+					_user.getFirstName(), _user.getLastName()));
+        }catch(Exception err)
+        {
+        	returnCode = 0;
+        	returnMap.put("returnCode", returnCode);
 
-	}
-	return returnMap;
+        }
+        return returnMap;
 	}
 	
 	@RequestMapping("/checkout")
@@ -88,7 +88,6 @@ public class UserManagerController {
 			returnCode=0;
 			returnMap.put("returnCode", returnCode);
 		}
-		
 		return returnMap;
 	}
 

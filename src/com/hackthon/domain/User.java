@@ -83,4 +83,5 @@ public class User {
 	public void setIsAvailable(int isAvailable) {
 		this.isAvailable = isAvailable;
 	}
+	
 }
