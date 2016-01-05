@@ -1,14 +1,12 @@
 package com.hackthon.webservice;
 
-import java.io.InputStream;
-
-import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
-import org.glassfish.jersey.media.multipart.FormDataParam;
+//import java.io.InputStream;
+//import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
+//import org.glassfish.jersey.media.multipart.FormDataParam;
 //import java.io.BufferedOutputStream;
 //import java.io.File;
 //import java.io.FileOutputStream;
 //import java.io.InputStream;
-//
 //import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 //import org.glassfish.jersey.media.multipart.FormDataParam;
 import org.springframework.stereotype.Controller;
@@ -25,8 +23,7 @@ public class UploadController {
     public String uploadFile(
             @RequestParam("files") MultipartFile file) {
 //		,
-//        @RequestParam("filename") String name
-		
+//        @RequestParam("filename") String name		
 //		if (!file.isEmpty()) {
 //            try {
 //                byte[] bytes = file.getBytes();
@@ -47,12 +44,12 @@ public class UploadController {
 //	 @POST
 //	    @Consumes(MediaType.MULTIPART_FORM_DATA)
 //	    @Produces(MediaType.APPLICATION_JSON)
-	@RequestMapping(value="/uploadFile", method=RequestMethod.POST)
-	@ResponseBody
-	    public String uploadFile(
-	            @FormDataParam("targetFiles") InputStream uploadedInputStream,
-	            @FormDataParam("targetFiles") FormDataContentDisposition fileDetail,
-	            @FormDataParam("path") String path) {
+//	@RequestMapping(value="/uploadFile", method=RequestMethod.POST)
+//	@ResponseBody
+//	    public String uploadFile2(
+//	            @FormDataParam("targetFiles") InputStream uploadedInputStream,
+//	            @FormDataParam("targetFiles") FormDataContentDisposition fileDetail,
+//	            @FormDataParam("path") String path) {
 //	        String uploadedFileFS = "D:\\workspace\\ShareProject\\upload\\"; 
 //	        String fileLocation = uploadedFileFS + fileDetail.getFileName();
 //	        writeToFile(uploadedInputStream, fileLocation);
@@ -63,9 +60,9 @@ public class UploadController {
 //	        String res = "{\"msg\":\""+ output +"\"}";
 //	        return Response.status(200).entity(res).build();
 ////	        return this.buildResponse(res);
-			return "ok";
-
-	    }
+//			return "ok";
+//
+//	    }
 	
 	@RequestMapping(value="/testPost", method=RequestMethod.POST)
 	@ResponseBody
