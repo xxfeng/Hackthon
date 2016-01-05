@@ -1,5 +1,9 @@
 $(document).ready(function(){
     startCount();
+
+    $(".btn-sign-up").click(function(){
+        window.location.href='hacksonsignin.html';
+    });
 });
 
 function  startCount(){
