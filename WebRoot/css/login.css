@@ -1,0 +1,99 @@
+.clearfix, #container {
+    display: block;
+}
+#section1{
+    background: url(../lib/image/landing-page-header.jpg) 50% 0 fixed;
+    background-size: auto 602px;
+    background-position: 50% 0px;
+    box-shadow: none;
+    padding: 158px 0 0 !important;
+    /*min-height: 444px;*/
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+section .container {
+    width: auto;
+}
+.main section:first-child .container .widget_text .textwidget {
+    text-align: center;
+}
+.section1-main .textwidget {
+    width: 934px;
+    margin: 0 auto;
+    color: white;
+}
+.main section:first-child .container .widget_text .textwidget {
+    text-align: center;
+}
+.section1-main .textwidget {
+    width: 934px;
+    margin: 0 auto;
+    text-align: left;
+    color: white;
+    /* padding: 170px 0 0 0; */
+}
+.section1-main #opensource-slogan {
+    padding-top: 0;
+}
+.section1-main #opensource-slogan .right-text{
+    margin-top: 20px;
+}
+.row-fluid {
+    text-align: left;
+    float: left;
+    width: 100%;
+}
+.row-fluid .span4 {
+    width: 31.623931623931625% !important;
+}
+.row-fluid [class*="span"] {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    margin-left: 2.564102564102564%;
+}
+.row-fluid .span5 {
+    width: 40.17094017094017% !important;
+}
+.row-fluid [class*="span"] {
+    display: block;
+    width: 100%;
+    min-height: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    margin-left: 2.564102564102564%;
+}
+.section1-main .textwidget #opensource-widget-1 p {
+    font: 20px/30px "OpenSansLight", sans-serif;
+    border-left: 1px solid white;
+    color: white;
+    padding-left: 40px;
+    /* height: 100px; */
+    padding-top: 10px;
+}
+.under-slogan .col-xs-3{
+    margin-top: 200px;
+}
+
+.under-slogan .col-xs-3{
+    margin-top: 150px;
+}
+.under-slogan .col-xs-3:first-child{
+    margin-left: -50px;
+}
+.under-slogan .col-xs-3 span{
+   font-size: 30px;
+}
+
+
