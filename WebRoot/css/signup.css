@@ -1,0 +1,85 @@
+.main{
+    background: url(../lib/image/chair.jpg) 50% 0 fixed;
+    background-size: auto 602px;
+    background-position: 50% 0px;
+    box-shadow: none;
+    padding: 158px 0 0 !important;
+    /*min-height: 444px;*/
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+.fa-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0,0);
+}
+.fa-user:before {
+    content: "\f007";
+}
+.fa-group:before, .fa-users:before {
+    content: "\f0c0";
+}
+.fa-envelope-o:before {
+    content: "\f003";
+}
+.fa-key:before {
+    content: "\f084";
+}
+.fa-reply:before {
+    content: "\f112";
+}
+.signup-nav{
+    height: 200px;
+}
+.form-sign-up{
+    margin-top: 5%;
+}
+#return{
+    color: #d9d9d9;
+    font-size: 1.2em;
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 45%;
+}
+#hackson{
+    color: #d9d9d9;
+    font-size: 45px;
+    margin-left: 40%;
+}
+#signup{
+    color: #d9d9d9;
+    font-weight: 100;
+    font-size: 30px;
+    margin-left: 43%;
+
+}
+.signup-nav:after {
+    color:#222222;
+    position: absolute;
+    content: '';
+    left: 50%;
+    margin-left: -12.5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 13px 12.5px 0;
+    border-color: #222222 transparent transparent;
+    bottom: -13px;
+    -moz-transition: all 550ms ease-in-out;
+    -o-transition: all 550ms ease-in-out;
+    -webkit-transition: all 550ms ease-in-out;
+    transition: all 550ms ease-in-out;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sign up page</title>
+
+    <link rel="stylesheet" href="./lib/font-awesome-3.2.1/css/font-awesome.min.css">
+    <link href="./css/signin.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-inverse navbar-fixed-top signin-nav">
+        <div class="container">
+            <br>
+            <br>
+            <span class="title" id="hackson">Hackson</span>
+            <br>
+            <span class="title" id="signin">Sign in</span>
+        </div>
+    </nav>
+    <div class="main">
+        <div class="row form-sign-in">
+            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+                <div ui-view="" class="ng-scope">
+                    <form role="form" ng-submit="submit()" ng-if="!activate" class="ng-pristine ng-valid ng-scope">
+                        <div class="form-group" ng-class="{'has-error': errors.email}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-fw fa-envelope-o"></i></div>
+                                <input type="text" class="form-control input-lg ng-pristine ng-untouched ng-valid"
+                                       ng-model="form.email" placeholder="E-mail" ng-disabled="loading"></div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-error': errors.password}">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-fw fa-key"></i></div>
+                                <input type="password" class="form-control input-lg ng-pristine ng-untouched ng-valid"
+                                       ng-model="form.password" placeholder="Choose Password" ng-disabled="loading">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-lg btn-block" ng-disabled="loading">
+                                Sign In
+                            </button>
+                        </div>
+                        <p id="text-or" class="text-center"><em>- or -</em></p>
+                        <div class="form-group"><a href="hacksonsinup.html" class="btn btn-default btn-lg btn-block">Create a New Account</a></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="./lib/jquery-1.8.1.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.js"></script>
+
+</body>
+</html>
