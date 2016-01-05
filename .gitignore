@@ -3,3 +3,4 @@ bin/*
 paks/*
 WebRoot/WEB-INF/classes/*
 WebRoot/WEB-INF/classes/*
+/paks/
