@@ -6,7 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
                 <meta charset="utf-8">
 <title>Hello, Team 4</title>
+<script type="text/javascript" src="./common/jquery-1.7.1.min.js"> </script>
+<script type="text/javascript" src="./components/slideBox/js/jquery.slideBox.js"> </script>
 <script src="js/index.js"></script>
+<script src="js/source_file.js"></script>
+<script src="./common/bootstrap.min.js"></script>
+<script src="./common/deployviewer.min.js"></script>
+
 </head>
 <!-- META DATA -->
 <meta name="fragment" content="!">
@@ -37,54 +43,11 @@
 <!-- data-bind="ojComponent: {component: 'ojButton', label: 'upload'}, click:uploadFile" -->
 
 <!-- debug mode=nodebug -->
-<script src="./common/bootstrap.min.js"></script>
-<script src="./common/deployviewer.min.js"></script>
 
-<script type="text/javascript" src="./common/jquery-1.7.1.min.js"> </script>
-<script type="text/javascript" src="./components/slideBox/js/jquery.slideBox.js"> </script>
 </body>
 </html>
+
 <script type="text/javascript">
 // 	 recognize();
 	 $("#sumitUploadFile").bind("click", uploadFile);
-	 
-	 
-	 function uploadFile() {
-         var fileObj = $("#selectedFile")[0].files[0];
-
-         var requestURL =  "http://localhost:8080/Hackthon/REST/upload";
-         // FormData
-         var form = new FormData();
-         form.append("file", fileObj);
-         form.append("name", "hello");
-         var opts = {
-             url: requestURL,
-             data: form,
-             cache: false,
-             contentType: false,
-             processData: false,
-             type: 'POST',
-//             headers: reqHeaders,
-             success: self.handleQueryRecommendParserListSuccess,
-             error: self.handleQueryRecommendParserListError
-         };
-
-         if(form.fake) {
-             // Make sure no text encoding stuff is done by xhr
-             opts.xhr = function() { var xhr = $.ajaxSettings.xhr(); xhr.send = xhr.sendAsBinary; return xhr; }
-             opts.contentType = "multipart/form-data; boundary="+form.boundary;
-             opts.data = form.toString();
-         }
-         $.ajax(opts);
-     }
-     
-     self.handleQueryRecommendParserListSuccess = function(data){
-//          alert(data.msg)
-		alert(data);
-		alert("upload success");
-     }
-     
-     self.handleQueryRecommendParserListError = function() { 
-         alert("file upload failure");
-     }
 </script>

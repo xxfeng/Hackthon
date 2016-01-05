@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.hackthon.domain.Greeting;
 
 @Controller
+@RequestMapping("/source")
 public class UploadController {
 	private static final String template = "Hello, %s!";
 	@RequestMapping(value="/upload", method=RequestMethod.GET)
