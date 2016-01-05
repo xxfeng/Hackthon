@@ -1,6 +1,5 @@
 package com.hackthon.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hackthon.domain.User;
@@ -10,8 +9,7 @@ import com.hackthon.persistence.UserDataPersistence;
 
 @Service
 public class UserService {
-	@Autowired
-	private UserDataPersistence userDataPersistence;
+	private static UserDataPersistence userDataPersistence = new UserDataPersistence();
 	
 	public User login(String username, String password) throws Exception {
 		if(username == null || password == null)
