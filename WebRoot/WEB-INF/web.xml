@@ -4,12 +4,10 @@
 <param-name>contextConfigLocation</param-name>
 <param-value>/WEB-INF/mainservlet-servlet.xml</param-value>
 </context-param>
+	<listener>    
+	    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
 
-
-<listener>    
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-</listener>
-  
   <servlet>
     <servlet-name>mainservlet</servlet-name>
     <servlet-class>
