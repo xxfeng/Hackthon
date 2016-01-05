@@ -3,12 +3,8 @@ package com.hackthon.webservice;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import javax.servlet.ServletContext;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.hackthon.domain.Greeting;
 
 @Controller
+@RequestMapping("/source")
 public class UploadController {
 	private static final String template = "Hello, %s!";
 	private static final String DATE_FORMAT = "yyyy-MM-dd";
