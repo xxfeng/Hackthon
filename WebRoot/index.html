@@ -6,7 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
                 <meta charset="utf-8">
 <title>Hello, Team 4</title>
+<script type="text/javascript" src="./common/jquery-1.7.1.min.js"> </script>
+<script type="text/javascript" src="./components/slideBox/js/jquery.slideBox.js"> </script>
 <script src="js/index.js"></script>
+<script src="js/source_file.js"></script>
+<script src="./common/bootstrap.min.js"></script>
+<script src="./common/deployviewer.min.js"></script>
+
 </head>
 <!-- META DATA -->
 <meta name="fragment" content="!">
@@ -19,17 +25,29 @@
 </div>
 <div>
 <p>
-    <a href="greeting?name=nicole">Try hello world</a>
+    <a href="REST/greeting?name=nicole">Try hello world</a>
 </p>
 </div>
-<!-- debug mode=nodebug -->
-<script src="./common/bootstrap.min.js"></script>
-<script src="./common/deployviewer.min.js"></script>
 
-<script type="text/javascript" src="./common/jquery-1.7.1.min.js"> </script>
-<script type="text/javascript" src="./components/slideBox/js/jquery.slideBox.js"> </script>
+ <div id="uploadFileArea">
+   <input id="selectedFile" type="file" name="files" />
+   <input id="sumitUploadFile" type="button" value="upload"/>
+</div>
+
+<!-- <form method="POST" enctype="multipart/form-data" -->
+<!-- 		action="/upload"> -->
+<!-- 		File to upload: <input type="file" name="file"><br /> Name: <input -->
+<!-- 			type="text" name="name"><br /> <br /> <input type="submit" -->
+<!-- 			value="Upload"> Press here to upload the file! -->
+<!-- 	</form> -->
+<!-- data-bind="ojComponent: {component: 'ojButton', label: 'upload'}, click:uploadFile" -->
+
+<!-- debug mode=nodebug -->
+
 </body>
 </html>
+
 <script type="text/javascript">
-	 recognize();
+// 	 recognize();
+	 $("#sumitUploadFile").bind("click", uploadFile);
 </script>
