@@ -33,16 +33,15 @@ function uploadFile() {
 }
 
 function testPostJSON(){
-	var queryStr = {params:"hello"};
 	var requestURI = "resource/testPost";
 	var opts = {
-	        url: requestURI,
-	        data:queryStr,
-	        type: 'POST',
-//	        headers: reqHeaders,
-	        success: self.handleQueryCommand,
-	        error: self.handleQueryCommandError
-	    };
+	        type: "POST",
+	        url:requestURI,
+	        contentType: "application/json",
+	        data:    JSON.stringify({ "username": "name","password": "psw"}),
+			success: self.handleQueryCommand,
+		    error: self.handleQueryCommandError
+	};
 	$.ajax(opts);
 }
 self.handleQueryCommand = function(data){
