@@ -12,7 +12,8 @@ public class DBConn {
 	final static int serverPort = 3306;
 	final static String schema = "Hackthon";
 	final static String dbUserName = "root";
-	final static String dbPass = "199010";
+	//final static String dbPass = "199010";
+	final static String dbPass = "qjcy921";
 	
 	private Connection conn = null;
 	private static DBConn instance = null;
@@ -144,7 +145,7 @@ public class DBConn {
 			System.out.println("failed to execute sql statement");
 			e.printStackTrace();
 		} catch (Exception e) {
-			System.out.println("failed to update data");
+			System.out.println("failed to select data");
 			e.printStackTrace();
 		}
 		return res;

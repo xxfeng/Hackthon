@@ -10,7 +10,7 @@ import com.hackthon.persistence.UserDataPersistence;
 @Service
 public class UserService {
 	private static UserDataPersistence userDataPersistence = new UserDataPersistence();
-	
+	private static int _userid = 0;
 	public User login(String username, String password) throws Exception {
 		if(username == null || password == null)
 			throw new Exception("Either username or password is empty.");
@@ -30,6 +30,8 @@ public class UserService {
 			throw new Exception ("User exists.");
 		}
         user = new User ();
+        user.setUserid(_userid);
+        _userid ++;
         user.setFirstName(firstname);
         user.setLastName(lastname);
         user.setUsername(username);
