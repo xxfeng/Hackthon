@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./lib/Font-Awesome-3.2.1/css/font-awesome.min.css">
     <link href="./css/login.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+    
 </head>
 <body>
 
@@ -26,12 +27,12 @@
         <div id="navbar" class="navbar-collapse collapse">
             <form class="navbar-form navbar-right">
                 <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
+                    <input type="text" placeholder="Email" class="form-control" id="username">
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
+                    <input type="password" placeholder="Password" class="form-control" id="password">
                 </div>
-                <button type="submit" class="btn btn-success btn-log-in">Log in</button>
+                <button type="button" class="btn btn-success btn-log-in" onclick="login()">Log in</button>
                 <button type="button" class="btn btn-info btn-sign-up">Sign up</button>
             </form>
         </div>
@@ -74,6 +75,6 @@
 <script src="./lib/jquery-1.8.1.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
 <script src="./js/login.js"></script>
-
+<script src="./js/user.js"></script>
 </body>
 </html>
