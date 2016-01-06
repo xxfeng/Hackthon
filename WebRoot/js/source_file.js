@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$("#sumitUploadFile").bind("click", uploadFile);
+	$("#triggerTestPostJSONAJAX").bind("click", testPostJSON);
 });
 
 function uploadFile() {
@@ -31,6 +32,26 @@ function uploadFile() {
     $.ajax(opts);
 }
 
+function testPostJSON(){
+	var queryStr = {params:"hello"};
+	var requestURI = "resource/testPost";
+	var opts = {
+	        url: requestURI,
+	        data:queryStr,
+	        type: 'POST',
+//	        headers: reqHeaders,
+	        success: self.handleQueryCommand,
+	        error: self.handleQueryCommandError
+	    };
+	$.ajax(opts);
+}
+self.handleQueryCommand = function(data){
+	alert(data);
+}
+
+self.handleQueryCommandError = function(){
+	alert("post fail");
+}
 self.handleUploadFileSuccess = function(data){
 	alert(data);
 }

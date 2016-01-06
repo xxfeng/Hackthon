@@ -71,7 +71,7 @@ public class UploadController {
     public String testPost(
             @RequestParam("params")String params) {
 		System.out.println("params = " + params);
-		return "ok";
+		return "get post params="+ params;
     }
 	
 //	private void writeToFile(OutputStream out,
