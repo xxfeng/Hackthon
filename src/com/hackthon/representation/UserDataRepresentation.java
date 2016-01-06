@@ -29,6 +29,11 @@ public class UserDataRepresentation {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
+	
+	public UserDataRepresentation() {
+		
+	}
+	
 	public UserDataRepresentation(String username, String password, String firstname, String lastname) {
 		super();
 		this.username = username;
