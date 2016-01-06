@@ -32,13 +32,13 @@ public class UserManagerController {
 		int returnCode = 0;
 		try
 		{
-			System.out.println(username+password);
+			//System.out.println(username+password);
 			User user = userService.login(username, password);
 			returnCode = 1;
 			session.setAttribute("loginedUser", username);
 			returnMap.put("returnCode", returnCode);
 			returnMap.put("user", new UserDataRepresentation(user.getUsername(), user.getPassword(), 
-					user.getFirstName(), user.getLastName()));
+					user.getFirstName(), user.getLastName(), user.isAdmin()));
 		}catch(Exception err)
         {
 			returnCode = 0;
@@ -51,8 +51,6 @@ public class UserManagerController {
 	@ResponseBody
 	public Map<String, Object> register(@RequestBody UserDataRepresentation user)
 	{ 
-		System.out.println(user.getFirstname());
-		
 		HttpSession session = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getSession();
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 	 	int returnCode = 0;
@@ -62,8 +60,9 @@ public class UserManagerController {
 			returnCode = 1;
 			session.setAttribute("loginedUser", user.getUsername());
 			returnMap.put("returnCode", returnCode);
+			//Currently, we do not allow user to register admin account.
 			returnMap.put("user", new UserDataRepresentation(_user.getUsername(), _user.getPassword(), 
-					_user.getFirstName(), _user.getLastName()));
+					_user.getFirstName(), _user.getLastName(), false));
         }catch(Exception err)
         {
         	returnCode = 0;

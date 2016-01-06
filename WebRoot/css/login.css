@@ -26,17 +26,12 @@ section .container {
     width: 934px;
     margin: 0 auto;
     color: white;
+    text-align: left;
 }
 .main section:first-child .container .widget_text .textwidget {
     text-align: center;
 }
-.section1-main .textwidget {
-    width: 934px;
-    margin: 0 auto;
-    text-align: left;
-    color: white;
-    /* padding: 170px 0 0 0; */
-}
+
 .section1-main #opensource-slogan {
     padding-top: 0;
 }

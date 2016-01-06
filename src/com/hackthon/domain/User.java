@@ -14,6 +14,7 @@ public class User {
 	private long tokenCreateTime;
 	private long Expires;
 	private int isAvailable;
+	private boolean isAdmin = false;
 	
 	public String getUsername() {
 		return username;
@@ -89,6 +90,12 @@ public class User {
 	}
 	public void setUserid(int userid) {
 		this.userid = userid;
+	}
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 	
 }

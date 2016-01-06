@@ -2,32 +2,34 @@ package com.hackthon.persistence;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.hackthon.base.DBConn;
 import com.hackthon.domain.User;
 
 public class UserDataPersistence {
 	private final String selectUser = "select userid, firstname, lastname, username, password from user where username = ?";
-	private final String insertUser = "insert into user (firstname, lastname, username, password) values (?,?,?,?)";
+	private final String insertUser = "insert into user (userid, firstname, lastname, username, password) values";
 	public static final String COL_FNAME = "firstname";
 	public static final String COL_LNAME = "lastname";
 	public static final String COL_NAME = "username";
 	public static final String COL_PSSWD = "password";
 	public static final String COL_ID = "userid";
-
+	public static final String ADMIN_NAME = "nicole.qian@oracle.com";
 	public User findUser(String username)
 	{
 		DBConn instance = DBConn.getInstance();
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put(COL_NAME, username);
+		List<String> params = new ArrayList<String>();
+		params.add(username);
 		ResultSet res = instance.selectSQL(selectUser, params);
 		User user = null;
 		try {
 			while(res.next()){
 				user = new User();
 				try {
+					if(username.equals(ADMIN_NAME))
+						user.setAdmin(true);
 					user.setUserid(res.getInt(COL_ID));
 					user.setFirstName(res.getString(COL_FNAME));
 					user.setLastName(res.getString(COL_LNAME));
@@ -49,12 +51,13 @@ public class UserDataPersistence {
 	public boolean insertUser(User user)
 	{
 		DBConn instance = DBConn.getInstance();
-		Map<String, Object> params = new HashMap<String, Object>();
-		params.put(COL_FNAME, user.getFirstName());
-		params.put(COL_LNAME, user.getLastName());
-		params.put(COL_NAME, user.getUsername());
-		params.put(COL_PSSWD, user.getPassword());
-		return instance.insertSQL(insertUser, params);
+		List<String> params = new ArrayList<String>();
+		params.add(user.getFirstName());
+		params.add(user.getLastName());
+		params.add(user.getUsername());
+		params.add(user.getPassword());
+		String sql = insertUser + "("+user.getUserid()+", "+ "?,?,?,?)";
+		return instance.insertSQL(sql, params);
 	}
 
 }
