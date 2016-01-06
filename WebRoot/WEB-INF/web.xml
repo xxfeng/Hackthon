@@ -43,6 +43,18 @@
     <servlet-name>resourceservice</servlet-name>
     <url-pattern>/resource/*</url-pattern>
   </servlet-mapping>
+    
+  <!-- tableservice -->
+  <servlet>
+    <servlet-name>tableservice</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <load-on-startup>4</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tableservice</servlet-name>
+    <url-pattern>/booktable/*</url-pattern>
+  </servlet-mapping>
+  
   
   <filter>
     <filter-name>Set Character Encoding</filter-name>
