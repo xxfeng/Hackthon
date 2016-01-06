@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Map;
+import java.util.List;
 
 public class DBConn {
 
@@ -130,15 +130,15 @@ public class DBConn {
 	}
 	
 	//tackle parameters
-	public ResultSet selectSQL(String sql, Map<String, Object> params)
+	public ResultSet selectSQL(String sql, List<String> params)
 	{
 		ResultSet res = null;
 		try {
 			statement = conn.prepareStatement(sql);
 			int index = 1;
-			for( String key : params.keySet())
+			for( int i =0 ;i < params.size() ; i++)
 			{
-				statement.setObject(index, params.get(key));
+				statement.setObject(index, params.get(i));
 				index ++;
 			}
 		    res = statement.executeQuery();
@@ -153,14 +153,14 @@ public class DBConn {
 	}
 	
 	//tackle parameters
-	public boolean insertSQL(String sql, Map<String, Object> params)
+	public boolean insertSQL(String sql, List<String> params)
 	{
 		try{
 			statement = conn.prepareStatement(sql);
 			int index = 1;
-			for( String key : params.keySet())
+			for( int i =0 ;i < params.size() ; i++)
 			{
-				statement.setObject(index, params.get(key));
+				statement.setObject(index, params.get(i));
 				index ++;
 			}
 			statement.executeUpdate();
