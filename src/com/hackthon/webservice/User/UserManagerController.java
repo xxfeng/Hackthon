@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -21,7 +22,7 @@ public class UserManagerController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/login")
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Object> login(
 			@RequestParam("username") String username,
@@ -45,7 +46,7 @@ public class UserManagerController {
 		return returnMap;
 	}
 	
-	@RequestMapping("/register")
+	@RequestMapping(value = "/register",  method = RequestMethod.POST, consumes = "application/json")
 	@ResponseBody
 	public Map<String, Object> register(@RequestBody UserDataRepresentation user)
 	{ 

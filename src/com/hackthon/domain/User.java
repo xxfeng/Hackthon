@@ -2,6 +2,7 @@ package com.hackthon.domain;
 
 
 public class User {
+	private int userid;
 	private String username;
 	private String password;
 	private String createTime;
@@ -82,6 +83,12 @@ public class User {
 	}
 	public void setIsAvailable(int isAvailable) {
 		this.isAvailable = isAvailable;
+	}
+	public int getUserid() {
+		return userid;
+	}
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 	
 }

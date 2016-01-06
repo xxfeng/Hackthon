@@ -27,8 +27,16 @@
    <input id="selectedFile" type="file" name="files" />
    <input id="sumitUploadFile" type="button" value="upload"/>
 </div>
-
-
+<form  id="testForm" action="user/register" method="POST"  enctype="application/json">
+       username:<input type="text" name="username" value="test"/><br/>
+       password:<input type="text" name="password" value="123456" /><br/>
+       firstname:<input type="text" name="firstname" value="test"/><br/>
+       lastname:<input type="text" name="lastname" value="account"/><br/>
+      <input type="submit" value="sign up" />
+ </form>
+ <p>
+ <button onclick = "newUser()">sign up</button>
+ </p>
 <!-- debug mode=nodebug -->
 <script type="text/javascript" src="./common/jquery-1.7.1.min.js"> </script>
 <script type="text/javascript" src="./common/bootstrap.min.js"></script>
@@ -36,6 +44,7 @@
 <script type="text/javascript" src="./common/deployviewer.min.js"></script>
 <script type="text/javascript" src="./js/index.js"></script>
 <script type="text/javascript" src="./js/source_file.js"></script>
+<script type="text/javascript" src="./js/test.js"></script>
 </body>
 </html>
 
