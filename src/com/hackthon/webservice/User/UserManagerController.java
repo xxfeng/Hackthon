@@ -32,6 +32,7 @@ public class UserManagerController {
 		int returnCode = 0;
 		try
 		{
+			System.out.println(username+password);
 			User user = userService.login(username, password);
 			returnCode = 1;
 			session.setAttribute("loginedUser", username);
@@ -50,6 +51,8 @@ public class UserManagerController {
 	@ResponseBody
 	public Map<String, Object> register(@RequestBody UserDataRepresentation user)
 	{ 
+		System.out.println(user.getFirstname());
+		
 		HttpSession session = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest().getSession();
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 	 	int returnCode = 0;
