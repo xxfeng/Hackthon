@@ -8,12 +8,14 @@ import java.sql.SQLException;
 import java.util.Map;
 
 public class DBConn {
-	final static String  serverURL = "localhost"; 
+	final static String  serverURL = "198.11.176.153"; 
 	final static int serverPort = 3306;
 	final static String schema = "Hackthon";
 	final static String dbUserName = "root";
+	final static String dbPass = "password";
 	//final static String dbPass = "199010";
-	final static String dbPass = "qjcy921";
+
+
 	
 	private Connection conn = null;
 	private static DBConn instance = null;
