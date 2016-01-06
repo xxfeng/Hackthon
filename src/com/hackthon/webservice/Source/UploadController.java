@@ -9,11 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.hackthon.domain.User;
 
 
 @Controller
@@ -69,9 +72,9 @@ public class UploadController {
 	@RequestMapping(value="/testPost", method=RequestMethod.POST)
 	@ResponseBody
     public String testPost(
-            @RequestParam("params")String params) {
-		System.out.println("params = " + params);
-		return "get post params="+ params;
+    		@RequestBody User params) {
+		System.out.println("params = " + params.getUsername());
+		return "get post params="+ params.getUsername();
     }
 	
 //	private void writeToFile(OutputStream out,
