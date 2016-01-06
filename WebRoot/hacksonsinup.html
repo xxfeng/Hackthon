@@ -30,36 +30,36 @@
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-fw fa-user"></i></div>
                                 <input type="text" class="form-control input-lg ng-pristine ng-untouched ng-valid"
-                                       ng-model="form.first_name" placeholder="First Name" ng-disabled="loading"></div>
+                                       ng-model="form.first_name" placeholder="First Name" ng-disabled="loading" id="firstname"></div>
                         </div>
                         <div class="form-group" ng-class="{'has-error': errors.last_name}">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-fw fa-user"></i></div>
                                 <input type="text" class="form-control input-lg ng-pristine ng-untouched ng-valid"
-                                       ng-model="form.last_name" placeholder="Last Name" ng-disabled="loading"></div>
+                                       ng-model="form.last_name" placeholder="Last Name" ng-disabled="loading" id="lastname"></div>
                         </div>
                         <div class="form-group" ng-class="{'has-error': errors.org_name}">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-fw fa-group"></i></div>
                                 <input type="text" class="form-control input-lg ng-pristine ng-untouched ng-valid"
-                                       ng-model="form.org_name" placeholder="Organization Name" ng-disabled="loading">
+                                       ng-model="form.org_name" placeholder="Organization Name" ng-disabled="loading" id="organizationname">
                             </div>
                         </div>
                         <div class="form-group" ng-class="{'has-error': errors.email}">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-fw fa-envelope-o"></i></div>
                                 <input type="text" class="form-control input-lg ng-pristine ng-untouched ng-valid"
-                                       ng-model="form.email" placeholder="E-mail" ng-disabled="loading"></div>
+                                       ng-model="form.email" placeholder="E-mail" ng-disabled="loading" id="email"></div>
                         </div>
                         <div class="form-group" ng-class="{'has-error': errors.password}">
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="fa fa-fw fa-key"></i></div>
                                 <input type="password" class="form-control input-lg ng-pristine ng-untouched ng-valid"
-                                       ng-model="form.password" placeholder="Choose Password" ng-disabled="loading">
+                                       ng-model="form.password" placeholder="Choose Password" ng-disabled="loading" id="password">
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success btn-lg btn-block" ng-disabled="loading">
+                            <button type="button" class="btn btn-success btn-lg btn-block" ng-disabled="loading" onclick="register();">
                                 Complete Registration
                             </button>
                         </div>
@@ -74,6 +74,6 @@
 
 <script src="./lib/jquery-1.8.1.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
-
+<script src="./js/user.js"></script>
 </body>
 </html>
