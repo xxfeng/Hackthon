@@ -10,13 +10,12 @@ import com.hackthon.domain.User;
 
 public class UserDataPersistence {
 	private final String selectUser = "select userid, firstname, lastname, username, password from user where username = ?";
-	private final String insertUser = "insert into user (firstname, lastname, username, password) values (?,?,?,?)";
+	private final String insertUser = "insert into user (userid, firstname, lastname, username, password) values";
 	public static final String COL_FNAME = "firstname";
 	public static final String COL_LNAME = "lastname";
 	public static final String COL_NAME = "username";
 	public static final String COL_PSSWD = "password";
 	public static final String COL_ID = "userid";
-
 	public User findUser(String username)
 	{
 		DBConn instance = DBConn.getInstance();
@@ -54,7 +53,8 @@ public class UserDataPersistence {
 		params.put(COL_LNAME, user.getLastName());
 		params.put(COL_NAME, user.getUsername());
 		params.put(COL_PSSWD, user.getPassword());
-		return instance.insertSQL(insertUser, params);
+		String sql = insertUser + "("+user.getUserid()+", "+ "?,?,?,?)";
+		return instance.insertSQL(sql, params);
 	}
 
 }
