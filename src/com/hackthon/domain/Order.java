@@ -18,6 +18,11 @@ public class Order {
 	private String dinnerTime;
 	private String checkTime;
 	private String status;
+//	if(status.equals("0")){ //booked	
+//	}else if(status.equals("1")){ //accepted
+//	}else if(status.equals("2")){ //dismiss by user
+//	}else if(status.equals(3)){ //rejected by admin
+//	}
 	
 	public String getOrder_id() {
 		return order_id;
