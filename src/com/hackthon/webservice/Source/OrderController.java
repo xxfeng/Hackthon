@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hackthon.domain.Dish;
 import com.hackthon.domain.Order;
 
 
@@ -99,6 +100,7 @@ public class OrderController extends BaseController{
 
 	private List<Order> searchByOrderId(Order params) {
 		// TODO Auto-generated method stub
+		getDishByOrderId(params.getOrder_id());
 		return null;
 	}
 	
@@ -118,4 +120,8 @@ public class OrderController extends BaseController{
 		return list;
 	}
 
+	private List<Dish> getDishByOrderId(String order_id){
+		return null;
+		
+	}
 }
