@@ -23,5 +23,5 @@ function checkTime(i)
 }
 
 $("#test-jquery").click(function(){
-   alert("aa");
+   bootbox.alert("aa");
 });

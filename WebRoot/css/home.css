@@ -3,6 +3,19 @@
 	width:50px;
 }
 
+#People
+{
+	display:inline;
+	width:50px;
+	position:releative;
+	
+}
+
+#People_label
+{
+	margin-left:10px;
+}
+
 .fa-fw {
     width: 1.28571429em;
     text-align: center;
