@@ -11,7 +11,9 @@ $(document).ready(function(){
 });
 
 
-var gData = {};
+
+
+var gData = null;
 var gorderid;
 var gtables;
 var ggord;
@@ -173,15 +175,46 @@ function setOrderID( id ) {
 //------------------------------------------------------------
 function showBookedOrders(data){
 	orders = strToJson(data);
+	var changedOrders = new Array();
+	if(gData!=null) {
+		neworders = orders;
+		oldorders = strToJson(gData);
+
+		for(i=0;i<neworders.length;i++) {
+			flag=0;
+			for(j=0;j<oldorders.length;j++) {
+				if( neworders[i].order_id == oldorders[j].order_id ) {
+					continue;
+				}
+			}
+			if( j == oldorders.length )
+				changedOrders.push(i);
+		}
+		
+		if( changedOrders.length>0) {
+			alert("Exists New Orders, please check!");
+		}
+		else
+			return;
+		
+	}
+	
 	gData=data;
 	
-	html ='<table class="table table-striped table-hover" >'+
+	html ='<table class="table" >'+
 	'<thead> <tr>'+
 			'<th>#No</th><th>Order No</th><th>Booktime</th><th>Table</th><th>People</th><th>Dishs</th><th>Total</th></tr></thead>';
 	
 	html+='<tbody>';
 	for(i=0;i<orders.length;i++) {
-		html+='<tr>';
+		cstr='<tr>';
+		for(j=0;j<changedOrders.length;j++) {
+			if(i==changedOrders[j])
+				cstr = '<tr style="background-color:bisque">';
+		}
+		
+		html+= cstr;
+		
 		html+='<td>'+(i+1)+'</td>';
 		html+='<td>'+orders[i].orderNo+'</td>';
 		html+='<td>'+orders[i].bookTime+'</td>';

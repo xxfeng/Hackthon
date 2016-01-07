@@ -69,7 +69,7 @@
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="backend">
 	
-		<table class="table table-striped table-hover" id="orders" >
+		<table class="table" id="orders" >
 		</table>
 	
 	</div>
@@ -136,6 +136,10 @@
 <script src="./js/backend.js"></script>
 <script>
 	searchOrderByStatus();
+
+	$(document).ready(function(){  
+		 setInterval(searchOrderByStatus, 40000);  
+	});  
 </script>
 </body>
 </html>

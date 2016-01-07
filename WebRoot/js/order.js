@@ -6,7 +6,8 @@ $(document).ready(function(){
 });
 
 
-var gData = {};
+
+var gData = null;
 
 
 function strToJson(str){ 
@@ -118,19 +119,59 @@ function showDishs(index) {
 	$("#dishs")[0].innerHTML=html;
 }
 
+
+function searchFirst() {
+	searchOrderByUser();
+}
+
 //------------------------------------------------------------
 function getOrderSuccess(data){
+	
 	orders = strToJson(data);
+	var changedOrders = new Array();
+	//check if new status changed
+	if(gData!=null) {
+		neworders = orders;
+		oldorders = strToJson(gData);
+
+		for(i=0;i<oldorders.length;i++) {
+			flag=0;
+			for(j=0;j<neworders.length;j++) {
+				if( oldorders[i].order_id == neworders[j].order_id ) {
+					if( oldorders[i].status != neworders[j].status )
+						changedOrders.push(j);
+				}
+			}
+		}
+		
+		if( changedOrders.length>0) {
+			alert("Exists Order Status Changed, please check!");
+		}
+		else
+			return;
+		
+	}
+	
 	gData=data;
 	
-	html ='<table class="table table-striped table-hover" >'+
+	html ='<table class="table" >'+
 	'<thead> <tr>'+
 			'<th>#No</th><th>Order No</th><th>Booktime</th><th>Table</th><th>People</th><th>Dishs</th><th>Total</th><th>Status</th></tr></thead>';
 	
 	html+='<tbody>';
+	
 	for(i=0;i<orders.length;i++) {
+		cstr = '<tr>';
+		for(j=0;j<changedOrders.length;j++) {
+			if(changedOrders[j]==i) {
+				cstr = '<tr style="background-color:bisque">';
+				break;
+			}
+		}
+			
 		
-		html+='<tr>';
+		html+= cstr;
+		
 		html+='<td>'+(i+1)+'</td>';
 		html+='<td>'+orders[i].orderNo+'</td>';
 		html+='<td>'+orders[i].bookTime+'</td>';
@@ -142,7 +183,7 @@ function getOrderSuccess(data){
 		html+='<td>'+orders[i].dishNameList.length+'</td>';
 		html+='<td>'+orders[i].totalValue+'</td>';
 		html+='<td>'+orders[i].status+'</td>';
-		html+='<td><button type="button" class="btn btn-primary btn-small" style="margin-top: -5px" data-toggle="modal" data-target="#myModal" onclick=showDishs("'+i+'")>Dismiss</button></td>';
+		html+='<td><button type="button" class="btn btn-primary btn-small" style="margin-top: -5px" data-toggle="modal" data-target="#myModal" onclick=showDishs("'+i+'")>Details</button></td>';
 		html+='</tr>';
 	}
 	html += '</tbody></table>';
