@@ -189,9 +189,60 @@ function showBookedOrders(data){
 //	alert(strToJson(data)[0].order_id);
 }
 
+function getAdminHistory() {
+	var requestURI = "resource/order/searchHistory";
+	var opts = {
+	        type: "POST",
+	        url:requestURI,
+	        contentType: "application/json",
+			success: showAdminOrders,
+		    error: addOrderFail
+	};
+	$.ajax(opts);
+}
 
+function showAdminOrders(data){
+	orders = strToJson(data);
+	gData=data;
+	
+	html ='<table class="table table-striped table-hover" >'+
+	'<thead> <tr>'+
+			'<th>#No</th><th>Order No</th><th>Booktime</th><th>Table</th><th>People</th><th>Dishs</th><th>Total</th></tr></thead>';
+	
+	html+='<tbody>';
+	for(i=0;i<orders.length;i++) {
+		html+='<tr>';
+		html+='<td>'+(i+1)+'</td>';
+		html+='<td>'+orders[i].orderNo+'</td>';
+		html+='<td>'+orders[i].bookTime+'</td>';
+		html+='<td>wait to add</td>';
+		html+='<td>'+orders[i].numPeople+'</td>';
+		html+='<td>'+orders[i].dishNameList.length+'</td>';
+		html+='<td>'+orders[i].totalValue+'</td>';
+		
+		
+		status = orders[i].status;
+		if(status=="1") {
+			status = "accepted";
+		}
+		else if ( status == "2") {
+			status = "dismissed by user"
+		}
+		else if( status == "3" ) {
+			status = "rejected";
+		}
+		else if(status == "4") {
+			status = "finished";
+		}
+			
+		html+='<td><button type="button" class="btn btn-primary btn-info" data-toggle="modal" data-target="#myOrder" onclick=setOrderID('+orders[i].order_id+')>'+status+'</button></td>';
+		html+='</tr>';
+	}
+	html += '</tbody></table>';
 
-
+	$("#el_psy_congroo")[0].innerHTML=html;
+//	alert(strToJson(data)[0].order_id);
+}
 
 
 
