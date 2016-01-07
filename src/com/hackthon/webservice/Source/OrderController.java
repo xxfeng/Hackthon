@@ -178,7 +178,36 @@ public class OrderController extends BaseController{
 
 	private List<Order> getOrderByAdmin(Order params) {
 		// TODO Auto-generated method stub
-		return null;
+		// TODO Auto-generated method stub
+				DBConn conn = DBConn.getInstance();
+				List<Order> list = new ArrayList<Order>();
+				
+				String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status "+
+				             "from Hackthon.Order;";
+				
+				ResultSet rs = conn.selectSQL(sql);
+				
+				try {
+					while(rs.next()){
+						 Order order = new Order();
+						 order.setOrder_id(rs.getString(1));
+						 order.setOrderNo(rs.getString(2));
+						 order.setNumPeople(rs.getString(3));
+						 order.setDishNameList(convertStringToDish(rs.getString(4)));
+						 order.setDishNumList(Arrays.asList( rs.getString(5).split(",") ));
+						 order.setTotalValue(rs.getString(6));
+						 order.setBookTime(rs.getString(7));
+						 order.setDinnerTime(rs.getString(8));
+						 order.setCheckTime(rs.getString(9));
+						 order.setStatus(rs.getString(10));	 
+						 list.add(order);
+					}
+					
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}
+				return list;
 	}
 
 	private List<Order> searchByOrderId(Order params) {
