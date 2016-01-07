@@ -183,14 +183,39 @@ $(document).ready(function () {
                 cart_map[shoppingCar[i].name] = each_item_info;
             }
         }
+	}
+		
+	function get_cart_json()
+	{
+		var cart_map = {};
+		
+		for(var i=0;i<shoppingCar.length;i++)
+		{
+			if(shoppingCar[i].name in cart_map)
+			{
+				cart_map[shoppingCar[i].name][0] = cart_map[shoppingCar[i].name][0] + 1;
+			}
+			else
+			{
+				var each_item_info = [1,shoppingCar[i].price,shoppingCar[i].picPath];
+				cart_map[shoppingCar[i].name] = each_item_info;
+			}
+		}
+		
+		return cart_map;
+	}
+	
+	function reload_cart()
+	{
+		$(".order-list .dishes-list").remove();
 
-
-        var new_cart_item=""
-
-        for(var each_item_info in cart_map)
-        {
-            new_cart_item = new_cart_item+ '<div class="dishes-list" style="margin-top: 10px">\
-                        <span style="display: inline;margin-left: 10px">'+each_item_info +'</span>\
+		var cart_map = get_cart_json();
+		
+		var new_cart_item=""
+		for(var each_item_info in cart_map)
+		{
+			new_cart_item = new_cart_item+ '<div class="dishes-list" style="margin-top: 10px">\
+                        <span style="display: inline;margin-left: 10px" class="each_item_info">'+each_item_info +'</span>\
 						<div class="cell itemquantity" style="display: inline;margin-left: 20px">\
                             <i style="display: inline" class="fa fa-fw fa-minus-circle"></i>\
                             <input type="number" class="each_num" value="'+cart_map[each_item_info][0] +'" name="t1" style="width: 30px;margin-left: 3px"/>\
@@ -200,79 +225,143 @@ $(document).ready(function () {
 						<span class="cart_price">'+cart_map[each_item_info][1]+'</span>\
                         <span style="display: inline;margin-left: 20px">\
                             <i style="display: inline" class="fa fa-fw fa-trash-o"></i></span>\
-						</div>'
-        }
+						</div>'	
+		}
+		
+		$(".order-list").append(new_cart_item);
+		
+		calculate_cart();
+		
+		//alert(new_cart_item);	
+	}
+	
+	
+	reload_cart();
 
-        $(".order-list").append(new_cart_item);
-
-
-        //alert(new_cart_item);
-    }
-
-
-    reload_cart();
-
-    $(".shop-cart .fa-ban").live("click",function(){
-        $(".order-list .dishes-list").remove();
-
-        calculate_cart();
-
-    })
-
-    $(".shop-cart .fa-trash-o").live("click",function(){
-        $(this).closest(".dishes-list").remove();
-
-        calculate_cart();
-    })
-
-    $(".shop-cart .fa-plus-circle").live("click",function(){
-
-        num = parseInt($(this).prev("input").val());
-        $(this).prev("input").val(num+1);
-
-        calculate_cart();
-
-    })
-
-    $(".shop-cart .fa-minus-circle").live("click",function(){
-
-        num = parseInt($(this).next("input").val());
-
-        if(num==1)
-        {
-            $(".shop-cart .fa-trash-o").click();
-            return;
-        }
-        else
-        {
-            $(this).next("input").val(num-1);
-        }
-
-
-        calculate_cart();
-
-    })
-
-
-    function calculate_cart()
-    {
-        var total_price = 0;
-
-        $(".shop-cart .cart_price").each(function(){
-            var each_num = $(this).siblings(".cell.itemquantity").children("input").val();
-            //.css("background-color", "red");
-            //alert(each_num);
-            total_price = total_price + parseInt($(this).text()) * each_num ;
-        })
-        //alert(total_price);
-
-        $(".shop-cart #total_price").text(total_price);
-
-    }
-
-
-    calculate_cart();
+	$(".shop-cart .fa-ban").live("click",function(){
+		$(".order-list .dishes-list").remove();
+		shoppingCar = []
+		
+		calculate_cart();
+		
+	})	
+	
+	$(".shop-cart .fa-trash-o").live("click",function(){
+		$(this).closest(".dishes-list").remove();
+		
+        var DishName = $(this).parent().siblings(".each_item_info").text();
+        for(var index=0;index< shoppingCar.length;index++){
+            if(shoppingCar[index].name==DishName){
+				shoppingCar.splice(index,1)
+				index=index-1;
+            }
+        }				
+		
+		calculate_cart();
+	})	
+	
+	$(".shop-cart .fa-plus-circle").live("click",function(){
+		
+        var DishName = $(this).parent().siblings(".each_item_info").text();
+        for(var index in array){
+            if(array[index].name==DishName){
+                var obj=array[index];
+                shoppingCar.push(obj);
+            }
+        }			
+		
+		num = parseInt($(this).prev("input").val());
+		$(this).prev("input").val(num+1);
+		
+		calculate_cart();
+		
+	})	
+	
+	$(".shop-cart .fa-minus-circle").live("click",function(){
+		
+        var DishName = $(this).parent().siblings(".each_item_info").text();
+        for(var index in shoppingCar){
+            if(shoppingCar[index].name==DishName){
+				shoppingCar.splice(index,1)
+				break;
+            }
+        }				
+		
+		
+		
+		
+		num = parseInt($(this).next("input").val());
+		
+		if(num==1)
+		{
+			$(this).closest(".dishes-list").remove();
+			calculate_cart();
+			
+			return;
+		}
+		else
+		{
+			$(this).next("input").val(num-1);
+		}
+		
+		
+		calculate_cart();
+		
+	})		
+	
+	
+	function calculate_cart()
+	{
+		var total_price = 0;
+		
+		$(".shop-cart .cart_price").each(function(){
+				var each_num = $(this).siblings(".cell.itemquantity").children("input").val();
+				//.css("background-color", "red");
+				//alert(each_num);
+				total_price = total_price + parseInt($(this).text()) * each_num ;
+		})
+		//alert(total_price);
+		
+		$(".shop-cart #total_price").text(total_price);
+		
+	}
+	
+	calculate_cart();
+	
+	$("#checkout_button").click(function(){
+	
+		$("#checkout_tbody tr").remove();
+	
+		var cart_map = get_cart_json();
+		
+		
+		i_count  = 1;
+		for(var each_item in cart_map)
+		{
+			var new_tr_node = '<tr>\
+									<td>'+i_count+'</td>\
+									<td>'+each_item+'</td>\
+									<td>'+cart_map[each_item][1]+'</td>\
+									<td>'+cart_map[each_item][0]+'</td>\
+									<td>\
+										<img src="'+cart_map[each_item][1]+'" alt="el_psy_congroo" class="meal_pic"/>\
+									</td>\
+								</tr>'
+			i_count++;
+			
+			$("#checkout_tbody").append(new_tr_node);
+			
+		}
+		
+		$("#checkout_price").text($(".shop-cart #total_price").text());
+		
+		
+	})
+	
 });
+
+
+
 function filterMenu(type, array) {
     var rowNumber = 0;
     var dishNumber = 0;
