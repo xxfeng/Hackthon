@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('#myTab a:last').tab('show');
 	
 
-	var array = [{"name":"name_1","type":"1","picPath":"image/dish/1.jpg","price":"55","numSale":"numSale_1","discount":"discount_1","popular":"popular_1","dish_id":"1"}];
+	var array = [{"name":"name_1","type":"1","picPath":"image/dish/1.jpg","price":"55","numSale":"numSale_1","discount":"discount_1","popular":"popular_1","dish_id":"1"},{"name":"name_1","type":"1","picPath":"image/dish/1.jpg","price":"55","numSale":"numSale_1","discount":"discount_1","popular":"popular_1","dish_id":"1"}];
 	
 	
 	function reload_cart()
@@ -17,7 +17,7 @@ $(document).ready(function(){
 		
 		for(var i=0;i<array.length;i++)
 		{
-			if(array.name in cart_map)
+			if(array[i].name in cart_map)
 			{
 				cart_map[array[i].name][0] = cart_map[array[i].name][0] + 1;
 			}
