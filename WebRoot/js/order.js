@@ -134,7 +134,10 @@ function getOrderSuccess(data){
 		html+='<td>'+(i+1)+'</td>';
 		html+='<td>'+orders[i].orderNo+'</td>';
 		html+='<td>'+orders[i].bookTime+'</td>';
-		html+='<td>wait to add</td>';
+		if(null != orders[i].tableName && orders[i].tableName.length>0)
+			html+='<td>'+orders[i].tableName+'</td>';
+		else
+			html+='<td>wait for assign</td>';
 		html+='<td>'+orders[i].numPeople+'</td>';
 		html+='<td>'+orders[i].dishNameList.length+'</td>';
 		html+='<td>'+orders[i].totalValue+'</td>';
