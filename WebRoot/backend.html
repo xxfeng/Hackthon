@@ -26,13 +26,6 @@
             </div>
 
             <div class="collapse navbar-collapse" id="login-name">
-                <!--search form if nessery add it-->
-                <!--<form class="navbar-form navbar-left" role="search">-->
-                <!--<div class="form-group">-->
-                <!--<input type="text" class="form-control" placeholder="Search">-->
-                <!--</div>-->
-                <!--<button type="submit" class="btn btn-default">Submit</button>-->
-                <!--</form>-->
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -48,87 +41,289 @@
     </nav>
 </div>
 
-<div class="pills-navigation">
-    <ul class="nav nav-tabs">
-        <li role="presentation" class="active" id="first-pills"><a href="#">backend</a></li>
-        <li role="presentation"><a href="#">Profile</a></li>
-        <li role="presentation"><a href="#">Messages</a></li>
-    </ul>
+<div>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active" id="first-pills"><a href="#backend" aria-controls="backend" role="tab" data-toggle="tab">Backend</a></li>
+    <li role="presentation"><a href="#el_psy_congroo" aria-controls="el_psy_congroo" role="tab" data-toggle="tab">el_psy_congroo</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="backend">
+	
+		<table class="table table-striped table-hover" >
+
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>abc</th>
+					<th>abc</th>
+					<th>abc</th>
+					<th>abc</th>
+				</tr>
+
+			</thead>
+
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>abc</td>
+					<td>abc</td>
+					<td>abc</td>
+					<td>			
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary btn-info" data-toggle="modal" data-target="#myOrder1">
+						  Info
+						</button>						
+										
+						
+						<!-- Modal -->
+						<div class="modal fade" id="myOrder1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content popup_meal">
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Order Detail</h4>
+							  </div>
+							  <div class="modal-body">
+								
+											<table class="table table-striped table-hover" >
+
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>abc</th>
+														<th>abc</th>
+														<th>abc</th>
+													</tr>
+
+												</thead>
+
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td>abc</td>
+														<td>abc</td>
+														<td>
+															<img src="./lib/image/el_psy_congroo.jpg" alt="el_psy_congroo" class="meal_pic"/>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+								
+							  </div>
+							  <div class="modal-footer">
+									<select class="form-control">
+									  <option>change to a</option>
+									  <option>change to b</option>
+									  <option>change to c</option>
+									</select>							  
+							  
+									<button type="button" class="btn btn-default">Submit</button>
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+									
+							  </div>
+							</div>
+						  </div>
+						</div>								
+						
+					</td>
+				</tr>
+
+				<tr>
+					<td>2</td>
+					<td>abc</td>
+					<td>abc</td>
+					<td>abc</td>
+					<td>
+					
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary btn-success" data-toggle="modal" data-target="#myOrder2">
+						  Success
+						</button>						
+										
+						
+						<!-- Modal -->
+						<div class="modal fade" id="myOrder2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content popup_meal">
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Order Detail</h4>
+							  </div>
+							  <div class="modal-body">
+								
+											<table class="table table-striped table-hover" >
+
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>abc</th>
+														<th>abc</th>
+														<th>abc</th>
+													</tr>
+
+												</thead>
+
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td>abc</td>
+														<td>abc</td>
+														<td>
+															<img src="./lib/image/el_psy_congroo.jpg" alt="el_psy_congroo" class="meal_pic"/>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+								
+							  </div>
+							  <div class="modal-footer">
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+							  </div>
+							</div>
+						  </div>
+						</div>							
+					</td>
+				</tr>
+				
+				<tr>
+					<td>3</td>
+					<td>abc</td>
+					<td>abc</td>
+					<td>abc</td>
+					<td>
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#myOrder3">
+						  Warning
+						</button>						
+										
+						
+						<!-- Modal -->
+						<div class="modal fade" id="myOrder3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content popup_meal">
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Order Detail</h4>
+							  </div>
+							  <div class="modal-body">
+								
+										<table class="table table-striped table-hover" >
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>abc</th>
+														<th>abc</th>
+														<th>abc</th>
+													</tr>
+
+												</thead>
+
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td>abc</td>
+														<td>abc</td>
+														<td>
+															<img src="./lib/image/el_psy_congroo.jpg" alt="el_psy_congroo" class="meal_pic"/>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+								
+								
+								
+								
+								
+							  </div>
+							  <div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+							  </div>
+							</div>
+						  </div>
+						</div>						
+						
+					</td>
+				</tr>
+				
+			<tr>
+					<td>4</td>
+					<td>abc</td>
+					<td>abc</td>
+					<td>abc</td>
+					<td>
+						<!-- Button trigger modal -->
+						<button type="button" class="btn btn-primary btn-danger" data-toggle="modal" data-target="#myOrder4">
+						  Danger
+						</button>						
+										
+						
+						<!-- Modal -->
+						<div class="modal fade" id="myOrder4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+						  <div class="modal-dialog" role="document">
+							<div class="modal-content popup_meal">
+							  <div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">Order Detail</h4>
+							  </div>
+							  <div class="modal-body">
+								
+										<table class="table table-striped table-hover" >
+												<thead>
+													<tr>
+														<th>#</th>
+														<th>abc</th>
+														<th>abc</th>
+														<th>abc</th>
+													</tr>
+
+												</thead>
+
+												<tbody>
+													<tr>
+														<td>1</td>
+														<td>abc</td>
+														<td>abc</td>
+														<td>
+															<img src="./lib/image/el_psy_congroo.jpg" alt="el_psy_congroo" class="meal_pic"/>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+							  </div>
+							  <div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+							  </div>
+							</div>
+						  </div>
+						</div>						
+						
+					</td>
+				</tr>				
+
+			</tbody>
+			
+		</table>	
+	
+
+
+
+
+	
+	</div>
+	
+	
+    <div role="tabpanel" class="tab-pane" id="el_psy_congroo">el_psy_congroo</div>
+  </div>
+
 </div>
 
-<!--<div class="container-fluid">-->
-    <!--<div class="row">-->
-        <!--<div class="col-md-2" id="left-panel">.col-md-4</div>-->
-        <!--<div class="col-md-2">.col-md-4</div>-->
-        <!--<div class="col-md-8">.col-md-4</div>-->
-    <!--</div>-->
-<!--</div>-->
 
 
-
-
-
-<div class="main-body">
-
-
-<table class="table table-striped table-hover" >
-
-	<thead>
-		<tr>
-			<th>#</th>
-			<th>abc</th>
-			<th>abc</th>
-			<th>abc</th>
-			<th>abc</th>
-		</tr>
-
-	</thead>
-		<div style=""></div>
-	<tbody>
-		<tr>
-			<td>1</td>
-			<td>abc</td>
-			<td>abc</td>
-			<td>abc</td>
-			<td>
-				<button type="button" class="btn btn-info">Info</button>
-			</td>
-		</tr>
-
-		<tr>
-			<td>2</td>
-			<td>abc</td>
-			<td>abc</td>
-			<td>abc</td>
-			<td>
-				<button type="button" class="btn btn-success">Success</button>
-			</td>
-		</tr>
-		
-		<tr>
-			<td>3</td>
-			<td>abc</td>
-			<td>abc</td>
-			<td>abc</td>
-			<td>
-				<button type="button" class="btn btn-warning">warning</button>
-			</td>
-		</tr>
-
-	</tbody>
-	
-</table>
-
-    <div class="left-panel">
-
-    </div>
-    <div class="right-panel">
-
-
-	
-
-    </div>
-</div>
 
 <script src="./lib/jquery-1.8.1.min.js"></script>
 <script src="./lib/bootstrap/js/bootstrap.js"></script>
