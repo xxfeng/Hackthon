@@ -7,7 +7,7 @@ function login() {
 			url : "user/login",
 			async : false, // 同步
 	        data:queryStr,
-	        type: 'POST',
+	        type: 'GET',
 			
 			success : function(oResponse) {
 			    var objs=eval("("+oResponse+")");

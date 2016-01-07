@@ -22,6 +22,10 @@ public class DBConn {
 	private DBConn(){
 		
 	}
+	protected void finalize()
+	{
+		this.destroy();
+	}
 	
 	/*
 	 * return db instance
