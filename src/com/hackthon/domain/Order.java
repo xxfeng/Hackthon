@@ -18,6 +18,7 @@ public class Order {
 	private String dinnerTime;
 	private String checkTime;
 	private String status;
+	private String tableName;
 //	if(status.equals("0")){ //booked	
 //	}else if(status.equals("1")){ //accepted
 //	}else if(status.equals("2")){ //dismiss by user
@@ -105,6 +106,14 @@ public class Order {
 	}
 	public void setDishNameList(List<Dish> dishNameList) {
 		this.dishNameList = dishNameList;
+	}
+
+	public String getTableName() {
+		return tableName;
+	}
+
+	public void setTableName(String tableName) {
+		this.tableName = tableName;
 	}
 	
 	

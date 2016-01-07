@@ -104,7 +104,7 @@ public class OrderController extends BaseController{
 		DBConn conn = DBConn.getInstance();
 		List<Order> list = new ArrayList<Order>();
 		
-		String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status "+
+		String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status,tableName "+
 		             "from Hackthon.Order where status!='0' order by bookTime desc";
 		
 		ResultSet rs = conn.selectSQL(sql);
@@ -122,6 +122,7 @@ public class OrderController extends BaseController{
 				 order.setDinnerTime(rs.getString(8));
 				 order.setCheckTime(rs.getString(9));
 				 order.setStatus(rs.getString(10));	 
+				 order.setTableName(rs.getString(11));	
 				 list.add(order);
 			}
 			
@@ -184,7 +185,7 @@ public class OrderController extends BaseController{
 		DBConn conn = DBConn.getInstance();
 		List<Order> list = new ArrayList<Order>();
 		
-		String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status "+
+		String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status,tableName "+
 		             "from Hackthon.Order where user_id='"+params.getUser().getUserid()+"';";
 		
 		ResultSet rs = conn.selectSQL(sql);
@@ -202,6 +203,7 @@ public class OrderController extends BaseController{
 				 order.setDinnerTime(rs.getString(8));
 				 order.setCheckTime(rs.getString(9));
 				 order.setStatus(rs.getString(10));	 
+				 order.setTableName(rs.getString(11));	
 				 list.add(order);
 			}
 			
@@ -218,7 +220,7 @@ public class OrderController extends BaseController{
 				DBConn conn = DBConn.getInstance();
 				List<Order> list = new ArrayList<Order>();
 				
-				String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status "+
+				String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status,tableName "+
 				             "from Hackthon.Order;";
 				
 				ResultSet rs = conn.selectSQL(sql);
@@ -236,6 +238,7 @@ public class OrderController extends BaseController{
 						 order.setDinnerTime(rs.getString(8));
 						 order.setCheckTime(rs.getString(9));
 						 order.setStatus(rs.getString(10));	 
+						 order.setTableName(rs.getString(11));	
 						 list.add(order);
 					}
 					
@@ -258,7 +261,11 @@ public class OrderController extends BaseController{
 	
 	private void updateOrderById(Order order) throws Exception {
 		DBConn conn = DBConn.getInstance();
-		String sql = "update Hackthon.Order set status='"+order.getStatus()+"' where order_id='"+order.getOrder_id()+"'";
+		String sql = "";
+		if( null != order.getTableName() && !order.getTableName().isEmpty() ) 
+			sql = "update Hackthon.Order set tableName='"+order.getTableName()+"' where order_id='"+order.getOrder_id()+"'";
+		else
+			sql = "update Hackthon.Order set status='"+order.getStatus()+"' where order_id='"+order.getOrder_id()+"'";
 		if(!conn.updateSQL(sql))
 			throw new Exception("can not update order");
 	}

@@ -13,6 +13,8 @@ $(document).ready(function(){
 
 var gData = {};
 var gorderid;
+var gtables;
+var ggord;
 
 
 function strToJson(str){ 
@@ -59,10 +61,18 @@ function searchOrderByOrderId(){
 }
 
 function updateSubmitStatus() {
-	$('#myOrder').modal('hide')
+	$('#myOrder').modal('hide');
 	//$('.modal-content').hide()
 	searchOrderByUser();
 	alert("orders updated successful, we will notice the User!");
+}
+
+function updateAssignSubmitStatus() {
+	$('#myOrder1').modal('hide');
+	alert("orders updated successful, we will notice the User!");
+	//$('.modal-content').hide()
+	searchOrderByUser();
+
 }
 
 
@@ -175,12 +185,19 @@ function showBookedOrders(data){
 		html+='<td>'+(i+1)+'</td>';
 		html+='<td>'+orders[i].orderNo+'</td>';
 		html+='<td>'+orders[i].bookTime+'</td>';
-		html+='<td>wait to add</td>';
+		
+		
+		orders[i].numPeople = 4;
+		if(orders[i].tableName && orders[i].tableName.length>0)
+			html+='<td>'+orders[i].tableName+'</td>';
+		else
+			html+='<td><button type="button" class="btn" data-toggle="modal" data-target="#myOrder1" onclick=getAssignTable('+orders[i].numPeople+','+orders[i].order_id+')>Asign Table</button></td>';
+		
 		html+='<td>'+orders[i].numPeople+'</td>';
 		html+='<td>'+orders[i].dishNameList.length+'</td>';
 		html+='<td>'+orders[i].totalValue+'</td>';
 			
-		html+='<td><button type="button" class="btn btn-primary btn-info" data-toggle="modal" data-target="#myOrder" onclick=setOrderID('+orders[i].order_id+')>Change Status</button></td>';
+		html+='<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myOrder" onclick=setOrderID('+orders[i].order_id+')>Change Status</button></td>';
 		html+='</tr>';
 	}
 	html += '</tbody></table>';
@@ -215,7 +232,7 @@ function showAdminOrders(data){
 		html+='<td>'+(i+1)+'</td>';
 		html+='<td>'+orders[i].orderNo+'</td>';
 		html+='<td>'+orders[i].bookTime+'</td>';
-		html+='<td>wait to add</td>';
+		html+='<td>'+orders[i].tableName+'</td>';
 		html+='<td>'+orders[i].numPeople+'</td>';
 		html+='<td>'+orders[i].dishNameList.length+'</td>';
 		html+='<td>'+orders[i].totalValue+'</td>';
@@ -242,6 +259,75 @@ function showAdminOrders(data){
 
 	$("#el_psy_congroo")[0].innerHTML=html;
 //	alert(strToJson(data)[0].order_id);
+}
+
+
+function getAssignTable(capacity,orderid) {
+	ggord = orderid;
+	var requestURI = "booktable/getAvailableTables?capacity="+capacity;
+	var opts = {
+	        type: "GET",
+	        url:requestURI,
+			success: showAvaTables,
+		    error: addOrderFail
+	};
+	$.ajax(opts);
+}
+
+function showAvaTables(data) {
+	
+	tables = strToJson(data).returnValue;
+	gtables = tables;
+	html="";
+	
+	html +=  '<table class="table">' +
+	'<thead>   <tr>      <th>#</th>      <th>Table</th>      <th>Capacity</th>  </tr><thead>';
+	  
+	html += '<tbody>'
+    	
+	for(i=0;i<tables.length;i++) {
+		
+		html += '<tr class="active"> <td scope="row">'+(i+1)+'</td><td>'+tables[i].number_code+'</td><td>'+tables[i].capacity+'</td><td><input type="radio" name="optionsRadios" value="tables_'+i+ '" id="tables_'+i+'"></td></tr>';
+		
+	}
+	html += '</tbody></table>'
+	
+	$("#availableTables")[0].innerHTML=html;
+	
+	
+}
+
+function assignTabletoUser() {
+	var obj = document.getElementsByName("optionsRadios");
+	for(i=0;i<obj.length;i++) {
+		if(obj[i].checked) {
+			
+			status = $("#selectstatus").val();
+			var requestURI = "resource/order/modify";
+			if ( status == "change to accepted" ) {
+				var opts = {
+				        type: "POST",
+				        url:requestURI,
+				        contentType: "application/json",
+				        data:JSON.stringify({ "order_id": ggord,"user":{"userid":-1},"status":1,"tableName":gtables[i].number_code}), //admin -1; other people:userid
+						success: updateAssignSubmitStatus,
+					    error: addOrderFail
+				};
+			}
+			else if (status == "change to rejected") {
+				var opts = {
+				        type: "POST",
+				        url:requestURI,
+				        contentType: "application/json",
+				        data:JSON.stringify({ "order_id": ggord,"user":{"userid":-1},"status":3,"tableName":gtables[i].number_code}), //admin -1; other people:userid
+						success: updateAssignSubmitStatus,
+					    error: addOrderFail
+				};
+			}
+			
+			$.ajax(opts);
+		}
+	}
 }
 
 

@@ -115,9 +115,9 @@ public class TableController {
 		DBConn conn = DBConn.getInstance();
 		String sql = null;
 		if ( capacity == 0 )
-			sql = "select number_code,capacity from bookTable where status='AVAILABLE' order by number_code asc;";
+			sql = "select number_code,capacity,status from bookTable where status='AVAILABLE' order by number_code asc limit 0,5;";
 		else
-			sql = "select number_code,capacity from bookTable where status='AVAILABLE' and capacity>="+capacity+" order by number_code,capacity asc;";
+			sql = "select number_code,capacity,status from bookTable where status='AVAILABLE' and capacity>="+capacity+" order by number_code,capacity asc limit 0,5;";
 		
 		List<TableDataRepresentation> list = new ArrayList<TableDataRepresentation>();
 		
