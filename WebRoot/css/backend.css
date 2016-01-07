@@ -25,3 +25,8 @@ th,tr
     float: left;
     width: 200px;
 }
+
+#search_block
+{
+    float:right;
+}

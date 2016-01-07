@@ -62,7 +62,7 @@ function updateSubmitStatus() {
 	$('#myOrder').modal('hide')
 	//$('.modal-content').hide()
 	searchOrderByUser();
-	alert("orders updated successful, we will notice the User!");
+	bootbox.alert("orders updated successful, we will notice the User!");
 }
 
 

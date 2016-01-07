@@ -45,16 +45,16 @@ function testPostJSON(){
 	$.ajax(opts);
 }
 self.handleQueryCommand = function(data){
-	alert(data);
+	bootbox.alert(data);
 }
 
 self.handleQueryCommandError = function(){
-	alert("post fail");
+	bootbox.alert("post fail");
 }
 self.handleUploadFileSuccess = function(data){
-	alert(data);
+	bootbox.alert(data);
 }
 
 self.handleUploadFileError = function() {
-    alert("file upload failure");
+    bootbox.alert("file upload failure");
 }

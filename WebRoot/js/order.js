@@ -14,7 +14,7 @@ function strToJson(str){
 	return json; 
 }
 
-function addOrder(order_id,user,dishNameList,dishNumList,totalValue){
+function addOrder(order_id,user,dishNameList,dishNumList,totalValue,totalPeople){
 	
 	var stringJson = {}
 	
@@ -23,6 +23,7 @@ function addOrder(order_id,user,dishNameList,dishNumList,totalValue){
 	stringJson["dishNameList"] = dishNameList;
 	stringJson["dishNumList"] = dishNumList;
 	stringJson["totalValue"] = totalValue;
+	stringJson["totalPeople"] = totalPeople;
 	
 	var requestURI = "resource/order/add";
 	var opts = {
@@ -39,7 +40,7 @@ function addOrder(order_id,user,dishNameList,dishNumList,totalValue){
 
 function addOrderSuccess(data)
 {
-	alert("Submit successful");
+	bootbox.alert("Submit successful");
 }
 
 

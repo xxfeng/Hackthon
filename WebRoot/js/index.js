@@ -9,15 +9,15 @@
 				success : function(oResponse) {
 				    var objs=eval("("+oResponse+")");
 					if (objs.returnCode==1) { 
-						alert(objs.result+" i got "+objs.got+" from you.");
+						bootbox.alert(objs.result+" i got "+objs.got+" from you.");
 					}
 					// else if(oResponse.iErrCode!=0)
 					// alert(oResponse.sDescript);
 					else
-						alert("失败，请重试！");
+						bootbox.alert("失败，请重试！");
 				},
 				error : function(msg) {
-					alert(JSON.stringify(msg));
+					bootbox.alert(JSON.stringify(msg));
 				}
 			});
 		

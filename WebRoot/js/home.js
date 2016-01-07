@@ -371,10 +371,13 @@ $(document)
 							dishNumList.push(cart_map[each_item][0]);
 						}						
 								
+						var total_price = $(".shop-cart #total_price").text();						
+						var total_people = $("#People").val();						
+						
 						//order_id:1
-						//user:2
-						addOrder(1,2,dishNameList,dishNumList,$(".shop-cart #total_price")
-								.text());
+						//user:2						
+						
+						addOrder(1,2,dishNameList,dishNumList,total_price,People);
 						
 						
 						//$(".shop-cart .fa-ban").click();
