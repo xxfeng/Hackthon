@@ -76,6 +76,8 @@ public class OrderController extends BaseController{
 			//filter Order
 			orderList = filterOrderByStatus(status, orderList);
 		}
+		if(orderList == null)
+			orderList = new ArrayList<Order>();
 		return orderList;
 	}
 
@@ -100,8 +102,12 @@ public class OrderController extends BaseController{
 
 	private List<Order> searchByOrderId(Order params) {
 		// TODO Auto-generated method stub
-		getDishByOrderId(params.getOrder_id());
-		return null;
+		List<Order> orderList = new ArrayList<Order>();
+		Order order = new Order("order_id", "orderNo");
+		List<Dish> list = getDishByOrderId(params.getOrder_id());
+		order.setDishNameList(list);
+		orderList.add(order);
+		return orderList;
 	}
 	
 	private void updateOrderById(Order params) {
@@ -112,7 +118,7 @@ public class OrderController extends BaseController{
 	private List<Order> filterOrderByStatus(String status, List<Order> orderList) {
 		// TODO Auto-generated method stub
 		List<Order> list = new ArrayList<Order>();
-		for(int i=0, size=orderList.size(); i<size; i++){
+		for(int i=0, size= orderList!=null?orderList.size():0; i<size; i++){
 			if(orderList.get(i).getStatus().equals(status)){
 				list.add(orderList.get(i));
 			}
@@ -121,7 +127,17 @@ public class OrderController extends BaseController{
 	}
 
 	private List<Dish> getDishByOrderId(String order_id){
-		return null;
+		//fake data
+		String rootPath = "image/dish/";
+		List<Dish> list = new ArrayList<Dish>();
+		list.add(new Dish("1","name_1", "price_1",rootPath+"1.jpg","numSale_1","discount_1", "popular_1","1"));
+		list.add(new Dish("2","name_2", "price_2",rootPath+"2.jpg","numSale_2","discount_2", "popular_2","2"));
+		list.add(new Dish("3","name_3", "price_3",rootPath+"3.jpg","numSale_3","discount_3", "popular_3","3"));
+		list.add(new Dish("4","name_4", "price_4",rootPath+"4.jpg","numSale_4","discount_4", "popular_4","4"));
+		list.add(new Dish("5","name_5", "price_5",rootPath+"5.jpg","numSale_5","discount_5", "popular_5","5"));
+		list.add(new Dish("6","name_6", "price_6",rootPath+"6.jpg","numSale_6","discount_6", "popular_6","6"));
+
+		return list;
 		
 	}
 }
