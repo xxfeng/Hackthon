@@ -1,5 +1,6 @@
 package com.hackthon.webservice.Source;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -50,6 +51,15 @@ public class DishController  extends BaseController{
 	
 	private List<Dish> getDishAll() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Dish> list = new ArrayList<Dish>();
+		String rootPath = "image/dish/";
+		//fake data
+		list.add(new Dish("1","name_1", "price_1",rootPath+"1.jpg","numSale_1","discount_1", "popular_1","1"));
+		list.add(new Dish("2","name_2", "price_2",rootPath+"2.jpg","numSale_2","discount_2", "popular_2","2"));
+		list.add(new Dish("3","name_3", "price_3",rootPath+"3.jpg","numSale_3","discount_3", "popular_3","3"));
+		list.add(new Dish("4","name_4", "price_4",rootPath+"4.jpg","numSale_4","discount_4", "popular_4","4"));
+		list.add(new Dish("5","name_5", "price_5",rootPath+"5.jpg","numSale_5","discount_5", "popular_5","5"));
+		list.add(new Dish("6","name_6", "price_6",rootPath+"6.jpg","numSale_6","discount_6", "popular_6","6"));
+		return list;
 	}
 }

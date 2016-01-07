@@ -8,7 +8,31 @@ public class Dish {
 	private String numSale;
 	private String discount;
 	private String popular;
-
+	private String type;
+	
+	public Dish(){
+		
+	}
+	
+	public Dish(String dish_id, 
+				String name, 
+				String price, 
+				String picPath, 
+				String  numSale, 
+				String discount,
+				String popular,
+				String type){
+		this.dish_id = dish_id;
+		this.name = name;
+		this.price = price;
+		this.picPath = picPath;
+		this.numSale = numSale;
+		this.discount = discount;
+		this.popular = popular;
+		this.type = type;
+			
+	}
+	
 	public String getDish_id() {
 		return dish_id;
 	}
@@ -63,6 +87,14 @@ public class Dish {
 
 	public void setPopular(String popular) {
 		this.popular = popular;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 	
 	
