@@ -108,9 +108,25 @@ public class OrderController extends BaseController{
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String systime = dateFormat.format( now ); 
 		
+		List<Dish> dishs = params.getDishNameList();
+		StringBuffer dsb = new StringBuffer();
+		for(int i=0;i<dishs.size()-1;i++) {
+			dsb.append(dishs.get(i).getDish_id()+",");
+		}
+		dsb.append(dishs.get(dishs.size()-1).getDish_id());
+		
+		List<String> dishnums = params.getDishNumList();
+		StringBuffer dnumsb = new StringBuffer();
+		for(int i=0;i<dishnums.size()-1;i++) {
+			dnumsb.append(dishnums.get(i)+",");
+		}
+		dnumsb.append(dishnums.get(dishnums.size()-1));
+		
+		
+		
 		String sql = "insert into Hackthon.Order(orderNo,user_id,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status) values('"+
-				orderNo+"','"+params.getUser().getUserid()+"','"+params.getNumPeople()+"','"+params.getDishNameList()+"','"+
-				params.getDishNumList()+"','"+params.getTotalValue()+"','"+systime+"','"+params.getDinnerTime()+"','"+params.getCheckTime()+"','0')";
+				orderNo+"','"+params.getUser().getUserid()+"','"+params.getNumPeople()+"','"+dsb+"','"+
+				dnumsb+"','"+params.getTotalValue()+"','"+systime+"','"+params.getDinnerTime()+"','"+params.getCheckTime()+"','0')";
 		
 		if (conn.insertSQL(sql)) {
 			System.out.println("Order Create success!");

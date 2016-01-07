@@ -60,7 +60,7 @@ public class DishController  extends BaseController{
 		// TODO Auto-generated method stub
 		DBConn conn = DBConn.getInstance();
 		
-		String sql = "insert into Dish(name,price,picPath,numSale,discount,popular,type) values('"+params.getName()+"','"+
+		String sql = "insert into Hackthon.Dish(name,price,picPath,numSale,discount,popular,type) values('"+params.getName()+"','"+
 		params.getPrice()+"','"+params.getPicPath()+"','"+params.getNumSale()+"','"+params.getDiscount()+"','"+params.getPopular()+"','"+params.getType()
 		+"')";
 		
@@ -71,7 +71,7 @@ public class DishController  extends BaseController{
 	public List<Dish> getDishById(String dish_id) {
 		// TODO Auto-generated method stub
 		DBConn conn = DBConn.getInstance();
-		String sql = "select dish_id,name,price,picPath,numSale,discount,popular,type from Dish where dish_id="+dish_id+";";
+		String sql = "select dish_id,name,price,picPath,numSale,discount,popular,type from Hackthon.Dish where dish_id="+dish_id+";";
 		
 		List<Dish> list = new ArrayList<Dish>();
 		
@@ -81,13 +81,13 @@ public class DishController  extends BaseController{
 			while(rs.next()){
 				 Dish dish = new Dish();
 				 dish.setDish_id(dish_id);
-				 dish.setName(rs.getString(1));
-				 dish.setPrice(rs.getString(2));
-				 dish.setPicPath(rs.getString(3));
-				 dish.setNumSale(rs.getString(4));
-				 dish.setDiscount(rs.getString(5));
-				 dish.setPopular(rs.getString(6));	
-				 dish.setType(rs.getString(7));
+				 dish.setName(rs.getString(2));
+				 dish.setPrice(rs.getString(3));
+				 dish.setPicPath(rs.getString(4));
+				 dish.setNumSale(rs.getString(5));
+				 dish.setDiscount(rs.getString(6));
+				 dish.setPopular(rs.getString(7));	
+				 dish.setType(rs.getString(8));
 				 list.add(dish);
 			}
 			
@@ -112,7 +112,7 @@ public class DishController  extends BaseController{
 		list.add(new Dish("6","name_6", "price_6",rootPath+"6.jpg","numSale_6","discount_6", "popular_6","6"));
 /*
 		DBConn conn = DBConn.getInstance();
-		String sql = "select dish_id,name,price,picPath,numSale,discount,popular,type from Dish order by name";
+		String sql = "select dish_id,name,price,picPath,numSale,discount,popular,type from Hackthon.Dish order by name";
 		
 		List<Dish> list = new ArrayList<Dish>();
 		
