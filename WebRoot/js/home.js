@@ -183,7 +183,7 @@ $(document).ready(function () {
                 cart_map[shoppingCar[i].name] = each_item_info;
             }
         }
-		
+	}
 		
 	function get_cart_json()
 	{
@@ -359,6 +359,9 @@ $(document).ready(function () {
 	})
 	
 });
+
+
+
 function filterMenu(type, array) {
     var rowNumber = 0;
     var dishNumber = 0;
