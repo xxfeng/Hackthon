@@ -38,7 +38,7 @@ public class UserManagerController {
 			session.setAttribute("loginedUser", username);
 			returnMap.put("returnCode", returnCode);
 			returnMap.put("user", new UserDataRepresentation(user.getUsername(), user.getPassword(), 
-					user.getFirstName(), user.getLastName(), user.isAdmin()));
+					user.getFirstName(), user.getLastName(), user.getIsAdmin()));
 		}catch(Exception err)
         {
 			returnCode = 0;

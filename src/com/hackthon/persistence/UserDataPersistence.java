@@ -29,7 +29,7 @@ public class UserDataPersistence {
 				user = new User();
 				try {
 					if(username.equals(ADMIN_NAME))
-						user.setAdmin(true);
+						user.setIsAdmin(true);
 					user.setUserid(res.getInt(COL_ID));
 					user.setFirstName(res.getString(COL_FNAME));
 					user.setLastName(res.getString(COL_LNAME));
