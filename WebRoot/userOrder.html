@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home page</title>
+
+    <link rel="stylesheet" href="./lib/font-awesome-3.2.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+	<link href="./css/home.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="branding-bar">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img id="oracle-logo" src="./lib/image/oracle_logo_lrg.png" alt="oracle" class="logo">
+            </div>
+
+            <div class="collapse navbar-collapse" id="login-name">
+                <!--search form if nessery add it-->
+                <!--<form class="navbar-form navbar-left" role="search">-->
+                <!--<div class="form-group">-->
+                <!--<input type="text" class="form-control" placeholder="Search">-->
+                <!--</div>-->
+                <!--<button type="submit" class="btn btn-default">Submit</button>-->
+                <!--</form>-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">user name<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">About</a></li>
+                            <li><a href="login.html">Sign up</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="pills-navigation">
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="active" id="first-pills"><a href="#">Home</a></li>
+        <li role="presentation"><a href="#">Recent Order</a></li>
+        <li role="presentation"><a href="#">History Order</a></li>
+    </ul>
+</div>
+
+<!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+        <!--<div class="col-md-2" id="left-panel">.col-md-4</div>-->
+        <!--<div class="col-md-2">.col-md-4</div>-->
+        <!--<div class="col-md-8">.col-md-4</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+
+
+<div class="main-body">
+<input class="btn btn-default" type="button" value="Input" onclick="addOrder()"></input>
+		<input class="btn btn-default" type="button" value="Input" onclick="getHistoryOrder()"></input>
+
+<table class="table table-striped table-hover" >
+
+	<thead>
+		<tr>
+			<th>#</th>
+			<th>abc</th>
+			<th>abc</th>
+			<th>abc</th>
+			<th>abc</th>
+		</tr>
+
+	</thead>
+		
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>abc</td>
+			<td>abc</td>
+			<td>abc</td>
+			<td>
+				<button type="button" class="btn btn-info">Info</button>
+			</td>
+		</tr>
+
+		<tr>
+			<td>2</td>
+			<td>abc</td>
+			<td>abc</td>
+			<td>abc</td>
+			<td>
+				<button type="button" class="btn btn-success">Success</button>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>3</td>
+			<td>abc</td>
+			<td>abc</td>
+			<td>abc</td>
+			<td>
+				<button type="button" class="btn btn-warning">warning</button>
+			</td>
+		</tr>
+
+	</tbody>
+	
+</table>
+
+    <div class="left-panel">
+		
+    </div>
+    <div class="right-panel">
+
+
+	
+
+    </div>
+</div>
+
+<script src="./lib/jquery-1.8.1.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.js"></script>
+<script src="./js/home.js"></script>
+<script src="./js/order.js"></script>
+
+<script>
+
+</script>
+
+</body>
+</html>
