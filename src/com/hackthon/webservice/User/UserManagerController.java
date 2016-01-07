@@ -34,14 +34,13 @@ public class UserManagerController {
 		{
 			//System.out.println(username+password);
 			User user = userService.login(username, password);
-			returnCode = 1;
 			session.setAttribute("loginedUser", username);
 			returnMap.put("returnCode", returnCode);
 			returnMap.put("user", new UserDataRepresentation(user.getUsername(), user.getPassword(), 
 					user.getFirstName(), user.getLastName(), user.getIsAdmin()));
 		}catch(Exception err)
         {
-			returnCode = 0;
+			returnCode = 1;
 			returnMap.put("returnCode", returnCode);
 		}
 		return returnMap;
@@ -57,7 +56,6 @@ public class UserManagerController {
         try
         {
         	User _user = userService.register(user.getFirstname(), user.getLastname(), user.getUsername(), user.getPassword());
-			returnCode = 1;
 			session.setAttribute("loginedUser", user.getUsername());
 			returnMap.put("returnCode", returnCode);
 			//Currently, we do not allow user to register admin account.
@@ -65,7 +63,7 @@ public class UserManagerController {
 					_user.getFirstName(), _user.getLastName(), false));
         }catch(Exception err)
         {
-        	returnCode = 0;
+        	returnCode = 1;
         	returnMap.put("returnCode", returnCode);
 
         }

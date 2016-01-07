@@ -123,7 +123,7 @@ function getOrderSuccess(data){
 		html+='<td>'+orders[i].dishNameList.length+'</td>';
 		html+='<td>'+orders[i].totalValue+'</td>';
 		html+='<td>'+orders[i].status+'</td>';
-		html+='<td><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick=showDishs("'+i+'")>Dismiss</button></td>';
+		html+='<td><button type="button" class="btn btn-primary btn-small" style="margin-top: -5px" data-toggle="modal" data-target="#myModal" onclick=showDishs("'+i+'")>Dismiss</button></td>';
 		html+='</tr>';
 	}
 	html += '</tbody></table>';
