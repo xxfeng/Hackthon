@@ -24,6 +24,15 @@ public class Order {
 //	}else if(status.equals(3)){ //rejected by admin
 //	}
 	
+	public Order(){
+		
+	}
+	
+	public Order(String order_id, String orderNo){
+		this.order_id = order_id;
+		this.orderNo = orderNo;
+	}
+	
 	public String getOrder_id() {
 		return order_id;
 	}

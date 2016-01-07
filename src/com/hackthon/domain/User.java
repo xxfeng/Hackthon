@@ -14,8 +14,8 @@ public class User {
 	private long tokenCreateTime;
 	private long Expires;
 	private int isAvailable;
-	private boolean isAdmin = false;
-	
+	private Boolean isAdmin = false;
+
 	public String getUsername() {
 		return username;
 	}
@@ -91,10 +91,10 @@ public class User {
 	public void setUserid(Integer userid) {
 		this.userid = userid;
 	}
-	public boolean isAdmin() {
+	public Boolean getIsAdmin() {
 		return isAdmin;
 	}
-	public void setAdmin(boolean isAdmin) {
+	public void setIsAdmin(Boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
 	

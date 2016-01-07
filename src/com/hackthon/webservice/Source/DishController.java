@@ -60,17 +60,18 @@ public class DishController  extends BaseController{
 		// TODO Auto-generated method stub
 		DBConn conn = DBConn.getInstance();
 		
-		String sql = "insert into Dish(name,price,picPath,numSale,discount,popular) values('"+params.getName()+"','"+
-		params.getPrice()+"','"+params.getPicPath()+"','"+params.getNumSale()+"','"+params.getDiscount()+"','"+params.getPopular()+"')";
+		String sql = "insert into Dish(name,price,picPath,numSale,discount,popular,type) values('"+params.getName()+"','"+
+		params.getPrice()+"','"+params.getPicPath()+"','"+params.getNumSale()+"','"+params.getDiscount()+"','"+params.getPopular()+"','"+params.getType()
+		+"')";
 		
 		return conn.insertSQL(sql);
 	
 	}
 	
-	private List<Dish> getDishById(String dish_id) {
+	public List<Dish> getDishById(String dish_id) {
 		// TODO Auto-generated method stub
 		DBConn conn = DBConn.getInstance();
-		String sql = "select dish_id,name,price,picPath,numSale,discount,popular from Dish where dish_id="+dish_id+";";
+		String sql = "select dish_id,name,price,picPath,numSale,discount,popular,type from Dish where dish_id="+dish_id+";";
 		
 		List<Dish> list = new ArrayList<Dish>();
 		
@@ -85,7 +86,8 @@ public class DishController  extends BaseController{
 				 dish.setPicPath(rs.getString(3));
 				 dish.setNumSale(rs.getString(4));
 				 dish.setDiscount(rs.getString(5));
-				 dish.setPopular(rs.getString(6));				 
+				 dish.setPopular(rs.getString(6));	
+				 dish.setType(rs.getString(7));
 				 list.add(dish);
 			}
 			
@@ -110,7 +112,7 @@ public class DishController  extends BaseController{
 		list.add(new Dish("6","name_6", "price_6",rootPath+"6.jpg","numSale_6","discount_6", "popular_6","6"));
 /*
 		DBConn conn = DBConn.getInstance();
-		String sql = "select dish_id,name,price,picPath,numSale,discount,popular from Dish order by name";
+		String sql = "select dish_id,name,price,picPath,numSale,discount,popular,type from Dish order by name";
 		
 		List<Dish> list = new ArrayList<Dish>();
 		
@@ -126,7 +128,8 @@ public class DishController  extends BaseController{
 				 dish.setPicPath(rs.getString(4));
 				 dish.setNumSale(rs.getString(5));
 				 dish.setDiscount(rs.getString(6));
-				 dish.setPopular(rs.getString(7));				 
+				 dish.setPopular(rs.getString(7));	
+				 dish.setType(rs.getString(8));			 
 				 list.add(dish);
 			}
 			
