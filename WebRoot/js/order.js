@@ -14,17 +14,32 @@ function strToJson(str){
 	return json; 
 }
 
-function addOrder(){
+function addOrder(order_id,user,dishNameList,dishNumList){
+	
+	var stringJson = {}
+	
+	stringJson["order_id"] = order_id;
+	stringJson["user"] = {"userid":user};
+	stringJson["dishNameList"] = dishNameList;
+	stringJson["dishNumList"] = dishNumList;
+	
+	
 	var requestURI = "resource/order/add";
 	var opts = {
 	        type: "POST",
 	        url:requestURI,
 	        contentType: "application/json",
-	        data:JSON.stringify({ "order_id": "1","user":{"userid":"2"},"dishNameList":[{"dish_id":"1"},{"dish_id":"2"}],"dishNumList":["1","2"]}),
+	        data:JSON.stringify(stringJson),
 			success: addOrderSuccess,
 		    error: addOrderFail
 	};
 	$.ajax(opts);
+}
+
+
+function addOrderSuccess(data)
+{
+	alert(1);
 }
 
 
