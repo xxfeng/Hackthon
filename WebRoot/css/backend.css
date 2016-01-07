@@ -15,21 +15,13 @@ th,tr
     margin-left: 2%;
 }
 
-.main-body{
-    padding: 158px 0 0 !important;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom:0;
-    position: absolute;
-    display: -webkit-flex;
-    display: flex;
+.meal_pic
+{
+	width:50px;
 }
-.left-panel{
-    -webkit-flex: 1;
-    flex: 1;
-}
-.right-panel{
-    -webkit-flex: 2;
-    flex: 2;
+
+.popup_meal select.form-control
+{
+    float: left;
+    width: 200px;
 }
