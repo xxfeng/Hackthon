@@ -1,0 +1,151 @@
+
+.fa-fw {
+    width: 1.28571429em;
+    text-align: center;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0,0);
+}
+
+.fa-ban:before {
+    content: "\f05e";
+}
+.fa-trash-o:before{
+     content: "\f014";
+ }
+.fa-shopping-cart:before{
+    content: "\f07a";
+}
+.fa-minus-circle:before{
+    content: "\f056";
+}
+.fa-plus-circle:before{
+    content: "\f055";
+}
+.fa-cc-paypal:before{
+    content: "\f1f4";
+}
+
+.logo{
+    margin-top: 15px;
+    margin-left:5%;
+}
+#login-name{
+    margin-right: 2%;
+}
+
+#first-pills{
+    margin-left: 500px;
+}
+
+.main-body{
+    padding: 158px 0 0 !important;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    position: absolute;
+    display: -webkit-flex;
+    display: flex;
+}
+.left-panel{
+    -webkit-flex: 1;
+    flex: 1;
+}
+.right-panel{
+    -webkit-flex: 2;
+    flex: 2;
+}
+
+.shop-cart{
+    margin-top: 3%;
+    border: solid 1px #DDDDDD;
+    border-radius: 10px;
+    position: fixed;
+    width: 250px;
+}
+
+.cart-head{
+    background: #DDDDDD;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 40px;
+}
+.cart-head .cart-head-container{
+    padding-top: 8px;
+}
+.cart-head .cart-head-container{
+    padding-top: 8px;
+}
+.cart-head span{
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.order-list{
+    min-height: 100px;
+}
+.order-price{
+    background: #DDDDDD;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    height: 50px;
+}
+.price-container{
+    margin-left: 4%;
+    margin-top: 20px;
+    padding-top: 8px;
+}
+.price-container button{
+    margin-left: 40%;
+}
+
+.menu-image{
+    width: 200px;
+    height: 150px;
+}
+.menu-image img{
+    width: 200px;
+    height: 150px;
+}
+.dish-menu-first {
+    margin-top: 15%
+}
+.dish-menu-first .dish-information{
+    width: 200px;
+}
+.dish-menu {
+    margin-left: 30px;
+    margin-top:15%;
+}
+
+.dish-information{
+    background: #DDDDDD;
+    height: 50px;
+}
+.dish-information .dish-title{
+    padding-top: 3px;
+    padding-left: 2%;
+}
+.dish-information .dish-title div{
+    font-size: 17px;
+}
+.dish-price .price{
+    padding-left: 3%;
+}
+.dish-price .cart-icon{
+    margin-left: 148px;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+    margin: 0; 
+}
+
