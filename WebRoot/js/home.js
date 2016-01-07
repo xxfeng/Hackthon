@@ -56,6 +56,7 @@ $(document).ready(function () {
         }
 		
 		reload_cart();
+		calculate_cart();
 		
     });
     var array = [{
