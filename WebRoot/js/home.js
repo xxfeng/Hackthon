@@ -54,6 +54,9 @@ $(document).ready(function () {
                 shoppingCar.push(obj);
             }
         }
+		
+		reload_cart();
+		
     });
     var array = [{
         "name": "name_1",
@@ -164,6 +167,8 @@ $(document).ready(function () {
 	
 	function reload_cart()
 	{
+		$(".shop-cart .fa-trash-o").click();
+		
 		var cart_map = {};
 		
 		for(var i=0;i<shoppingCar.length;i++)
