@@ -127,15 +127,49 @@
                             <i class="fa fa-fw fa-ban"></i></span>
                     </div>
                 </div>
-                <div class="order-list">
+                <div class="order-list" style="margin-bottom: 20px;">
                 </div>
+                <div class="order-People" style="margin-bottom: 10px;">
+					    <span id="People_label">People:</span>
+						<input class="span2" id="prependedInput" type="text" placeholder="people numbers">
+                </div>
+                
+                <div class="order-People" style="margin-bottom: 10px;    margin-left: 10px;">
+                	<span id="Date_label">&nbsp;&nbsp;&nbsp;Date:</span>
+               		<input class="span2" id="prependedInput" type="text" placeholder="date">
+                </div>
+                
+                <div class="order-People" style="margin-bottom: 10px;    margin-left: 10px;">
+                	<span id="Date_label">&nbsp;&nbsp;Time:</span>
+                	<select>
+					  <option>11:00</option>
+					  <option>12:00</option>
+					  <option>13:00</option>
+					  <option>14:00</option>
+					  <option>17:00</option>
+					  <option>18:00</option>
+					  <option>19:00</option>
+					  <option>20:00</option>
+					</select>-<select>
+					  <option>11:00</option>
+					  <option>12:00</option>
+					  <option>13:00</option>
+					  <option>14:00</option>
+					  <option>17:00</option>
+					  <option>18:00</option>
+					  <option>19:00</option>
+					  <option>20:00</option>
+					</select>        	
+                </div>
+                
                 <div class="order-price">
                     <div class="price-container">
                         <span>总价</span>
-                        <span id="total_price">484</span>
+                        <span id="total_price">$484</span>
+                        
                         <button class="btn btn-mini btn-primary" type="button" data-toggle="modal" data-target="#checkout" id="checkout_button">
                             <!--<i class="fa fa-fw fa-cc-paypal" style="display: inline"></i>-->
-                            去结算
+                           Book
                         </button>	
                     </div>
                 </div>
@@ -203,6 +237,8 @@
 <script src="./lib/bootbox.min.js"></script>
 <script src="./js/order.js"></script>
 <script src="./js/home.js"></script>
-
+<script src="./lib/bootstrap-datepicker.min.js"></script>
+						 
 </body>
+
 </html>

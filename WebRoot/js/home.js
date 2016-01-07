@@ -438,4 +438,5 @@ function filterMenu(type, array) {
 			}
 		}
 	}
+
 }
