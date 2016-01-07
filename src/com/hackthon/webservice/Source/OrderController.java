@@ -54,7 +54,12 @@ public class OrderController extends BaseController{
 			return this.NO_REQUEST_PARAMS;
 		}
 		//update sql
-		updateOrderById(order);
+		try {
+			updateOrderById(order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return this.SUCCESS;
     }
 
@@ -101,7 +106,7 @@ public class OrderController extends BaseController{
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		String systime = dateFormat.format( now ); 
 		
-		String sql = "insert into Order(orderNo,user_id,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status) values('"+
+		String sql = "insert into Hackthon.Order(orderNo,user_id,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status) values('"+
 				orderNo+"','"+params.getUser().getUserid()+"','"+params.getNumPeople()+"','"+params.getDishNameList()+"','"+
 				params.getDishNumList()+"','"+params.getTotalValue()+"','"+systime+"','"+params.getDinnerTime()+"','"+params.getCheckTime()+"','0')";
 		
@@ -124,10 +129,9 @@ public class OrderController extends BaseController{
 		// TODO Auto-generated method stub
 		DBConn conn = DBConn.getInstance();
 		List<Order> list = new ArrayList<Order>();
-		List<Dish> dishlist = new ArrayList<Dish>();
 		
 		String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status "+
-		             "from Order where user_id='"+params.getUser().getUserid()+"';";
+		             "from Hackthon.Order where user_id='"+params.getUser().getUserid()+"';";
 		
 		ResultSet rs = conn.selectSQL(sql);
 		
@@ -137,15 +141,13 @@ public class OrderController extends BaseController{
 				 order.setOrder_id(rs.getString(1));
 				 order.setOrderNo(rs.getString(2));
 				 order.setNumPeople(rs.getString(3));
-				 
-				 
-				 
-				 
-				 
-				 //order.setDishNameList(Arrays.asList( rs.getString(4).split(",") ));
-				 
-				 //order.setDishNumList(dishNumList);
-				 
+				 order.setDishNameList(convertStringToDish(rs.getString(4)));
+				 order.setDishNumList(Arrays.asList( rs.getString(5).split(",") ));
+				 order.setTotalValue(rs.getString(6));
+				 order.setBookTime(rs.getString(7));
+				 order.setDinnerTime(rs.getString(8));
+				 order.setCheckTime(rs.getString(9));
+				 order.setStatus(rs.getString(10));	 
 				 list.add(order);
 			}
 			
@@ -153,7 +155,7 @@ public class OrderController extends BaseController{
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		}
-		return null;
+		return list;
 	}
 
 	private List<Order> getOrderByAdmin(Order params) {
@@ -167,8 +169,11 @@ public class OrderController extends BaseController{
 		return null;
 	}
 	
-	private void updateOrderById(Order order) {
-		
+	private void updateOrderById(Order order) throws Exception {
+		DBConn conn = DBConn.getInstance();
+		String sql = "update Hackthon.Order set status='"+order.getStatus()+"' where order_id='"+order.getOrder_id()+"'";
+		if(!conn.updateSQL(sql))
+			throw new Exception("can not update order");
 	}
 	
 	private List<Order> filterOrderByStatus(String status, List<Order> orderList) {
@@ -186,4 +191,18 @@ public class OrderController extends BaseController{
 		return null;
 		
 	}
+	
+	//dish_id
+	public List<Dish> convertStringToDish(String listName) {
+		List<Dish> list = new ArrayList<Dish>();
+		String[] ids = listName.split(",");
+		
+		for(int i=0;i<ids.length;i++) {
+			DishController dc = new  DishController();
+			List<Dish> dish = dc.getDishById(ids[i]);
+			list.add(dish.get(0));
+		}
+		return list;
+	}
+	
 }
