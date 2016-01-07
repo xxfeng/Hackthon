@@ -22,7 +22,7 @@ public class UserManagerController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> login(
 			@RequestParam("username") String username,

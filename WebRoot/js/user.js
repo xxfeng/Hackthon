@@ -1,3 +1,8 @@
+function strToJson(str){ 
+	var json = eval('(' + str + ')'); 
+	return json; 
+}
+
 function login() {
 	username = $("#username").val();
 	password = $("#password").val();
@@ -7,12 +12,15 @@ function login() {
 			url : "user/login",
 			async : false, // 同步
 	        data:queryStr,
-	        type: 'GET',
+	        type: 'POST',
 			
 			success : function(oResponse) {
-			    var objs=eval("("+oResponse+")");
-				if (objs.returnCode==0) { 
-					alert(objs.result+" i got "+objs.got+" from you.");
+				if (oResponse.returnCode === 0 && oResponse.user.admin===true) { 
+//					alert(objs.returnCode+" i got "+objs.user.+" from you.");
+					window.location.href='./backend.html';
+				}
+				else if(oResponse.returnCode === 0 && oResponse.user.admin===false){
+					window.location.href='./home.html';
 				}
 				// else if(oResponse.iErrCode!=0)
 				// alert(oResponse.sDescript);

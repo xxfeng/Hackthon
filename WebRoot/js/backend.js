@@ -121,7 +121,16 @@ function setOrderStatus() {
 
 
 
-function showBookedOrderDetails(index) {
+function showBookedOrderDetails(id) {
+	orders = strToJson(gData);
+	index=0;
+	for(i=0; i<orders.length;i++){
+		if(orders[i].order_id==id) {
+			index = i;
+			break;
+		}
+	}
+	
 	order = strToJson(gData)[index];
 	
 	dishs = order.dishNameList;
@@ -131,20 +140,23 @@ function showBookedOrderDetails(index) {
 	html += '<p>menu</p>';
 	
 	html +=  '<table class="table">' +
-	'<thead>   <tr>      <th>#</th>      <th>Dish</th>      <th>Qty</th>      <th>Price</th>    </tr><thead>';
+	'<thead>   <tr>      <th>#</th>      <th>Dish</th>      <th>Qty</th>      <th>Price</th>    <th>User</th> </tr><thead>';
 	  
 	html += '<tbody>'
     	
 	for(i=0;i<dishs.length;i++) {
-		html += '<tr class="active"> <td scope="row">'+(i+1)+'</td><td>'+dishs[i].name+'</td><td>X'+dishNums[i]+'</td><td>'+dishs[i].price+'</td></tr>';
+		
+		html += '<tr class="active"> <td scope="row">'+(i+1)+'</td><td>'+dishs[i].name+'</td><td>X'+dishNums[i]+'</td><td>'+dishs[i].price+'</td>';
+		html += '<td> <img src="./lib/image/el_psy_congroo.jpg" alt="el_psy_congroo" class="meal_pic"/> </td></tr>';
 	}
 	html += '</tbody></table>'
 	
-	$("#dishs")[0].innerHTML=html;
+	$("#showorderdetails")[0].innerHTML=html;
 }
 
 function setOrderID( id ) {
 	gorderid = id;
+	showBookedOrderDetails(id);
 }
 
 
