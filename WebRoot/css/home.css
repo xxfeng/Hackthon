@@ -72,7 +72,7 @@
     border: solid 1px #DDDDDD;
     border-radius: 10px;
     position: fixed;
-    width: 250px;
+    width: 265px;
 }
 
 .cart-head{
@@ -143,7 +143,7 @@
     padding-left: 3%;
 }
 .dish-price .cart-icon{
-    margin-left: 148px;
+    margin-left: 150px;
 }
 
 
