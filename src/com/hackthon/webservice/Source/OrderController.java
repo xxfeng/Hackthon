@@ -22,14 +22,14 @@ import com.hackthon.domain.Order;
 
 @Controller
 public class OrderController extends BaseController{
-	
+	public static final String ORDER_TABLE = "Order";
 	@RequestMapping(value="/order/add", method=RequestMethod.POST)
-    public @ResponseBody String add(@RequestBody Order params) {
+    public @ResponseBody String add(@RequestBody Order order) {
 //		System.out.println("order_id="+params.getOrder_id());
 //		System.out.println("user.userid="+params.getUser().getUserid());
 //		System.out.println("user.dishNamelist="+params.getDishNameList().get(0).getDish_id());
 //		System.out.println("user.dishNumlist="+params.getDishNumList().get(0));
-		addOrder(params);
+		addOrder(order);
         return "You can upload a file by posting to this same URL.";
     }
 	
@@ -39,17 +39,22 @@ public class OrderController extends BaseController{
 			return this.NO_REQUEST_PARAMS;
 		}
 		// delete order sql
-		deleteById(params.getOrder_id());
+		try{
+			deleteById(params.getOrder_id());
+		}catch(Exception err)
+		{
+			System.out.println(err.getMessage());
+		}
         return this.SUCCESS;
     }
 	
 	@RequestMapping(value="/order/modify", method=RequestMethod.POST)
-    public @ResponseBody String modify(@RequestBody Order params) {
-		if(params.getOrder_id() == null){
+    public @ResponseBody String modify(@RequestBody Order order) {
+		if(order.getOrder_id() == null){
 			return this.NO_REQUEST_PARAMS;
 		}
 		//update sql
-		updateOrderById(params);
+		updateOrderById(order);
 		return this.SUCCESS;
     }
 
@@ -105,14 +110,14 @@ public class OrderController extends BaseController{
 		}
 		else {
 			System.out.println("Order Create failed!");
-		}
-		
-		conn.destroy();
-		
+		}	
 	}
 
-	private void deleteById(String order_id) {
-		// TODO Auto-generated method stub
+	private void deleteById(String order_id)throws Exception {
+		DBConn conn = DBConn.getInstance();
+		String sql = "delete from " + ORDER_TABLE + "where order_id = '" +order_id+ "'";
+		if(!conn.deleteSQL(sql))
+			throw new Exception("can not delete order");
 	    	
 	}
 	private List<Order> getOrderByUser(Order params) {
@@ -148,12 +153,6 @@ public class OrderController extends BaseController{
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		}
-		
-		conn.destroy();
-		
-		
-		
-		
 		return null;
 	}
 
@@ -168,8 +167,7 @@ public class OrderController extends BaseController{
 		return null;
 	}
 	
-	private void updateOrderById(Order params) {
-		// TODO Auto-generated method stub
+	private void updateOrderById(Order order) {
 		
 	}
 	

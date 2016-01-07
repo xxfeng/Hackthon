@@ -93,9 +93,6 @@ public class DishController  extends BaseController{
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		}
-		
-		conn.destroy();
-		
 		return list;
 	}
 	

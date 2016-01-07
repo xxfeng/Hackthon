@@ -46,7 +46,6 @@ public class TableController {
 			returnMap.put("returnCode", 1);
 			returnMap.put("returnMessage", "Failed,please try again!");
 		}
-		conn.destroy();
 		return returnMap;
 	}
 	
@@ -69,7 +68,6 @@ public class TableController {
 			returnMap.put("returnCode", 1);
 			returnMap.put("returnMessage", "Failed,please try again!");
 		}
-		conn.destroy();
 		return returnMap;
 	}
 	
@@ -141,8 +139,6 @@ public class TableController {
 			returnMap.put("returnCode", 1);
 			returnMap.put("returnMessage", e.getMessage());
 		}
-		
-		conn.destroy();
 		return returnMap;
 	}
 	
@@ -166,7 +162,6 @@ public class TableController {
 			returnMap.put("returnCode", 1);
 			returnMap.put("returnMessage", "Failed,please try again!");
 		}
-		conn.destroy();
 		return returnMap;
 	}
 	
