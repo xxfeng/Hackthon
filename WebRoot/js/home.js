@@ -65,7 +65,7 @@ $(document)
 						"type" : "1",
 						"dish_id" : "1",
 						"price" : "45",
-						"picPath" : "image/dish/1.jpg",
+						"picPath" : "1.jpg",
 						"numSale" : "numSale_1",
 						"discount" : "discount_1",
 						"popular" : "popular_1"
@@ -74,7 +74,7 @@ $(document)
 						"type" : "2",
 						"dish_id" : "2",
 						"price" : "55",
-						"picPath" : "image/dish/2.jpg",
+						"picPath" : "2.jpg",
 						"numSale" : "numSale_2",
 						"discount" : "discount_2",
 						"popular" : "popular_2"
@@ -83,7 +83,7 @@ $(document)
 						"type" : "3",
 						"dish_id" : "3",
 						"price" : "66",
-						"picPath" : "image/dish/3.jpg",
+						"picPath" : "3.jpg",
 						"numSale" : "numSale_3",
 						"discount" : "discount_3",
 						"popular" : "popular_3"
@@ -92,7 +92,7 @@ $(document)
 						"type" : "4",
 						"dish_id" : "4",
 						"price" : "77",
-						"picPath" : "image/dish/4.jpg",
+						"picPath" : "4.jpg",
 						"numSale" : "numSale_4",
 						"discount" : "discount_4",
 						"popular" : "popular_4"
@@ -101,7 +101,7 @@ $(document)
 						"type" : "5",
 						"dish_id" : "5",
 						"price" : "50",
-						"picPath" : "image/dish/5.jpg",
+						"picPath" : "5.jpg",
 						"numSale" : "numSale_5",
 						"discount" : "discount_5",
 						"popular" : "popular_5"
@@ -110,7 +110,7 @@ $(document)
 						"type" : "6",
 						"dish_id" : "6",
 						"price" : "41",
-						"picPath" : "image/dish/6.jpg",
+						"picPath" : "6.jpg",
 						"numSale" : "numSale_6",
 						"discount" : "discount_6",
 						"popular" : "popular_6"
@@ -123,7 +123,7 @@ $(document)
 					for ( var index in array) {
 						dishNumber = Number(index) + 1;
 						var innerTd;
-						innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/example.jpg" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>'
+						innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/'+array[index].picPath+'" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>'
 								+ array[index].name
 								+ '</div></div><div class="dish-price"><div style="display: inline" class="price"> $'
 								+ array[index].price
@@ -363,12 +363,12 @@ function filterMenu(type, array) {
 		if (array[index].type == type) {
 			dishNumber = Number(index) + 1;
 			var innerTd;
-			innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/example.jpg" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>'
-					+ array[index].name
-					+ '</div></div><div class="dish-price"><div style="display: inline" class="price"> $'
-					+ array[index].price
-					+ '</div><i class="fa fa-fw fa-shopping-cart cart-icon"  style="display: inline"></i></div></div></div></td>'
-
+			innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/'+array[index].picPath+'" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>'
+			+ array[index].name
+			+ '</div></div><div class="dish-price"><div style="display: inline" class="price"> $'
+			+ array[index].price
+			+ '</div><i class="fa fa-fw fa-shopping-cart cart-icon"  style="display: inline"></i></div></div></div></td>'
+			
 			if (rowNumber == 0) {
 				$(innerTd).appendTo("#first-row");
 			} else if (rowNumber == 1) {
@@ -386,12 +386,12 @@ function filterMenu(type, array) {
 		} else if (type == "all") {
 			dishNumber = Number(index) + 1;
 			var innerTd;
-			innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/example.jpg" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>'
-					+ array[index].name
-					+ '</div></div><div class="dish-price"><div style="display: inline" class="price"> $'
-					+ array[index].price
-					+ '</div><i class="fa fa-fw fa-shopping-cart cart-icon"  style="display: inline"></i></div></div></div></td>'
-
+			innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/'+array[index].picPath+'" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>'
+			+ array[index].name
+			+ '</div></div><div class="dish-price"><div style="display: inline" class="price"> $'
+			+ array[index].price
+			+ '</div><i class="fa fa-fw fa-shopping-cart cart-icon"  style="display: inline"></i></div></div></div></td>'
+			
 			if (rowNumber == 0) {
 				$(innerTd).appendTo("#first-row");
 			} else if (rowNumber == 1) {
