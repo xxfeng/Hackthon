@@ -14,7 +14,7 @@ function strToJson(str){
 	return json; 
 }
 
-function addOrder(order_id,user,dishNameList,dishNumList){
+function addOrder(order_id,user,dishNameList,dishNumList,totalValue){
 	
 	var stringJson = {}
 	
@@ -22,7 +22,7 @@ function addOrder(order_id,user,dishNameList,dishNumList){
 	stringJson["user"] = {"userid":user};
 	stringJson["dishNameList"] = dishNameList;
 	stringJson["dishNumList"] = dishNumList;
-	
+	stringJson["totalValue"] = totalValue;
 	
 	var requestURI = "resource/order/add";
 	var opts = {

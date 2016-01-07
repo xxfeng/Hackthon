@@ -373,7 +373,8 @@ $(document)
 								
 						//order_id:1
 						//user:2
-						addOrder(1,2,dishNameList,dishNumList);
+						addOrder(1,2,dishNameList,dishNumList,$(".shop-cart #total_price")
+								.text());
 						
 						
 						//$(".shop-cart .fa-ban").click();
