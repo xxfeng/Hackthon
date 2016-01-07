@@ -39,7 +39,7 @@ function addOrder(order_id,user,dishNameList,dishNumList){
 
 function addOrderSuccess(data)
 {
-	alert(1);
+	alert("Submit successful");
 }
 
 

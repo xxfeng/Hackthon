@@ -367,14 +367,16 @@ $(document)
 							//dishNameList.push(each_dishNameList);
 							
 							
-							dishNameList.push({"dish_id":cart_map[each_item][2]})
+							dishNameList.push({"dish_id":cart_map[each_item][3]})
 							dishNumList.push(cart_map[each_item][0]);
 						}						
 								
+						//order_id:1
+						//user:2
 						addOrder(1,2,dishNameList,dishNumList);
 						
 						
-						$(".shop-cart .fa-ban").click();
+						//$(".shop-cart .fa-ban").click();
 					})
 
 				});
