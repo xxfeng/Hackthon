@@ -238,9 +238,10 @@ $(document).ready(function () {
 		
 		num = parseInt($(this).next("input").val());
 		
-		if(num==0)
+		if(num==1)
 		{
-				return;
+			$(".shop-cart .fa-trash-o").click();
+			return;
 		}
 		else
 		{
