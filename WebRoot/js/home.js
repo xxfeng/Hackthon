@@ -54,10 +54,9 @@ $(document).ready(function () {
                 shoppingCar.push(obj);
             }
         }
-		
 		reload_cart();
 		calculate_cart();
-		
+
     });
     var array = [{
         "name": "name_1",
@@ -145,52 +144,52 @@ $(document).ready(function () {
     var rowNumber = 0;
     var dishNumber = 0;
 
-        for (var index in array) {
-            dishNumber = Number(index) + 1;
-            var innerTd;
-            innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/example.jpg" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>' + array[index].name + '</div></div><div class="dish-price"><div style="display: inline" class="price"> $' + array[index].price + '</div><i class="fa fa-fw fa-shopping-cart cart-icon"  style="display: inline"></i></div></div></div></td>'
+    for (var index in array) {
+        dishNumber = Number(index) + 1;
+        var innerTd;
+        innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/example.jpg" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>' + array[index].name + '</div></div><div class="dish-price"><div style="display: inline" class="price"> $' + array[index].price + '</div><i class="fa fa-fw fa-shopping-cart cart-icon"  style="display: inline"></i></div></div></div></td>'
 
-            if (rowNumber == 0) {
-                $(innerTd).appendTo("#first-row");
-            } else if (rowNumber == 1) {
-                $(innerTd).appendTo("#second-row");
+        if (rowNumber == 0) {
+            $(innerTd).appendTo("#first-row");
+        } else if (rowNumber == 1) {
+            $(innerTd).appendTo("#second-row");
 
-            } else if (rowNumber == 2) {
-                $(innerTd).appendTo("#third-row");
+        } else if (rowNumber == 2) {
+            $(innerTd).appendTo("#third-row");
 
-            } else if (rowNumber == 3) {
-                $(innerTd).appendTo("#forth-row");
+        } else if (rowNumber == 3) {
+            $(innerTd).appendTo("#forth-row");
+        }
+        if (dishNumber % 3 === 0) {
+            rowNumber == rowNumber++;
+        }
+    }
+
+    function reload_cart()
+    {
+        $(".shop-cart .fa-trash-o").click();
+
+        var cart_map = {};
+
+        for(var i=0;i<shoppingCar.length;i++)
+        {
+            if(shoppingCar[i].name in cart_map)
+            {
+                cart_map[shoppingCar[i].name][0] = cart_map[shoppingCar[i].name][0] + 1;
             }
-            if (dishNumber % 3 === 0) {
-                rowNumber == rowNumber++;
+            else
+            {
+                var each_item_info = [1,shoppingCar[i].price];
+                cart_map[shoppingCar[i].name] = each_item_info;
             }
         }
-	
-	function reload_cart()
-	{
-		$(".shop-cart .fa-trash-o").click();
-		
-		var cart_map = {};
-		
-		for(var i=0;i<shoppingCar.length;i++)
-		{
-			if(shoppingCar[i].name in cart_map)
-			{
-				cart_map[shoppingCar[i].name][0] = cart_map[shoppingCar[i].name][0] + 1;
-			}
-			else
-			{
-				var each_item_info = [1,shoppingCar[i].price];
-				cart_map[shoppingCar[i].name] = each_item_info;
-			}
-		}
-		
-		
-		var new_cart_item=""
-		
-		for(var each_item_info in cart_map)
-		{
-			new_cart_item = new_cart_item+ '<div class="dishes-list" style="margin-top: 10px">\
+
+
+        var new_cart_item=""
+
+        for(var each_item_info in cart_map)
+        {
+            new_cart_item = new_cart_item+ '<div class="dishes-list" style="margin-top: 10px">\
                         <span style="display: inline;margin-left: 10px">'+each_item_info +'</span>\
 						<div class="cell itemquantity" style="display: inline;margin-left: 20px">\
                             <i style="display: inline" class="fa fa-fw fa-minus-circle"></i>\
@@ -201,78 +200,78 @@ $(document).ready(function () {
 						<span class="cart_price">'+cart_map[each_item_info][1]+'</span>\
                         <span style="display: inline;margin-left: 20px">\
                             <i style="display: inline" class="fa fa-fw fa-trash-o"></i></span>\
-						</div>'	
-		}
-		
-		$(".order-list").append(new_cart_item);
-		
-		
-		//alert(new_cart_item);	
-	}
-	
-	
-	reload_cart();
+						</div>'
+        }
 
-	$(".shop-cart .fa-ban").live("click",function(){
-		$(".order-list .dishes-list").remove();
-		
-		calculate_cart();
-		
-	})	
-	
-	$(".shop-cart .fa-trash-o").live("click",function(){
-		$(this).closest(".dishes-list").remove();
-		
-		calculate_cart();
-	})	
-	
-	$(".shop-cart .fa-plus-circle").live("click",function(){
-		
-		num = parseInt($(this).prev("input").val());
-		$(this).prev("input").val(num+1);
-		
-		calculate_cart();
-		
-	})	
-	
-	$(".shop-cart .fa-minus-circle").live("click",function(){
-		
-		num = parseInt($(this).next("input").val());
-		
-		if(num==1)
-		{
-			$(".shop-cart .fa-trash-o").click();
-			return;
-		}
-		else
-		{
-			$(this).next("input").val(num-1);
-		}
-		
-		
-		calculate_cart();
-		
-	})		
-	
-	
-	function calculate_cart()
-	{
-		var total_price = 0;
-		
-		$(".shop-cart .cart_price").each(function(){
-				var each_num = $(this).siblings(".cell.itemquantity").children("input").val();
-				//.css("background-color", "red");
-				//alert(each_num);
-				total_price = total_price + parseInt($(this).text()) * each_num ;
-		})
-		//alert(total_price);
-		
-		$(".shop-cart #total_price").text(total_price);
-		
-	}
-	
-	
-	calculate_cart();
+        $(".order-list").append(new_cart_item);
+
+
+        //alert(new_cart_item);
+    }
+
+
+    reload_cart();
+
+    $(".shop-cart .fa-ban").live("click",function(){
+        $(".order-list .dishes-list").remove();
+
+        calculate_cart();
+
+    })
+
+    $(".shop-cart .fa-trash-o").live("click",function(){
+        $(this).closest(".dishes-list").remove();
+
+        calculate_cart();
+    })
+
+    $(".shop-cart .fa-plus-circle").live("click",function(){
+
+        num = parseInt($(this).prev("input").val());
+        $(this).prev("input").val(num+1);
+
+        calculate_cart();
+
+    })
+
+    $(".shop-cart .fa-minus-circle").live("click",function(){
+
+        num = parseInt($(this).next("input").val());
+
+        if(num==1)
+        {
+            $(".shop-cart .fa-trash-o").click();
+            return;
+        }
+        else
+        {
+            $(this).next("input").val(num-1);
+        }
+
+
+        calculate_cart();
+
+    })
+
+
+    function calculate_cart()
+    {
+        var total_price = 0;
+
+        $(".shop-cart .cart_price").each(function(){
+            var each_num = $(this).siblings(".cell.itemquantity").children("input").val();
+            //.css("background-color", "red");
+            //alert(each_num);
+            total_price = total_price + parseInt($(this).text()) * each_num ;
+        })
+        //alert(total_price);
+
+        $(".shop-cart #total_price").text(total_price);
+
+    }
+
+
+    calculate_cart();
 });
 function filterMenu(type, array) {
     var rowNumber = 0;
