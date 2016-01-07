@@ -1,30 +1,181 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $(".menu-list li").click(function(e){
+    var shoppingCar = [];
+    $(".menu-list li").click(function (e) {
+
         $(".menu-list li").removeClass("active");
         $(this).addClass("active");
+        if ($(this).text() == "famous dish") {
+            var dishtype = "1";
+            $('table tr td').remove();
+            filterMenu(dishtype, array);
+        }
+        else if ($(this).text() == "cold-mix") {
+            var dishtype = "2";
+            $('table tr td').remove();
+            filterMenu(dishtype, array);
+        }
+        else if ($(this).text() == "Hot Dishes") {
+            var dishtype = "3";
+            $('table tr td').remove();
+            filterMenu(dishtype, array);
+
+        }
+        else if ($(this).text() == "Dimsum") {
+            var dishtype = "4";
+            $('table tr td').remove();
+            filterMenu(dishtype, array);
+
+        } else if ($(this).text() == "Staple") {
+            var dishtype = "5";
+            $('table tr td').remove();
+            filterMenu(dishtype, array);
+
+        } else if ($(this).text() == "Drinks") {
+            var dishtype = "6";
+            $('table tr td').remove();
+            filterMenu(dishtype, array);
+        }
+        else  if($(this).text() == "All"){
+            var dishtype = "all";
+            $('table tr td').remove();
+            $('table tr td').remove();
+            filterMenu(dishtype, array);
+        }
     });
 
-    $('#myTab a:last').tab('show');
-	
+    $(".cart-icon").live("click", function () {
+        var displayDishName = $(this.parentElement.parentElement).find('.dish-title').text();
+        displayDishName=displayDishName.substr(1);
+        //遍历数组，取出对象
+        for(var index in array){
+            if(array[index].name==displayDishName){
+                var obj=array[index];
+                shoppingCar.push(obj);
+            }
+        }
+    });
+    var array = [{
+        "name": "name_1",
+        "type": "1",
+        "picPath": "example.jpg",
+        "price": "55",
+        "numSale": "numSale_1",
+        "discount": "discount_1",
+        "popular": "popular_1",
+        "dish_id": "1"
+    },
+        {
+            "name": "name_2",
+            "type": "2",
+            "picPath": "example.jpg",
+            "price": "55",
+            "numSale": "numSale_1",
+            "discount": "discount_1",
+            "popular": "popular_1",
+            "dish_id": "2"
+        },
+        {
+            "name": "name_3",
+            "type": "3",
+            "picPath": "example.jpg",
+            "price": "45",
+            "numSale": "numSale_1",
+            "discount": "discount_1",
+            "popular": "popular_1",
+            "dish_id": "3"
+        },
+        {
+            "name": "name_4",
+            "type": "4",
+            "picPath": "example.jpg",
+            "price": "35",
+            "numSale": "numSale_1",
+            "discount": "discount_1",
+            "popular": "popular_1",
+            "dish_id": "4"
+        },
+        {
+            "name": "name_5",
+            "type": "5",
+            "picPath": "example.jpg",
+            "price": "35",
+            "numSale": "numSale_1",
+            "discount": "discount_1",
+            "popular": "popular_1",
+            "dish_id": "5"
+        },
+        {
+            "name": "name_6",
+            "type": "6",
+            "picPath": "example.jpg",
+            "price": "35",
+            "numSale": "numSale_1",
+            "discount": "discount_1",
+            "popular": "popular_1",
+            "dish_id": "6"
+        },
+        {
+            "name": "name_1",
+            "type": "1",
+            "picPath": "example.jpg",
+            "price": "55",
+            "numSale": "numSale_1",
+            "discount": "discount_1",
+            "popular": "popular_1",
+            "dish_id": "1"
+        },
+        {
+            "name": "name_4",
+            "type": "4",
+            "picPath": "example.jpg",
+            "price": "35",
+            "numSale": "numSale_1",
+            "discount": "discount_1",
+            "popular": "popular_1",
+            "dish_id": "4"
+        },
+    ];
 
-	var array = [{"name":"name_1","type":"1","picPath":"image/dish/1.jpg","price":"55","numSale":"numSale_1","discount":"discount_1","popular":"popular_1","dish_id":"1"},{"name":"name_1","type":"1","picPath":"image/dish/1.jpg","price":"55","numSale":"numSale_1","discount":"discount_1","popular":"popular_1","dish_id":"1"}];
-	
+    //all dishes
+    var rowNumber = 0;
+    var dishNumber = 0;
+
+        for (var index in array) {
+            dishNumber = Number(index) + 1;
+            var innerTd;
+            innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/example.jpg" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>' + array[index].name + '</div></div><div class="dish-price"><div style="display: inline" class="price"> $' + array[index].price + '</div><i class="fa fa-fw fa-shopping-cart cart-icon"  style="display: inline"></i></div></div></div></td>'
+
+            if (rowNumber == 0) {
+                $(innerTd).appendTo("#first-row");
+            } else if (rowNumber == 1) {
+                $(innerTd).appendTo("#second-row");
+
+            } else if (rowNumber == 2) {
+                $(innerTd).appendTo("#third-row");
+
+            } else if (rowNumber == 3) {
+                $(innerTd).appendTo("#forth-row");
+            }
+            if (dishNumber % 3 === 0) {
+                rowNumber == rowNumber++;
+            }
+        }
 	
 	function reload_cart()
 	{
 		var cart_map = {};
 		
-		for(var i=0;i<array.length;i++)
+		for(var i=0;i<shoppingCar.length;i++)
 		{
-			if(array[i].name in cart_map)
+			if(shoppingCar[i].name in cart_map)
 			{
-				cart_map[array[i].name][0] = cart_map[array[i].name][0] + 1;
+				cart_map[shoppingCar[i].name][0] = cart_map[shoppingCar[i].name][0] + 1;
 			}
 			else
 			{
-				var each_item_info = [1,array[i].price];
-				cart_map[array[i].name] = each_item_info;
+				var each_item_info = [1,shoppingCar[i].price];
+				cart_map[shoppingCar[i].name] = each_item_info;
 			}
 		}
 		
@@ -116,3 +267,50 @@ $(document).ready(function(){
 	
 	calculate_cart();
 });
+function filterMenu(type, array) {
+    var rowNumber = 0;
+    var dishNumber = 0;
+
+    for (var index in array) {
+        if (array[index].type == type) {
+            dishNumber = Number(index) + 1;
+            var innerTd;
+            innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/example.jpg" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>' + array[index].name + '</div></div><div class="dish-price"><div style="display: inline" class="price"> $' + array[index].price + '</div><i class="fa fa-fw fa-shopping-cart cart-icon"  style="display: inline"></i></div></div></div></td>'
+
+            if (rowNumber == 0) {
+                $(innerTd).appendTo("#first-row");
+            } else if (rowNumber == 1) {
+                $(innerTd).appendTo("#second-row");
+
+            } else if (rowNumber == 2) {
+                $(innerTd).appendTo("#third-row");
+
+            } else if (rowNumber == 3) {
+                $(innerTd).appendTo("#forth-row");
+            }
+            if (dishNumber % 3 === 0) {
+                rowNumber == rowNumber++;
+            }
+        }
+        else if(type=="all"){
+            dishNumber = Number(index) + 1;
+            var innerTd;
+            innerTd = '<td><div class="dish-menu"><div class="menu-image"><img src="./lib/image/example.jpg" class="img-polaroid"></div> <div class="dish-information"> <div class="dish-title"> <div>' + array[index].name + '</div></div><div class="dish-price"><div style="display: inline" class="price"> $' + array[index].price + '</div><i class="fa fa-fw fa-shopping-cart cart-icon"  style="display: inline"></i></div></div></div></td>'
+
+            if (rowNumber == 0) {
+                $(innerTd).appendTo("#first-row");
+            } else if (rowNumber == 1) {
+                $(innerTd).appendTo("#second-row");
+
+            } else if (rowNumber == 2) {
+                $(innerTd).appendTo("#third-row");
+
+            } else if (rowNumber == 3) {
+                $(innerTd).appendTo("#forth-row");
+            }
+            if (dishNumber % 3 === 0) {
+                rowNumber == rowNumber++;
+            }
+        }
+    }
+}
