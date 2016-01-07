@@ -1,0 +1,35 @@
+th,tr
+{
+	text-align:center;
+}
+
+.logo{
+    margin-top: 15px;
+    margin-left:25%;
+}
+#login-name{
+    margin-right: 2%;
+}
+
+#first-pills{
+    margin-left: 2%;
+}
+
+.main-body{
+    padding: 158px 0 0 !important;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom:0;
+    position: absolute;
+    display: -webkit-flex;
+    display: flex;
+}
+.left-panel{
+    -webkit-flex: 1;
+    flex: 1;
+}
+.right-panel{
+    -webkit-flex: 2;
+    flex: 2;
+}
