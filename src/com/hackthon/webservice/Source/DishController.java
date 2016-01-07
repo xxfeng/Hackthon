@@ -70,7 +70,7 @@ public class DishController  extends BaseController{
 	private List<Dish> getDishById(String dish_id) {
 		// TODO Auto-generated method stub
 		DBConn conn = DBConn.getInstance();
-		String sql = "select name,price,picPath,numSale,discount,popular from Dish where dish_id="+dish_id+";";
+		String sql = "select dish_id,name,price,picPath,numSale,discount,popular from Dish where dish_id="+dish_id+";";
 		
 		List<Dish> list = new ArrayList<Dish>();
 		
@@ -79,6 +79,7 @@ public class DishController  extends BaseController{
 		try {
 			while(rs.next()){
 				 Dish dish = new Dish();
+				 dish.setDish_id(dish_id);
 				 dish.setName(rs.getString(1));
 				 dish.setPrice(rs.getString(2));
 				 dish.setPicPath(rs.getString(3));
@@ -112,7 +113,7 @@ public class DishController  extends BaseController{
 		list.add(new Dish("6","name_6", "price_6",rootPath+"6.jpg","numSale_6","discount_6", "popular_6","6"));
 /*
 		DBConn conn = DBConn.getInstance();
-		String sql = "select name,price,picPath,numSale,discount,popular from Dish order by name";
+		String sql = "select dish_id,name,price,picPath,numSale,discount,popular from Dish order by name";
 		
 		List<Dish> list = new ArrayList<Dish>();
 		
@@ -121,12 +122,14 @@ public class DishController  extends BaseController{
 		try {
 			while(rs.next()){
 				 Dish dish = new Dish();
+				 
 				 dish.setName(rs.getString(1));
-				 dish.setPrice(rs.getString(2));
-				 dish.setPicPath(rs.getString(3));
-				 dish.setNumSale(rs.getString(4));
-				 dish.setDiscount(rs.getString(5));
-				 dish.setPopular(rs.getString(6));				 
+				 dish.setName(rs.getString(2));
+				 dish.setPrice(rs.getString(3));
+				 dish.setPicPath(rs.getString(4));
+				 dish.setNumSale(rs.getString(5));
+				 dish.setDiscount(rs.getString(6));
+				 dish.setPopular(rs.getString(7));				 
 				 list.add(dish);
 			}
 			

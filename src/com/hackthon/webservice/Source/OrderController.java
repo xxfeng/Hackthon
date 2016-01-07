@@ -1,7 +1,13 @@
 package com.hackthon.webservice.Source;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.hackthon.base.DBConn;
 import com.hackthon.domain.Dish;
 import com.hackthon.domain.Order;
 
@@ -81,15 +88,72 @@ public class OrderController extends BaseController{
 
 	private void addOrder(Order params) {
 		// TODO Auto-generated method stub
+		DBConn conn = DBConn.getInstance();
+		
+		String orderNo = UUID.randomUUID().toString();
+		
+		Date now = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String systime = dateFormat.format( now ); 
+		
+		String sql = "insert into Order(orderNo,user_id,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status) values('"+
+				orderNo+"','"+params.getUser().getUserid()+"','"+params.getNumPeople()+"','"+params.getDishNameList()+"','"+
+				params.getDishNumList()+"','"+params.getTotalValue()+"','"+systime+"','"+params.getDinnerTime()+"','"+params.getCheckTime()+"','0')";
+		
+		if (conn.insertSQL(sql)) {
+			System.out.println("Order Create success!");
+		}
+		else {
+			System.out.println("Order Create failed!");
+		}
+		
+		conn.destroy();
 		
 	}
 
 	private void deleteById(String order_id) {
 		// TODO Auto-generated method stub
-		
+	    	
 	}
 	private List<Order> getOrderByUser(Order params) {
 		// TODO Auto-generated method stub
+		DBConn conn = DBConn.getInstance();
+		List<Order> list = new ArrayList<Order>();
+		List<Dish> dishlist = new ArrayList<Dish>();
+		
+		String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status "+
+		             "from Order where user_id='"+params.getUser().getUserid()+"';";
+		
+		ResultSet rs = conn.selectSQL(sql);
+		
+		try {
+			while(rs.next()){
+				 Order order = new Order();
+				 order.setOrder_id(rs.getString(1));
+				 order.setOrderNo(rs.getString(2));
+				 order.setNumPeople(rs.getString(3));
+				 
+				 
+				 
+				 
+				 
+				 //order.setDishNameList(Arrays.asList( rs.getString(4).split(",") ));
+				 
+				 //order.setDishNumList(dishNumList);
+				 
+				 list.add(order);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		
+		conn.destroy();
+		
+		
+		
+		
 		return null;
 	}
 
