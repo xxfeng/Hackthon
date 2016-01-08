@@ -7,10 +7,10 @@ $(document).ready(function(){
 });
 
 function  startCount(){
-    var endDays=3;
-    var endPersons=5;
-    var endCodeline=10000;
-    var endEffort=100000;
+    var endDays=56;
+    var endPersons=2;
+    var endCodeline=18;
+    var endEffort=3980;
     var currentDays=0;
     var currentPersons=0;
     var currentCodeline=0;
@@ -27,7 +27,7 @@ function  startCount(){
             currentDays++;
             $('#days').text(currentDays).animate();
         }
-    }, 300);
+    }, 100);
 
     var persons = setInterval(function ()
     {
@@ -40,7 +40,7 @@ function  startCount(){
             currentPersons++;
             $('#persons').text(currentPersons).animate();
         }
-    }, 200);
+    }, 300);
 
     var codelines = setInterval(function ()
     {
@@ -50,21 +50,33 @@ function  startCount(){
         }
         else
         {
-            currentCodeline=currentCodeline+50;
+            currentCodeline++;
             $('#codeline').text(currentCodeline).animate();
         }
-    },2);
-
-    var efforts = setInterval(function ()
+    },100);
+    var codelines = setInterval(function ()
     {
-        if (currentEffort === endEffort)
+        if (currentCodeline === endCodeline)
         {
-            clearInterval(efforts);
+            clearInterval(codelines);
         }
         else
         {
-            currentEffort=currentEffort+400;
-            $('#effort').text(currentEffort).animate();
+            currentCodeline++;
+            $('#codeline').text(currentCodeline).animate();
         }
-    },2);
+    },100);
+
+    //var efforts = setInterval(function ()
+    //{
+    //    if (currentEffort === endEffort)
+    //    {
+    //        clearInterval(efforts);
+    //    }
+    //    else
+    //    {
+    //         currentEffort=currentEffort++;
+    //        $('#effort').text(currentEffort).animate();
+    //    }
+    //},0.01);
 }

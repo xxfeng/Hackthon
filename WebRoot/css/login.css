@@ -36,7 +36,7 @@ section .container {
     padding-top: 0;
 }
 .section1-main #opensource-slogan .right-text{
-    margin-top: 20px;
+    margin-top: 60px;
 }
 .row-fluid {
     text-align: left;
@@ -76,6 +76,7 @@ section .container {
     padding-left: 40px;
     /* height: 100px; */
     padding-top: 10px;
+    font-size: 25px;
 }
 .under-slogan .col-xs-3{
     margin-top: 200px;
