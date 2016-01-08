@@ -304,7 +304,8 @@ public class OrderController extends BaseController{
 		for(int i=0;i<ids.length;i++) {
 			DishController dc = new  DishController();
 			List<Dish> dish = dc.getDishById(ids[i]);
-			list.add(dish.get(0));
+			if(dish != null && dish.size()>0)
+				list.add(dish.get(0));
 		}
 		return list;
 	}

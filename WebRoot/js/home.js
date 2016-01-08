@@ -221,7 +221,7 @@ $(document)
                         cart_map[shoppingCar[i].name][0] = cart_map[shoppingCar[i].name][0] + 1;
                     } else {
                         var each_item_info = [1, shoppingCar[i].price,
-                            shoppingCar[i].picPath];
+                            shoppingCar[i].picPath,shoppingCar[i].dish_id];
                         cart_map[shoppingCar[i].name] = each_item_info;
                     }
                 }
