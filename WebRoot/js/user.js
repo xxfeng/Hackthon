@@ -25,7 +25,7 @@ function login() {
 				// else if(oResponse.iErrCode!=0)
 				// alert(oResponse.sDescript);
 				else
-					bootbox.alert("失败，请重试！");
+					bootbox.alert("Please check the username and password!！");
 			},
 			error : function(msg) {
 				bootbox.alert(JSON.stringify(msg));

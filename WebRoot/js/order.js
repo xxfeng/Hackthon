@@ -3,6 +3,9 @@ $(document).ready(function(){
 	$("#searchOrderByOrderId").bind("click", searchOrderByOrderId);
 	$("#searchOrderByUser").bind("click", searchOrderByUser);
 	$("#searchOrderByStatus").bind("click", searchOrderByStatus);
+	
+	$("#history").bind("click", pushagain);
+	
 });
 
 
@@ -169,6 +172,19 @@ function getOrderSuccess(data){
 			}
 		}
 			
+		if(i == 2) {
+			html+= '<tr>';
+			html+='<td></td>';
+			html+='<td></td>';
+			html+='<td></td>';
+			html+='<td></td>';
+			html+='<td></td>';
+			html+='<td></td>';
+			html+='<td></td>';
+			html+='<td></td>';
+			html+='<td></td>';
+			html+='</tr>';
+		}
 		
 		html+= cstr;
 		
@@ -182,7 +198,21 @@ function getOrderSuccess(data){
 		html+='<td>'+orders[i].numPeople+'</td>';
 		html+='<td>'+orders[i].dishNameList.length+'</td>';
 		html+='<td>'+orders[i].totalValue+'</td>';
-		html+='<td>'+orders[i].status+'</td>';
+		status = "";
+		if(orders[i].status == "0") {
+			status = "booked";
+		}else if (orders[i].status == "1") {
+			status = "accepted";
+		}
+		else if (orders[i].status == "2") {
+			status = "canceled";
+		}
+		else if (orders[i].status == "3") {
+			status = "finished";
+		}
+		
+		
+		html+='<td>'+status+'</td>';
 		html+='<td><button type="button" class="btn btn-primary btn-small" style="margin-top: -5px" data-toggle="modal" data-target="#myModal" onclick=showDishs("'+i+'")>Details</button></td>';
 		html+='</tr>';
 	}
@@ -190,6 +220,11 @@ function getOrderSuccess(data){
 
 	$("#orderlist")[0].innerHTML=html;
 //	alert(strToJson(data)[0].order_id);
+}
+
+function pushagain() {
+	bootbox.alert("Request submited");
+	$('#myModal').modal('hide');
 }
 
 function addOrderFail(data){

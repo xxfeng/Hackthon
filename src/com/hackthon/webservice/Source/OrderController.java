@@ -186,7 +186,7 @@ public class OrderController extends BaseController{
 		List<Order> list = new ArrayList<Order>();
 		
 		String sql = "select order_id,orderNo,numPeople,dishNameList,dishNumlist,totalValue,bookTime,dinnerTime,checkTime,status,tableName "+
-		             "from Hackthon.Order where user_id='"+params.getUser().getUserid()+"' order by bookTime desc limit 0,10;";
+		             "from Hackthon.Order where user_id='"+params.getUser().getUserid()+"' order by bookTime desc";
 		
 		ResultSet rs = conn.selectSQL(sql);
 		
