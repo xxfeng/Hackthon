@@ -372,12 +372,15 @@ $(document)
 						}						
 								
 						var total_price = $(".shop-cart #total_price").text();						
-						var total_people = $("#People").val();						
+						var total_people = $("#people_val").val();		
+						var starttime = $("#starttime_val").val();
+						var endtime = $("#endtime_val").val();
+						var now_date = $("#date_val").val();
 						
 						//order_id:1
 						//user:2						
 						
-						addOrder(1,2,dishNameList,dishNumList,total_price,People);
+						addOrder(1,2,dishNameList,dishNumList,total_price,total_people,starttime,endtime,now_date);
 						
 						
 						//$(".shop-cart .fa-ban").click();
