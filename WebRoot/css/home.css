@@ -3,15 +3,21 @@
 	width:50px;
 }
 
-#People
+.book
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+.book input,.book select
 {
 	display:inline;
-	width:50px;
+	width:100px;
 	position:releative;
 	
 }
 
-#People_label
+#book_extra_info
 {
 	margin-left:10px;
 }
