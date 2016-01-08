@@ -382,7 +382,7 @@ $(document)
 						
 						addOrder(1,2,dishNameList,dishNumList,total_price,total_people,starttime,endtime,now_date);
 						
-						
+						$('#checkout').modal('hide');
 						
 						//$(".shop-cart .fa-ban").click();
 					})
