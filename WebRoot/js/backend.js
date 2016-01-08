@@ -192,7 +192,7 @@ function showBookedOrders(data){
 		}
 		
 		if( changedOrders.length>0) {
-			alert("Exists New Orders, please check!");
+			alert("Exists unhandle Orders, please check!");
 		}
 		else
 			return;
