@@ -41,7 +41,7 @@
 }
 
 #first-pills{
-    margin-left: 500px;
+    margin-left: 15px;
 }
 
 .main-body{
@@ -50,7 +50,6 @@
     left: 0;
     right: 0;
     bottom:0;
-    position: absolute;
     display: -webkit-flex;
     display: flex;
 }

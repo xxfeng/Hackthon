@@ -130,7 +130,7 @@ function searchFirst() {
 	searchOrderByUser();
 }
 
-//------------------------------------------------------------
+
 function getOrderSuccess(data){
 	
 	orders = strToJson(data);

@@ -54,6 +54,14 @@
 .fa-cc-paypal:before{
     content: "\f1f4";
 }
+.fa-arrow-down:before{
+    content: "\f063";
+    color: #d1cccc;
+}
+
+.sort-on-menu span:hover{
+    cursor:pointer;
+}
 
 .logo{
     margin-top: 15px;
@@ -64,7 +72,7 @@
 }
 
 #first-pills{
-    margin-left: 20%;
+    margin-left: 15px;
 }
 
 .main-body{
@@ -172,3 +180,23 @@ input::-webkit-inner-spin-button{
     margin: 0; 
 }
 
+.sort-on-menu{
+    margin-left: 15px;
+    margin-top: 15px;
+
+}
+.sort-on-menu span
+{
+    padding-left: 8px;
+    margin-right: 18px;
+    line-height: 1.428571429;
+    border-left: 1px solid #DDDDDD;
+    width: 60px;
+    height: 50px;
+}
+.sort-on-menu span:first-child{
+    border-left: 0;
+}
+.clickhighlight{
+    color: #488FCA;
+}

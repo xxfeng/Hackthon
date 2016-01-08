@@ -1,141 +1,139 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Restaurant Order managemet page</title>
 
-    <link rel="stylesheet" href="./lib/Font-Awesome-3.2.1/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./lib/Font-Awesome-3.2.1/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.min.css">
 	<link href="./css/backend.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div class="branding-bar">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img id="oracle-logo" src="./lib/image/oracle_logo_lrg.png" alt="oracle" class="logo">
-            </div>
-			
-			
-	
-
-            <div class="collapse navbar-collapse" id="login-name">
-             	<!--search form if nessery add it-->
-                <!--<form class="navbar-form navbar-left" role="search">-->
-                <!--<div class="form-group">-->
-                <!--<input type="text" class="form-control" placeholder="Search">-->
-                <!--</div>-->
-                <!--<button type="submit" class="btn btn-default">Submit</button>-->
-                <!--</form>-->
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">user name<span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">About</a></li>
-                            <li><a href="login.html">Sign up</a></li>
-                            <li><a href="login.html">Statistic</a></li>
-                        </ul>
-                    </li>
-                </ul>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 				
-				  <form class="navbar-form" id="search_block" role="search">
+						<a class="navbar-brand" href="#" style="margin-top: -6px;"><img id="oracle-logo" src="./lib/image/oracle_logo_lrg.png" alt="oracle" class="logo"></a>
+                <a class="navbar-brand" href="#" style="margin-top: 10px;">Restaurant Order managemet</a>	
+				</div>
+
+
+
+
+			<div class="collapse navbar-collapse" id="login-name">
+				<!--search form if nessery add it-->
+				<!--<form class="navbar-form navbar-left" role="search">-->
+				<!--<div class="form-group">-->
+				<!--<input type="text" class="form-control" placeholder="Search">-->
+				<!--</div>-->
+				<!--<button type="submit" class="btn btn-default">Submit</button>-->
+				<!--</form>-->
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="margin-top: 5px;">andy<span class="caret"></span></a>
+						<ul class="dropdown-menu">						 
+							<li><a href="login.html">Sign up</a></li>
+						</ul>
+					</li>
+				</ul>
+
+				<form class="navbar-form" id="search_block" role="search">
 					<div class="form-group">
-					  <input type="text" class="form-control" placeholder="Search">
+						<input type="text" class="form-control" placeholder="Search">
 					</div>
 					<button type="submit" class="btn btn-default" id="search_sumbit">Submit</button>
-				  </form>					
-				
-            </div>
-			
-			
-				
-			
-        </div>
-    </nav>
+				</form>
+
+			</div>
+
+
+
+
+		</div>
+	</nav>
 </div>
 
 <div>
 
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
+  <ul class="nav nav-tabs container" role="tablist">
     <li role="presentation" class="active" id="first-pills"><a href="#backend" aria-controls="backend" role="tab" data-toggle="tab">Pending Orders</a></li>
     <li role="presentation"><a href="#el_psy_congroo" aria-controls="el_psy_congroo" role="tab" data-toggle="tab" onclick="getAdminHistory()">History Orders</a></li>
   </ul>
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div role="tabpanel" class="tab-pane active" id="backend">
-	
-		<table class="table" id="orders" >
-		</table>
-	
+	<!-- Tab panes -->
+	<div class="tab-content">
+		<div role="tabpanel" class="tab-pane active" id="backend">
+
+			<table class="table" id="orders" >
+			</table>
+
+		</div>
+
+
+		<div role="tabpanel" class="tab-pane" id="el_psy_congroo"></div>
+
 	</div>
-	
-	
-    <div role="tabpanel" class="tab-pane" id="el_psy_congroo"></div>
-   
-  </div>
 
 </div>
 
 <!-- Modal -->
-						<div class="modal fade" id="myOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-							<div class="modal-content popup_meal">
-							  <div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Order Detail</h4>
-							  </div>
-							  <div class="modal-body" id="showorderdetails">
-								
-								
-							  </div>
-							  <div class="modal-footer">
-									<select class="form-control" id="selectstatus">
-									  <option>change to accepted</option>
-									  <option>change to rejected</option>
-									</select>							  
-							  
-									<button type="button" class="btn btn-default" onclick="setOrderStatus()">Submit</button>
-									<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-									
-							  </div>
-							</div>
-						  </div>
-						</div>								
+<div class="modal fade" id="myOrder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content popup_meal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Order Detail</h4>
+			</div>
+			<div class="modal-body" id="showorderdetails">
+
+
+			</div>
+			<div class="modal-footer">
+				<select class="form-control" id="selectstatus">
+					<option>change to accepted</option>
+					<option>change to rejected</option>
+				</select>
+
+				<button type="button" class="btn btn-default" onclick="setOrderStatus()">Change Status</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- Modal -->
-						<div class="modal fade" id="myOrder1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-						  <div class="modal-dialog" role="document">
-							<div class="modal-content popup_meal">
-							  <div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-								<h4 class="modal-title" id="myModalLabel">Available Tables</h4>
-							  </div>
-							  <div class="modal-body" id="availableTables">
-								
-								
-							  </div>
-							  <div class="modal-footer">
-									
-									<button type="button" class="btn btn-default" onclick="assignTabletoUser()">Assign</button>
-									<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-									
-							  </div>
-							</div>
-						  </div>
-						</div>	
+<div class="modal fade" id="myOrder1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content popup_meal">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Available Tables</h4>
+			</div>
+			<div class="modal-body" id="availableTables">
+
+
+			</div>
+			<div class="modal-footer">
+
+				<button type="button" class="btn btn-default" onclick="assignTabletoUser()">Assign</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+
+			</div>
+		</div>
+	</div>
+</div>
 
 
 <script src="./lib/jquery-1.8.1.min.js"></script>
@@ -144,10 +142,9 @@
 <script src="./js/backend.js"></script>
 <script>
 	searchOrderByStatus();
-
-	$(document).ready(function(){  
-		 setInterval(searchOrderByStatus, 40000);  
-	});  
+	$(document).ready(function(){
+		setInterval(searchOrderByStatus, 40000);
+	});
 </script>
 </body>
 </html>

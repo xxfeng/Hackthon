@@ -229,8 +229,6 @@ function showBookedOrders(data){
 		html+='<td>'+orders[i].numPeople+'</td>';
 		html+='<td>'+orders[i].dishNameList.length+'</td>';
 		html+='<td>'+orders[i].totalValue+'</td>';
-			
-		html+='<td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myOrder" onclick=setOrderID('+orders[i].order_id+')>Change Status</button></td>';
 		html+='</tr>';
 	}
 	html += '</tbody></table>';
