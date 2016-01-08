@@ -67,16 +67,16 @@ function  startCount(){
         }
     },100);
 
-    //var efforts = setInterval(function ()
-    //{
-    //    if (currentEffort === endEffort)
-    //    {
-    //        clearInterval(efforts);
-    //    }
-    //    else
-    //    {
-    //         currentEffort=currentEffort++;
-    //        $('#effort').text(currentEffort).animate();
-    //    }
-    //},0.01);
+    var efforts = setInterval(function ()
+    {
+        if (currentEffort === endEffort)
+        {
+            clearInterval(efforts);
+        }
+        else
+        {
+             currentEffort+=20;
+            $('#effort').text(currentEffort).animate();
+        }
+    },0.01);
 }
