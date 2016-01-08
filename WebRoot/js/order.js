@@ -27,10 +27,9 @@ function addOrder(order_id,user,dishNameList,dishNumList,totalValue,totalPeople,
 	stringJson["dishNameList"] = dishNameList;
 	stringJson["dishNumList"] = dishNumList;
 	stringJson["totalValue"] = totalValue;
-	stringJson["totalPeople"] = totalPeople;
-	stringJson["starttime"] = starttime;
-	stringJson["endtime"] = endtime;
-	stringJson["nowdate"] = nowdate;
+	stringJson["numPeople"] = totalPeople;
+	stringJson["checkTime"] = starttime+"-"+endtime;
+	stringJson["dinnerTime"] = nowdate;
 	
 	
 	var requestURI = "resource/order/add";
